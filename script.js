@@ -162,3 +162,41 @@ document.querySelectorAll('[data-download-placeholder]').forEach((button) => {
     );
   });
 });
+
+// Phone product previews: preserve Breadmaker's desktop UI and scale it as one
+// surface instead of letting the embedded app collapse into its compact layout.
+(() => {
+  const PREVIEW_WIDTH = 1366;
+  const phonePreview = window.matchMedia('(max-width: 760px)');
+  const shells = [...document.querySelectorAll('.live-app-shell')];
+
+  const sizePreview = (shell) => {
+    const frame = shell.querySelector('.live-app-frame');
+    if (!frame) return;
+
+    if (!phonePreview.matches) {
+      shell.classList.remove('mobile-preview-scaled');
+      shell.style.removeProperty('--mobile-preview-scale');
+      frame.style.removeProperty('width');
+      frame.style.removeProperty('height');
+      frame.style.removeProperty('transform');
+      return;
+    }
+
+    shell.classList.add('mobile-preview-scaled');
+    const scale = shell.clientWidth / PREVIEW_WIDTH;
+    shell.style.setProperty('--mobile-preview-scale', String(scale));
+  };
+
+  const refreshPreviews = () => shells.forEach(sizePreview);
+  refreshPreviews();
+
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver(entries => entries.forEach(entry => sizePreview(entry.target)));
+    shells.forEach(shell => observer.observe(shell));
+  } else {
+    window.addEventListener('resize', refreshPreviews, { passive: true });
+  }
+
+  phonePreview.addEventListener?.('change', refreshPreviews);
+})();

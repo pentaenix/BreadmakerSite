@@ -486,3 +486,70 @@ button,a{font-family:inherit}
   outline:2px solid currentColor;
   outline-offset:3px;
 }
+
+/* =========================================================
+   GitHub preview v1.3: phone product captures + iPhone polish
+   ========================================================= */
+/*
+   On narrow screens the preview is intentionally NOT reflowed into Breadmaker's
+   compact app layout. The iframe keeps a 1366x768 desktop viewport and the whole
+   surface is scaled down like a product capture. This preserves the real sidebar,
+   toolbar, Maps geometry, and manuscript proportions.
+*/
+@media(max-width:760px){
+  .product-section .live-app-shell,
+  .eye-section .live-app-shell{
+    width:min(92%,620px);
+    max-width:620px;
+    aspect-ratio:1366/768;
+    height:auto!important;
+    margin-left:auto;
+    margin-right:auto;
+    align-self:center;
+    border-radius:6px;
+  }
+  .live-app-shell.mobile-preview-scaled .live-app-frame{
+    position:absolute;
+    left:0;
+    top:0;
+    width:1366px!important;
+    height:768px!important;
+    max-width:none!important;
+    transform:scale(var(--mobile-preview-scale, .3));
+    transform-origin:0 0;
+    pointer-events:none!important;
+  }
+  .live-ui-badge{display:none!important}
+
+  /* Give the visual preview room without making each phone section enormous. */
+  .product-section{
+    padding-top:clamp(60px,9svh,82px);
+    padding-bottom:clamp(58px,8svh,76px);
+  }
+  .product-section .section-copy{margin-bottom:28px}
+  .eye-section{padding-top:72px;padding-bottom:72px;gap:34px}
+
+  /* iPhone safe areas. */
+  .quick-actions{
+    top:max(12px,env(safe-area-inset-top));
+    right:max(12px,env(safe-area-inset-right));
+  }
+  .patreon-corner{
+    right:max(16px,env(safe-area-inset-right));
+    bottom:max(18px,env(safe-area-inset-bottom));
+  }
+}
+
+@media(max-width:640px){
+  .section-copy h2,
+  .eye-copy h2{
+    font-size:clamp(36px,11.4vw,48px);
+    line-height:1.055;
+  }
+  .section-copy>p:not(.eyebrow),
+  .eye-copy>p:not(.eyebrow){
+    font-size:16px;
+    line-height:1.5;
+  }
+  .feature-crumbs{margin-top:20px}
+}
