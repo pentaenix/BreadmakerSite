@@ -200,3 +200,100 @@ document.querySelectorAll('[data-download-placeholder]').forEach((button) => {
 
   phonePreview.addEventListener?.('change', refreshPreviews);
 })();
+
+
+// Responsive manuscript-link graph. Paths are derived from the rendered card
+// positions instead of hard-coded desktop coordinates, so mobile reflow keeps
+// every connector attached to the correct node.
+(() => {
+  const graph = document.querySelector('.link-graph');
+  const svg = graph?.querySelector('.link-graph-lines');
+  const manuscript = graph?.querySelector('.graph-manuscript');
+  if (!graph || !svg || !manuscript) return;
+
+  const links = [
+    ['.graph-canvas', '.p1', -24],
+    ['.graph-map', '.p2', 24],
+    ['.graph-task', '.p3', -24],
+    ['.graph-note', '.p4', 24],
+  ];
+
+  const localRect = (el) => {
+    const root = graph.getBoundingClientRect();
+    const rect = el.getBoundingClientRect();
+    return {
+      left: rect.left - root.left,
+      right: rect.right - root.left,
+      top: rect.top - root.top,
+      bottom: rect.bottom - root.top,
+      cx: rect.left - root.left + rect.width / 2,
+      cy: rect.top - root.top + rect.height / 2,
+      width: rect.width,
+      height: rect.height,
+    };
+  };
+
+  const redraw = () => {
+    const w = graph.clientWidth;
+    const h = graph.clientHeight;
+    if (!w || !h) return;
+    svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+
+    const target = localRect(manuscript);
+    links.forEach(([nodeSelector, pathSelector, targetOffset]) => {
+      const node = graph.querySelector(nodeSelector);
+      const path = graph.querySelector(pathSelector);
+      if (!node || !path) return;
+      const source = localRect(node);
+
+      // Attach each line to the edge facing the manuscript. This works for the
+      // desktop left/right layout and the phone top/bottom layout.
+      const dx = target.cx - source.cx;
+      const dy = target.cy - source.cy;
+      const horizontal = Math.abs(dx) >= Math.abs(dy);
+      let x1, y1, x2, y2, d;
+
+      if (horizontal) {
+        const fromLeft = dx > 0;
+        x1 = fromLeft ? source.right : source.left;
+        y1 = source.cy;
+        x2 = fromLeft ? target.left : target.right;
+        y2 = Math.max(target.top + 24, Math.min(target.bottom - 24, target.cy + targetOffset));
+        const bend = Math.max(34, Math.abs(x2 - x1) * 0.48);
+        const c1 = x1 + (fromLeft ? bend : -bend);
+        const c2 = x2 + (fromLeft ? -bend : bend);
+        d = `M ${x1.toFixed(1)} ${y1.toFixed(1)} C ${c1.toFixed(1)} ${y1.toFixed(1)}, ${c2.toFixed(1)} ${y2.toFixed(1)}, ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+      } else {
+        const fromTop = dy > 0;
+        x1 = source.cx;
+        y1 = fromTop ? source.bottom : source.top;
+        x2 = Math.max(target.left + 34, Math.min(target.right - 34, target.cx + targetOffset));
+        y2 = fromTop ? target.top : target.bottom;
+        const bend = Math.max(30, Math.abs(y2 - y1) * 0.45);
+        const c1 = y1 + (fromTop ? bend : -bend);
+        const c2 = y2 + (fromTop ? -bend : bend);
+        d = `M ${x1.toFixed(1)} ${y1.toFixed(1)} C ${x1.toFixed(1)} ${c1.toFixed(1)}, ${x2.toFixed(1)} ${c2.toFixed(1)}, ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+      }
+      path.setAttribute('d', d);
+    });
+  };
+
+  let raf = 0;
+  const requestRedraw = () => {
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(redraw);
+  };
+
+  requestRedraw();
+  window.addEventListener('load', requestRedraw, { once: true });
+  window.addEventListener('resize', requestRedraw, { passive: true });
+  if ('ResizeObserver' in window) {
+    const ro = new ResizeObserver(requestRedraw);
+    ro.observe(graph);
+    ro.observe(manuscript);
+    links.forEach(([selector]) => {
+      const el = graph.querySelector(selector);
+      if (el) ro.observe(el);
+    });
+  }
+})();

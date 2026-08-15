@@ -19,7 +19,13 @@ The Breadmaker application download is intentionally disabled. No application ZI
 
 ## Local preview
 
-Run `./run` from the repository root. It serves the site at `http://127.0.0.1:8775/` and opens it in your default browser. Set `PORT` to use a different port. You can also open `index.html` directly.
+You can double-click `index.html`, or serve the directory locally:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000/`.
 
 ## Validate
 
@@ -29,8 +35,7 @@ python3 scripts/check_site.py
 
 The validator checks local HTML asset/link paths and fails if a ZIP archive is accidentally added to the public preview.
 
-## Mobile preview behavior
 
-On narrow screens, the Breadmaker product previews keep a desktop-sized app viewport and scale the entire surface down. This avoids reflowing the embedded editor into a cramped phone layout.
+## Local preview
 
-The site also includes iPhone/PWA metadata and a web app manifest for a cleaner Safari/Home Screen presentation.
+Run `./run` from the repository root. It serves the site at `http://127.0.0.1:8775/` and opens it in your default browser. Set `PORT` to use a different port.

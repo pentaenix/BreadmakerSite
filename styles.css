@@ -310,9 +310,39 @@ html{
 .site-footer{display:grid;grid-template-columns:1fr auto 1fr}.site-footer>span{text-align:right}.footer-nav{display:flex;align-items:center;gap:18px}.footer-nav a,.footer-patreon{font-size:10px;color:#858681;border:0;background:transparent;padding:4px 0}.footer-nav a:hover,.footer-patreon:hover{color:#bdbeba}.footer-patreon{cursor:default}
 
 @media(max-width:760px){
-  .hero-download-link{right:14px;top:14px}.links-section{padding-left:18px;padding-right:18px}.link-graph{height:640px}
-  .graph-manuscript{width:74%;min-width:0}.graph-node{width:42%;min-width:0}.graph-canvas{left:4%;top:8%}.graph-task{right:4%;top:8%}.graph-map{left:4%;bottom:8%}.graph-note{right:4%;bottom:8%}.graph-jump{bottom:160px}
-  .link-graph-lines{opacity:.7}.site-footer{grid-template-columns:1fr auto}.site-footer>span{display:none}.footer-nav{gap:12px}
+  .hero-download-link{right:14px;top:14px}
+  .links-section{padding-left:18px;padding-right:18px}
+  .link-graph{
+    height:560px;
+    width:min(100%,620px);
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .graph-manuscript{
+    width:min(82%,310px);
+    min-width:0;
+    padding:18px 18px 15px;
+  }
+  .graph-manuscript>b{font-size:16px}
+  .graph-paper-lines{margin:18px 0 14px;gap:7px}
+  .graph-node{
+    width:calc(50% - 25px);
+    min-width:0;
+    min-height:62px;
+    padding:10px 10px;
+    grid-template-columns:10px 1fr auto;
+    gap:8px;
+  }
+  .graph-node b{font-size:11px;line-height:1.2}
+  .graph-node small{font-size:8px}
+  .graph-link-icon{font-size:16px}
+  .graph-canvas{left:14px;top:22px}
+  .graph-task{right:14px;top:22px}
+  .graph-map{left:14px;bottom:22px}
+  .graph-note{right:14px;bottom:22px}
+  .graph-jump{bottom:120px}
+  .link-graph-lines{opacity:.82}
+  .site-footer{grid-template-columns:1fr auto}.site-footer>span{display:none}.footer-nav{gap:12px}
 }
 
 
@@ -552,4 +582,19 @@ button,a{font-family:inherit}
     line-height:1.5;
   }
   .feature-crumbs{margin-top:20px}
+}
+
+
+/* =========================================================
+   GitHub preview v1.4: responsive connection graph
+   ========================================================= */
+/* Connector paths are recalculated from the actual card positions in script.js.
+   This keeps arrows attached when the mobile layout moves the nodes. */
+.link-graph-lines{pointer-events:none}
+@media(max-width:430px){
+  .link-graph{height:535px}
+  .graph-node{width:calc(50% - 21px)}
+  .graph-canvas,.graph-map{left:11px}
+  .graph-task,.graph-note{right:11px}
+  .graph-jump{display:none}
 }
