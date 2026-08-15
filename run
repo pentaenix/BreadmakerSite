@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PORT="${PORT:-8775}"
+HOST="${HOST:-127.0.0.1}"
+URL="http://127.0.0.1:${PORT}/"
+
+if command -v python3 >/dev/null 2>&1; then
+  PYTHON="python3"
+elif command -v python >/dev/null 2>&1; then
+  PYTHON="python"
+else
+  echo "Breadmaker preview requires Python 3 to run locally." >&2
+  exit 1
+fi
+
+echo "Breadmaker preview: ${URL}"
+echo "Press Ctrl+C to stop."
+
+# Open the preview in the default browser unless explicitly disabled.
+if [[ "${BREADMAKER_NO_OPEN:-0}" != "1" ]]; then
+  (
+    sleep 0.7
+    if command -v open >/dev/null 2>&1; then
+      open "${URL}" >/dev/null 2>&1 || true
+    elif command -v xdg-open >/dev/null 2>&1; then
+      xdg-open "${URL}" >/dev/null 2>&1 || true
+    fi
+  ) &
+fi
+
+cd "${ROOT}"
+exec "${PYTHON}" -m http.server "${PORT}" --bind "${HOST}"
