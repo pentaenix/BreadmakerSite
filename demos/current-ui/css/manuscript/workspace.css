@@ -452,7 +452,7 @@
 }
 .checkpoint-list{
   flex:0 1 48%;
-  
+
   min-height:90px;
   overflow-y:auto;
   overflow-x:hidden;
@@ -476,8 +476,8 @@
 .checkpoint-name-input{font-size:15px!important}
 .cuts-list{
   padding:9px 8px;
-  
-  
+
+
   gap:7px;
   overflow-y:auto;
   overflow-x:hidden;
@@ -557,11 +557,11 @@
    side is allowed to enforce a width that makes the other render underneath it. */
 #manuscriptPrimaryPane{flex:1 1 auto;}
 .split-pane{
-  
-  
+
+
   flex:0 1 39%;
   max-width:50%;
-  
+
 }
 .split-body{min-width:0}
 .checkpoint-split-paper,.split-paper{
@@ -1047,5 +1047,3 @@ body.split-resizing,body.split-resizing *{cursor:col-resize!important;user-selec
 .book-nav.collapsed .scene-gap-row:has(.scene-gap-bookmark-icon){gap:2px}
 .book-nav.collapsed .scene-gap-row:has(.scene-gap-bookmark-icon)>.scene-gap-dashes{width:16px}
 .reference-manager-context{margin:0 0 10px}.reference-manager-row{cursor:pointer}.reference-manager-row:hover:not(.is-missing),.reference-manager-row:focus-visible:not(.is-missing){background:var(--accent-soft);outline:none}.reference-manager-row.is-missing{cursor:default}.reference-manager-row>span{min-width:0}.reference-manager-row b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.reference-manager-actions{display:flex;align-items:center;gap:5px}.reference-manager-missing{font-size:12px}.reference-manager-add{margin-top:9px}
-
-

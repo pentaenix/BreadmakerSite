@@ -144,4 +144,3 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
 /* Empty Maps mirrors Canvas: neutral workspace label, no inactive Details affordance. */
 .canvas-name::placeholder,.map-current-name.map-title-placeholder{color:var(--muted)!important;opacity:1}
 .map-current-name:empty + .toolbar-title-pencil{visibility:hidden}
-

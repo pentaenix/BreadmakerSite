@@ -297,7 +297,7 @@
   position:fixed;
   z-index:136;
   display:grid;
-  
+
   gap:4px;
   padding:5px;
   border:1px solid var(--line2);
@@ -569,4 +569,3 @@ html[data-initial-view="reviews"] .main-tab[data-view="reviews"]{color:var(--tex
 .canvas-outdent-drop span{font-size:18px;line-height:1}.canvas-outdent-drop b{font-size:8px;line-height:1.05;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:.04em;text-transform:uppercase}
 .canvas-outdent-drop.ready{width:42px;color:var(--accent);background:color-mix(in srgb,var(--accent-soft) 90%,var(--surface2));border-right:2px solid var(--accent)}
 .canvas-rail.collapsed .canvas-outdent-drop{display:none}
-

@@ -2,4 +2,3 @@
 #addNodePanelBtn{white-space:nowrap;flex:none;flex-shrink:0;min-width:max-content}
 .canvas-node:not(.routing-node):not(.label-node):not(.image-object),
 .split-canvas-node:not(.routing-node):not(.label-node):not(.image-object){font-size:var(--canvas-node-font-size,15.5pt)}
-

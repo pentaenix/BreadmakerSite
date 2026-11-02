@@ -32,4 +32,3 @@
 .user-profile-switch-row span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .user-profile-switch-avatar{width:24px;height:24px;border-radius:50%;overflow:hidden;flex:none;background:var(--surface2);box-shadow:0 0 0 1px color-mix(in srgb,var(--text) 12%,transparent)}
 .user-profile-switch-avatar svg,.user-profile-switch-avatar img{width:100%;height:100%;display:block;object-fit:cover}
-

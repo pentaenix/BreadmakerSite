@@ -63,4 +63,3 @@
 /* History comparisons reuse the same contextual Split View toolbar language as Checkpoints. */
 .history-context-toolbar #historySplitSelect{min-width:185px;max-width:330px;height:29px;font-size:11px}.history-context-toolbar #historySplitKeep,.history-context-toolbar #historySplitRestore{padding:5px 8px;font-size:11px}.history-context-toolbar #historySplitKeep{white-space:nowrap}
 @media(max-width:1050px){.history-context-toolbar #historySplitSelect{min-width:140px;max-width:230px}.history-context-toolbar #historySplitKeep{font-size:0}.history-context-toolbar #historySplitKeep::after{content:var(--i18n-c24df7bbeb5f, '{{i18n:css.content.content.ce498e3e}}');font-size:11px}}
-

@@ -49,4 +49,3 @@
 .danger-delete-progress-note{margin:10px 0 0}
 .danger-delete-progress.failed .danger-delete-progress-track>span{background:var(--danger)}
 .danger-delete-progress-error{margin:10px 0 0;padding:9px 10px;border:1px solid color-mix(in srgb,var(--danger) 40%,var(--line));border-radius:6px;background:color-mix(in srgb,var(--danger) 5%,var(--surface));color:var(--danger);font-size:12px;line-height:1.45}
-

@@ -698,4 +698,3 @@ body.reviewer-mode-active #app{display:none!important}
 .review-draft-empty button{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:5px;padding:7px 11px}
 .review-draft-empty button:hover{background:var(--surface2);border-color:var(--line2)}
 @media(max-width:700px){.review-scope-summary{max-width:72vw}.review-draft-empty{min-height:150px}}
-

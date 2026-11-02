@@ -58,5 +58,3 @@
 .metro-poster-svg{height:auto!important;max-height:none!important}
 .metro-poster-svg[data-paper="portrait"]{width:min(100%,560px)}
 .metro-poster-svg[data-paper="landscape"]{width:min(100%,900px)}
-
-

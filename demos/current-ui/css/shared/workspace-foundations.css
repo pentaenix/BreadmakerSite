@@ -209,9 +209,9 @@
    Canvas interaction
    ========================================================= */
 .canvas-stage{
-  
-  
-  
+
+
+
   cursor:grab;
 }
 .canvas-stage.panning{cursor:grabbing}
@@ -278,5 +278,3 @@
   .phone-rail-workspace .canvas-toolbar,.phone-rail-workspace .map-toolbar,.phone-rail-workspace .review-toolbar{height:48px;min-height:48px}
   .phone-rail-workspace .nav-collapse-button{min-width:40px;min-height:40px}
 }
-
-
