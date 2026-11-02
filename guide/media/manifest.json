@@ -1,25 +1,30 @@
 {
   "source_repository": "https://github.com/pentaenix/breadmaker",
-  "source_commit": "638326d457e246b71aa143366ab281a12988dadf",
+  "source_commit": "8ef8b0d06aaa6848a6058c9f154a055fed29352d",
   "source_commits": [
-    "638326d457e246b71aa143366ab281a12988dadf"
+    "8ef8b0d06aaa6848a6058c9f154a055fed29352d"
   ],
-  "editor_version": "10.5.75",
+  "editor_version": "10.5.76",
   "runtime": "local",
   "sample_data": "Invented lighthouse story in an isolated disposable project",
   "capture": "Actual browser UI actions, no mocked app or API responses",
   "audio": "Silent walkthroughs; English captions and written instructions",
+  "cursor": {
+    "width": 35,
+    "height": 46,
+    "style": "Original-style large black pointer"
+  },
   "viewport": {
-    "width": 1440,
-    "height": 900
+    "width": 1280,
+    "height": 720
   },
   "clips": [
     {
       "slug": "01-create-project",
       "title": "Create a project",
-      "source_commit": "638326d457e246b71aa143366ab281a12988dadf",
-      "editor_version": "10.5.75",
-      "recorded_at": "2026-11-02T16:41:02.321Z",
+      "source_commit": "8ef8b0d06aaa6848a6058c9f154a055fed29352d",
+      "editor_version": "10.5.76",
+      "recorded_at": "2026-11-02T18:59:16.240Z",
       "outcomes_asserted": [
         "A project is created through the logo menu",
         "Its name appears in the current-project menu"
@@ -28,14 +33,14 @@
         {
           "file": "01-create-project.mp4",
           "codec": "h264",
-          "bytes": 92587,
-          "seconds": 9.958333
+          "bytes": 104957,
+          "seconds": 13.458333
         },
         {
           "file": "01-create-project.webm",
           "codec": "vp9",
-          "bytes": 138704,
-          "seconds": 9.959
+          "bytes": 186720,
+          "seconds": 13.459
         }
       ],
       "poster": "01-create-project.jpg",
@@ -44,9 +49,9 @@
     {
       "slug": "02-write-chapter",
       "title": "Add and write a chapter",
-      "source_commit": "638326d457e246b71aa143366ab281a12988dadf",
-      "editor_version": "10.5.75",
-      "recorded_at": "2026-11-02T16:41:20.547Z",
+      "source_commit": "8ef8b0d06aaa6848a6058c9f154a055fed29352d",
+      "editor_version": "10.5.76",
+      "recorded_at": "2026-11-02T18:59:38.272Z",
       "outcomes_asserted": [
         "Add Chapter works from the Full Text menu",
         "The new heading and prose are saved and survive reopening"
@@ -55,14 +60,14 @@
         {
           "file": "02-write-chapter.mp4",
           "codec": "h264",
-          "bytes": 108100,
-          "seconds": 15.875
+          "bytes": 127350,
+          "seconds": 19.916667
         },
         {
           "file": "02-write-chapter.webm",
           "codec": "vp9",
-          "bytes": 138977,
-          "seconds": 15.875
+          "bytes": 174630,
+          "seconds": 19.917
         }
       ],
       "poster": "02-write-chapter.jpg",
@@ -71,9 +76,9 @@
     {
       "slug": "03-canvas-node",
       "title": "Create a Canvas and Card",
-      "source_commit": "638326d457e246b71aa143366ab281a12988dadf",
-      "editor_version": "10.5.75",
-      "recorded_at": "2026-11-02T16:41:41.755Z",
+      "source_commit": "8ef8b0d06aaa6848a6058c9f154a055fed29352d",
+      "editor_version": "10.5.76",
+      "recorded_at": "2026-11-02T19:00:06.466Z",
       "outcomes_asserted": [
         "A Canvas is created through the sidebar",
         "A Card is placed and its title and notes are persisted"
@@ -82,14 +87,14 @@
         {
           "file": "03-canvas-node.mp4",
           "codec": "h264",
-          "bytes": 98883,
-          "seconds": 18.125
+          "bytes": 159423,
+          "seconds": 24.541667
         },
         {
           "file": "03-canvas-node.webm",
           "codec": "vp9",
-          "bytes": 148198,
-          "seconds": 18.125
+          "bytes": 234815,
+          "seconds": 24.542
         }
       ],
       "poster": "03-canvas-node.jpg",
@@ -98,9 +103,9 @@
     {
       "slug": "04-map-line",
       "title": "Create a Map, Line, and Station",
-      "source_commit": "638326d457e246b71aa143366ab281a12988dadf",
-      "editor_version": "10.5.75",
-      "recorded_at": "2026-11-02T16:42:01.909Z",
+      "source_commit": "8ef8b0d06aaa6848a6058c9f154a055fed29352d",
+      "editor_version": "10.5.76",
+      "recorded_at": "2026-11-02T19:00:35.736Z",
       "outcomes_asserted": [
         "A Map and named Line are created",
         "A Station is added and shown on the Line"
@@ -109,14 +114,14 @@
         {
           "file": "04-map-line.mp4",
           "codec": "h264",
-          "bytes": 112239,
-          "seconds": 17.291667
+          "bytes": 152880,
+          "seconds": 25.583333
         },
         {
           "file": "04-map-line.webm",
           "codec": "vp9",
-          "bytes": 151717,
-          "seconds": 17.292
+          "bytes": 234775,
+          "seconds": 25.584
         }
       ],
       "poster": "04-map-line.jpg",
@@ -125,9 +130,9 @@
     {
       "slug": "05-task",
       "title": "Create a Task",
-      "source_commit": "638326d457e246b71aa143366ab281a12988dadf",
-      "editor_version": "10.5.75",
-      "recorded_at": "2026-11-02T16:42:18.983Z",
+      "source_commit": "8ef8b0d06aaa6848a6058c9f154a055fed29352d",
+      "editor_version": "10.5.76",
+      "recorded_at": "2026-11-02T19:00:55.767Z",
       "outcomes_asserted": [
         "A named Task with a description is created",
         "The saved Task reopens with the same description"
@@ -136,14 +141,14 @@
         {
           "file": "05-task.mp4",
           "codec": "h264",
-          "bytes": 83523,
-          "seconds": 14.25
+          "bytes": 112295,
+          "seconds": 16.583008
         },
         {
           "file": "05-task.webm",
           "codec": "vp9",
-          "bytes": 135701,
-          "seconds": 14.25
+          "bytes": 182970,
+          "seconds": 16.584
         }
       ],
       "poster": "05-task.jpg",
@@ -152,9 +157,9 @@
     {
       "slug": "06-link",
       "title": "Link a Task to the manuscript",
-      "source_commit": "638326d457e246b71aa143366ab281a12988dadf",
-      "editor_version": "10.5.75",
-      "recorded_at": "2026-11-02T16:42:33.603Z",
+      "source_commit": "8ef8b0d06aaa6848a6058c9f154a055fed29352d",
+      "editor_version": "10.5.76",
+      "recorded_at": "2026-11-02T19:01:13.602Z",
       "outcomes_asserted": [
         "A Task-to-Chapter link is saved through Add link",
         "Following that link opens the correct manuscript chapter"
@@ -163,14 +168,14 @@
         {
           "file": "06-link.mp4",
           "codec": "h264",
-          "bytes": 91888,
-          "seconds": 11.625
+          "bytes": 118219,
+          "seconds": 14.125
         },
         {
           "file": "06-link.webm",
           "codec": "vp9",
-          "bytes": 184845,
-          "seconds": 11.625
+          "bytes": 200660,
+          "seconds": 14.125
         }
       ],
       "poster": "06-link.jpg",
@@ -179,9 +184,9 @@
     {
       "slug": "07-checkpoint",
       "title": "Create a Checkpoint",
-      "source_commit": "638326d457e246b71aa143366ab281a12988dadf",
-      "editor_version": "10.5.75",
-      "recorded_at": "2026-11-02T16:42:48.010Z",
+      "source_commit": "8ef8b0d06aaa6848a6058c9f154a055fed29352d",
+      "editor_version": "10.5.76",
+      "recorded_at": "2026-11-02T19:01:31.857Z",
       "outcomes_asserted": [
         "A named whole-book Checkpoint is created",
         "It remains listed after reopening"
@@ -190,14 +195,14 @@
         {
           "file": "07-checkpoint.mp4",
           "codec": "h264",
-          "bytes": 216375,
-          "seconds": 12.5
+          "bytes": 224982,
+          "seconds": 16.416667
         },
         {
           "file": "07-checkpoint.webm",
           "codec": "vp9",
-          "bytes": 340662,
-          "seconds": 12.5
+          "bytes": 363249,
+          "seconds": 16.417
         }
       ],
       "poster": "07-checkpoint.jpg",
@@ -206,9 +211,9 @@
     {
       "slug": "08-editors-eye",
       "title": "Use Editor\u2019s Eye",
-      "source_commit": "638326d457e246b71aa143366ab281a12988dadf",
-      "editor_version": "10.5.75",
-      "recorded_at": "2026-11-02T16:42:59.843Z",
+      "source_commit": "8ef8b0d06aaa6848a6058c9f154a055fed29352d",
+      "editor_version": "10.5.76",
+      "recorded_at": "2026-11-02T19:01:45.413Z",
       "outcomes_asserted": [
         "Editor\u2019s Eye changes the rendered presentation",
         "Turning it off preserves the manuscript text"
@@ -217,14 +222,14 @@
         {
           "file": "08-editors-eye.mp4",
           "codec": "h264",
-          "bytes": 109627,
-          "seconds": 9.625
+          "bytes": 152223,
+          "seconds": 11.5
         },
         {
           "file": "08-editors-eye.webm",
           "codec": "vp9",
-          "bytes": 211502,
-          "seconds": 9.625
+          "bytes": 261688,
+          "seconds": 11.5
         }
       ],
       "poster": "08-editors-eye.jpg",

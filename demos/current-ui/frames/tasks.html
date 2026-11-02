@@ -1,0 +1,39 @@
+<div aria-busy="false" class="app-shell" id="app">
+<header class="topbar">
+<button aria-label="Projects and Breadmaker menu" class="brand-button" id="brandButton" title="Projects">
+<span aria-hidden="true" class="brand-mark"></span><span class="brand-name">Breadmaker</span><svg aria-hidden="true" class="brand-chevron" viewbox="0 0 10 6"><path d="M1 1l4 4 4-4"></path></svg>
+</button>
+<nav aria-label="Workspaces" class="main-tabs">
+<button class="main-tab" data-view="manuscript">Manuscript</button>
+<button class="main-tab" data-view="canvas">Canvas</button>
+<button class="main-tab" data-view="maps">Maps</button>
+<button class="main-tab" data-view="reviews">Reviews</button>
+<button class="main-tab active" data-view="tasks">Tasks</button>
+</nav>
+<div class="top-actions">
+<span class="save-state" id="globalSaveState">Saved</span>
+<div aria-label="Undo and redo" class="global-history-controls" role="group">
+<button aria-describedby="undoTooltip" aria-disabled="true" aria-label="Undo" class="icon-button global-history-button is-disabled" id="undoBtn"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M9 7H4V2"></path><path d="M4.5 7.5A8 8 0 1 1 5.8 17"></path></svg></button>
+<button aria-describedby="redoTooltip" aria-disabled="true" aria-label="Redo" class="icon-button global-history-button is-disabled" id="redoBtn"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M15 7h5V2"></path><path d="M19.5 7.5A8 8 0 1 0 18.2 17"></path></svg></button>
+</div>
+<button aria-describedby="quickOpenTooltip" aria-label="Quick open" class="icon-button" id="quickOpenBtn"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="m15.8 8.2-2.4 5.2-5.2 2.4 2.4-5.2z"></path></svg></button>
+<button aria-describedby="themeTooltip" aria-label="Theme" class="icon-button" id="themeBtn"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="7"></circle><path class="theme-fill" d="M12 5a7 7 0 0 0 0 14z"></path></svg></button>
+<div class="user-profile-control">
+<button aria-expanded="false" aria-haspopup="menu" aria-label="Open profile for Writer" class="user-avatar-button" id="userAvatarButton" type="button"><span aria-hidden="true" class="user-avatar" id="userAvatar"><svg aria-hidden="true" focusable="false" viewbox="0 0 32 32"><circle cx="16" cy="16" fill="hsl(164 45% 90%)" r="16"></circle><g fill="none" stroke="hsl(195 64% 31%)" stroke-linecap="round" stroke-width="1.85"><line x1="5.68" x2="5.68" y1="4.18" y2="7.17"></line><line x1="26.28" x2="26.28" y1="4.18" y2="7.17"></line><line x1="4.18" x2="7.17" y1="10.82" y2="10.82"></line><line x1="24.78" x2="27.77" y1="10.82" y2="10.82"></line><line x1="10.82" x2="10.82" y1="9.33" y2="12.32"></line><line x1="21.13" x2="21.13" y1="9.33" y2="12.32"></line><line x1="14.48" x2="17.47" y1="14.48" y2="17.47"></line><line x1="4.18" x2="7.17" y1="19.63" y2="22.62"></line><line x1="24.78" x2="27.77" y1="22.62" y2="19.63"></line><line x1="9.33" x2="12.32" y1="22.62" y2="19.63"></line><line x1="19.63" x2="22.62" y1="19.63" y2="22.62"></line><line x1="14.48" x2="17.47" y1="21.13" y2="21.13"></line><line x1="4.18" x2="7.17" y1="24.78" y2="27.77"></line><line x1="24.78" x2="27.77" y1="27.77" y2="24.78"></line><line x1="10.82" x2="10.82" y1="24.78" y2="27.77"></line><line x1="21.13" x2="21.13" y1="24.78" y2="27.77"></line></g></svg></span></button>
+<div aria-label="Profile" class="user-profile-popover hidden" id="userProfilePopover" role="menu"></div>
+</div>
+</div>
+</header>
+
+
+
+<main class="view simple-workspace active" id="tasksView">
+<section class="workspace-wrap">
+<div class="workspace-head"><div><h1>Tasks</h1></div><button id="newTaskBtn">+ Task</button></div>
+<div class="task-filter"><button class="active" data-task-filter="open">Open</button><button data-task-filter="later">Later</button><button data-task-filter="done">Done</button><button data-task-filter="archived">Archive</button><button data-task-filter="all">All</button></div>
+<div class="task-search"><input aria-label="Search tasks and milestones" autocomplete="off" id="taskSearch" placeholder="Search tasks and milestones…" style="" type="search" value=""/></div>
+<div class="task-list" id="taskList"><div class="task-row" tabindex="0"><label class="task-check"><input aria-label="Mark task done" style="" type="checkbox" value="on"/></label><div class="task-title"><div class="task-title-text">Return to the missing page</div></div><div class="task-actions"><button data-link-task="" title="Links"><svg aria-hidden="true" class="link-icon" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"></path><path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"></path></svg></button><button class="manuscript-item-more task-more-button" data-task-more="" title="Task menu">⋮</button></div></div><div class="task-row" tabindex="0"><label class="task-check"><input aria-label="Mark task done" style="" type="checkbox" value="on"/></label><div class="task-title"><div class="task-title-text">Check the lighthouse timeline</div></div><div class="task-actions"><button data-link-task="" title="Links"><svg aria-hidden="true" class="link-icon" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"></path><path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"></path></svg></button><button class="manuscript-item-more task-more-button" data-task-more="" title="Task menu">⋮</button></div></div><div class="task-row" tabindex="0"><label class="task-check"><input aria-label="Mark task done" style="" type="checkbox" value="on"/></label><div class="task-title"><div class="task-title-text">Foreshadow the telephone</div></div><div class="task-actions"><button data-link-task="" title="Links"><svg aria-hidden="true" class="link-icon" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"></path><path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"></path></svg></button><button class="manuscript-item-more task-more-button" data-task-more="" title="Task menu">⋮</button></div></div></div>
+</section>
+</main>
+
+</div>

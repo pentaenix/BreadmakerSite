@@ -1,80 +1,50 @@
-(() => {
-  const $ = (s, p=document) => p.querySelector(s);
-  const $$ = (s, p=document) => [...p.querySelectorAll(s)];
-  const params = new URLSearchParams(location.search);
-  let current = params.get('view') || 'manuscript';
-
-  function setView(name){
-    current=name;
-    $$('.view').forEach(v=>v.classList.toggle('active',v.id===`${name}View`));
-    $$('.main-tab').forEach(b=>b.classList.toggle('active',b.dataset.view===name));
-  }
-  $$('.main-tab').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
-  setView(current);
-
-  if(params.get('projectcenter')==='1') document.getElementById('demoProjectCenter')?.classList.remove('hidden');
-  if(params.get('newproject')==='1') document.getElementById('demoNewProject')?.classList.remove('hidden');
-
-  $('#themeBtn')?.addEventListener('click',()=>{
-    const dark=document.documentElement.dataset.theme==='dark';
-    document.documentElement.dataset.theme=dark?'light':'dark';
-  });
-
+/* Read-only surfaces captured from the current app. No backend or user data. */
+(async()=>{
+ const params=new URLSearchParams(location.search),settings=await (await fetch('current-ui/frame-settings.json')).json();
+ const cache=new Map();let current=params.get('view')||'manuscript',eye=params.get('eye')==='1',compare=params.get('checkpoint')==='1'&&params.get('compare')==='1',panel=params.get('checkpoint')==='1';
+ const $=selector=>document.querySelector(selector),$$=selector=>[...document.querySelectorAll(selector)];
+ async function show(name){
+  const key=name==='manuscript'?(eye?'eye':compare?'checkpoints':panel?'checkpoint-list':'manuscript'):name;
+  if(!Object.hasOwn(settings,key))return;
+  if(!cache.has(key))cache.set(key,await(await fetch(`current-ui/frames/${key}.html`)).text());
+  current=name;document.body.innerHTML=cache.get(key);document.documentElement.style.cssText=settings[key].rootStyle;
+  document.documentElement.dataset.theme=settings[key].rootTheme;
+  (settings[key].scroll||[]).forEach(({id,left,top})=>{const el=document.getElementById(id);if(el){el.scrollLeft=left;el.scrollTop=top}});
+  document.documentElement.dataset.initialView=name;document.documentElement.dataset.demoView=key;
+  $$('.main-tab').forEach(button=>button.addEventListener('click',()=>{eye=false;compare=false;panel=false;show(button.dataset.view)}));
+  $('#themeBtn')?.addEventListener('click',()=>{document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark'});
   $('#toggleRail')?.addEventListener('click',()=>$('#canvasRail')?.classList.toggle('collapsed'));
   $('#toggleMapRail')?.addEventListener('click',()=>$('#mapRail')?.classList.toggle('collapsed'));
-
-  const checkpointBtn=$('#checkpointBtn'), checkpointPanel=$('#checkpointPanel'), split=$('#splitPane'), compareBar=$('#checkpointCompareToolbar');
-  function setCheckpoint(open){checkpointPanel?.classList.toggle('hidden',!open);checkpointPanel?.classList.toggle('demo-open',open);checkpointBtn?.classList.toggle('active',open)}
-  function setCompare(open){split?.classList.toggle('hidden',!open);split?.classList.toggle('demo-open',open);compareBar?.classList.toggle('hidden',!open);compareBar?.classList.toggle('demo-open',open)}
-  checkpointBtn?.addEventListener('click',()=>setCheckpoint(checkpointPanel.classList.contains('hidden')));
-  $('#closeCheckpointPanel')?.addEventListener('click',()=>setCheckpoint(false));
-  $('#demoCompare')?.addEventListener('click',()=>setCompare(true));
-  // Every preview starts from a clean manuscript state. Checkpoint UI is only
-  // opened deliberately by the dedicated Checkpoints landing-page section.
-  setCheckpoint(false);
-  setCompare(false);
-  if(params.get('checkpoint')==='1') setCheckpoint(true);
-  if(params.get('compare')==='1' && params.get('checkpoint')==='1') setCompare(true);
-
-  const eyeBtn=$('#editorsEyeBtn'), scroller=$('#documentScroller');
-  function eyeWave(on){
-    const wave=document.createElement('div'); wave.className=`editors-eye-wave ${on?'wave-on':'wave-off'}`;
-    const r=scroller.getBoundingClientRect(); Object.assign(wave.style,{left:`${r.left}px`,top:`${r.top}px`,width:`${r.width}px`,height:`${r.height}px`});
-    document.body.appendChild(wave); setTimeout(()=>wave.remove(),520);
-  }
-  function setEye(on){
-    eyeBtn?.classList.toggle('active',on); eyeBtn?.setAttribute('aria-pressed',String(on)); eyeWave(on);
-    setTimeout(()=>scroller?.classList.toggle('editors-eye-active',on),150);
-  }
-  eyeBtn?.addEventListener('click',()=>setEye(!eyeBtn.classList.contains('active')));
-  if(params.get('eye')==='1') setTimeout(()=>setEye(true),350);
-
-  // Canvas demo: the cards are genuine Breadmaker node markup, with a lightweight demo-only drag.
-  const nodePositions={1:[140,160],2:[565,275],3:[1030,125],4:[1035,485],5:[180,525]};
-  const edgeDefs=[ [1,2,'1'],[2,3,'2'],[2,4,'3'],[5,2,'4'] ];
-  function point(node,side){const x=parseFloat(node.style.left),y=parseFloat(node.style.top),w=node.offsetWidth,h=node.offsetHeight;return side==='left'?[x,y+h/2]:[x+w,y+h/2]}
-  function drawEdges(){edgeDefs.forEach(([a,b,id])=>{const A=$(`[data-demo-node="${a}"]`),B=$(`[data-demo-node="${b}"]`),P=$(`[data-edge="${id}"]`);if(!A||!B||!P)return;const [x1,y1]=point(A,'right'),[x2,y2]=point(B,'left'),d=Math.max(65,Math.abs(x2-x1)*.42);P.setAttribute('d',`M${x1} ${y1} C${x1+d} ${y1} ${x2-d} ${y2} ${x2} ${y2}`)})}
-  $$('.canvas-node .node-drag-strip').forEach(strip=>strip.addEventListener('pointerdown',e=>{const node=strip.closest('.canvas-node');e.preventDefault();const sx=e.clientX,sy=e.clientY,ox=parseFloat(node.style.left),oy=parseFloat(node.style.top);strip.setPointerCapture?.(e.pointerId);const move=ev=>{node.style.left=`${Math.max(0,ox+ev.clientX-sx)}px`;node.style.top=`${Math.max(0,oy+ev.clientY-sy)}px`;drawEdges()};const up=()=>{strip.removeEventListener('pointermove',move);strip.removeEventListener('pointerup',up)};strip.addEventListener('pointermove',move);strip.addEventListener('pointerup',up)}));
-  requestAnimationFrame(drawEdges);
-
-  function selectMapLine(id){$$('[data-map-line]').forEach(r=>r.classList.toggle('demo-selected',r.dataset.mapLine===id));$$('[data-map-group]').forEach(g=>{const match=g.dataset.mapGroup===id;g.classList.toggle('selected',match);g.classList.toggle('dim',!match)})}
-  $$('[data-map-line]').forEach(r=>r.addEventListener('click',()=>selectMapLine(r.dataset.mapLine)));
-  $$('[data-map-group]').forEach(g=>g.addEventListener('click',()=>selectMapLine(g.dataset.mapGroup)));
-
-  $$('.task-row input[type="checkbox"]').forEach(cb=>cb.addEventListener('change',()=>cb.closest('.task-row').classList.toggle('is-done',cb.checked)));
-})();
-
-addEventListener('message', event => {
-  if(event.data?.type==='set-eye'){
-    const btn=document.getElementById('editorsEyeBtn');
-    const scroller=document.getElementById('documentScroller');
-    const on=!!event.data.value;
-    btn?.classList.toggle('active',on); btn?.setAttribute('aria-pressed',String(on));
-    if(scroller){
-      const wave=document.createElement('div'); wave.className=`editors-eye-wave ${on?'wave-on':'wave-off'}`;
-      const r=scroller.getBoundingClientRect(); Object.assign(wave.style,{left:`${r.left}px`,top:`${r.top}px`,width:`${r.width}px`,height:`${r.height}px`});
-      document.body.appendChild(wave); setTimeout(()=>wave.remove(),520);
-      setTimeout(()=>scroller.classList.toggle('editors-eye-active',on),150);
-    }
-  }
-});
+  $('#editorsEyeBtn')?.addEventListener('click',()=>{eye=!eye;compare=false;panel=false;show('manuscript')});
+  $('#checkpointBtn')?.addEventListener('click',()=>{panel=!panel;compare=false;eye=false;show('manuscript')});
+  $('#closeCheckpointPanel')?.addEventListener('click',()=>{panel=false;show('manuscript')});
+  $$('[data-checkpoint-compare]').forEach(button=>button.addEventListener('click',()=>{compare=true;panel=false;show('manuscript')}));
+  $('#closeSplitBtn')?.addEventListener('click',()=>{compare=false;panel=false;show('manuscript')});
+  $$('#app a').forEach(a=>a.addEventListener('click',event=>event.preventDefault()));
+  $$('input[type=checkbox]').forEach(box=>box.addEventListener('change',()=>box.closest('.task-row')?.classList.toggle('is-done',box.checked)));
+  const selectMapLine=id=>{
+   $$('.map-tree-line-row').forEach(row=>row.classList.toggle('active',row.dataset.mapTreeLine===id));
+   $$('.map-line-group').forEach(group=>{group.classList.toggle('selected',group.dataset.mapLine===id);group.style.opacity=group.dataset.mapLine===id?'1':'.18'});
+  };
+  $$('.map-tree-line-row').forEach(row=>row.addEventListener('click',()=>selectMapLine(row.dataset.mapTreeLine)));
+  $$('.map-line-group').forEach(group=>group.addEventListener('click',()=>selectMapLine(group.dataset.mapLine)));
+  // Retain the original preview's card drag and connected paths.
+  const edges=[[1,2,1],[2,3,2],[2,4,3],[5,2,4]];
+  const drawEdges=()=>edges.forEach(([from,to,id])=>{
+   const a=$(`.canvas-node[data-id="${from}"]`),b=$(`.canvas-node[data-id="${to}"]`);if(!a||!b)return;
+   const x1=parseFloat(a.style.left)+a.offsetWidth,y1=parseFloat(a.style.top)+a.offsetHeight/2,x2=parseFloat(b.style.left),y2=parseFloat(b.style.top)+b.offsetHeight/2,d=Math.max(65,Math.abs(x2-x1)*.42);
+   $$(`path[data-edge-id="${id}"]`).forEach(path=>path.setAttribute('d',`M${x1} ${y1} C${x1+d} ${y1} ${x2-d} ${y2} ${x2} ${y2}`));
+  });
+  $$('.canvas-node').forEach(node=>node.addEventListener('pointerdown',event=>{
+   if(!event.target.closest('.node-drag-strip'))return;
+   const transform=$('#canvasWorld')?.style.transform||'',scale=Number(transform.match(/scale\(([^)]+)/)?.[1]||1);
+   const x=event.clientX,y=event.clientY,left=parseFloat(node.style.left)||0,top=parseFloat(node.style.top)||0;
+   event.preventDefault();node.setPointerCapture(event.pointerId);
+   const move=e=>{node.style.left=(left+(e.clientX-x)/scale)+'px';node.style.top=(top+(e.clientY-y)/scale)+'px';drawEdges();};
+   const up=()=>{node.removeEventListener('pointermove',move);node.removeEventListener('pointerup',up)};
+   node.addEventListener('pointermove',move);node.addEventListener('pointerup',up);
+  }));
+ }
+ addEventListener('message',event=>{if(event.origin!==location.origin||event.data?.type!=='set-eye')return;eye=!!event.data.value;compare=false;panel=false;show('manuscript')});
+ await show(current);
+})().catch(error=>console.error('Breadmaker preview could not load',error));

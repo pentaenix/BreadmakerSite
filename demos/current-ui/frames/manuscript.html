@@ -1,0 +1,228 @@
+<div aria-busy="false" class="app-shell" id="app">
+<header class="topbar">
+<button aria-label="Projects and Breadmaker menu" class="brand-button" id="brandButton" title="Projects">
+<span aria-hidden="true" class="brand-mark"></span><span class="brand-name">Breadmaker</span><svg aria-hidden="true" class="brand-chevron" viewbox="0 0 10 6"><path d="M1 1l4 4 4-4"></path></svg>
+</button>
+<nav aria-label="Workspaces" class="main-tabs">
+<button class="main-tab active" data-view="manuscript">Manuscript</button>
+<button class="main-tab" data-view="canvas">Canvas</button>
+<button class="main-tab" data-view="maps">Maps</button>
+<button class="main-tab" data-view="reviews">Reviews</button>
+<button class="main-tab" data-view="tasks">Tasks</button>
+</nav>
+<div class="top-actions">
+<span class="save-state" id="globalSaveState">Saved</span>
+<div aria-label="Undo and redo" class="global-history-controls" role="group">
+<button aria-describedby="undoTooltip" aria-disabled="true" aria-label="Undo" class="icon-button global-history-button is-disabled" id="undoBtn"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M9 7H4V2"></path><path d="M4.5 7.5A8 8 0 1 1 5.8 17"></path></svg></button>
+<button aria-describedby="redoTooltip" aria-disabled="true" aria-label="Redo" class="icon-button global-history-button is-disabled" id="redoBtn"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M15 7h5V2"></path><path d="M19.5 7.5A8 8 0 1 0 18.2 17"></path></svg></button>
+</div>
+<button aria-describedby="quickOpenTooltip" aria-label="Quick open" class="icon-button" id="quickOpenBtn"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="m15.8 8.2-2.4 5.2-5.2 2.4 2.4-5.2z"></path></svg></button>
+<button aria-describedby="themeTooltip" aria-label="Theme" class="icon-button" id="themeBtn"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="7"></circle><path class="theme-fill" d="M12 5a7 7 0 0 0 0 14z"></path></svg></button>
+<div class="user-profile-control">
+<button aria-expanded="false" aria-haspopup="menu" aria-label="Open profile for Writer" class="user-avatar-button" id="userAvatarButton" type="button"><span aria-hidden="true" class="user-avatar" id="userAvatar"><svg aria-hidden="true" focusable="false" viewbox="0 0 32 32"><circle cx="16" cy="16" fill="hsl(164 45% 90%)" r="16"></circle><g fill="none" stroke="hsl(195 64% 31%)" stroke-linecap="round" stroke-width="1.85"><line x1="5.68" x2="5.68" y1="4.18" y2="7.17"></line><line x1="26.28" x2="26.28" y1="4.18" y2="7.17"></line><line x1="4.18" x2="7.17" y1="10.82" y2="10.82"></line><line x1="24.78" x2="27.77" y1="10.82" y2="10.82"></line><line x1="10.82" x2="10.82" y1="9.33" y2="12.32"></line><line x1="21.13" x2="21.13" y1="9.33" y2="12.32"></line><line x1="14.48" x2="17.47" y1="14.48" y2="17.47"></line><line x1="4.18" x2="7.17" y1="19.63" y2="22.62"></line><line x1="24.78" x2="27.77" y1="22.62" y2="19.63"></line><line x1="9.33" x2="12.32" y1="22.62" y2="19.63"></line><line x1="19.63" x2="22.62" y1="19.63" y2="22.62"></line><line x1="14.48" x2="17.47" y1="21.13" y2="21.13"></line><line x1="4.18" x2="7.17" y1="24.78" y2="27.77"></line><line x1="24.78" x2="27.77" y1="27.77" y2="24.78"></line><line x1="10.82" x2="10.82" y1="24.78" y2="27.77"></line><line x1="21.13" x2="21.13" y1="24.78" y2="27.77"></line></g></svg></span></button>
+<div aria-label="Profile" class="user-profile-popover hidden" id="userProfilePopover" role="menu"></div>
+</div>
+</div>
+</header>
+<main class="view manuscript-layout phone-rail-workspace active" id="manuscriptView">
+<button aria-label="Close" class="phone-book-nav-backdrop phone-rail-backdrop" id="phoneBookNavBackdrop" tabindex="-1" type="button"></button>
+<aside class="book-nav phone-rail" id="bookNavigation">
+<div class="nav-section-head tabs-head">
+<div class="tabs-head-title"><button aria-label="Collapse or expand Manuscript panel" class="bare-button nav-collapse-button" id="toggleBookNavBtn" title="Collapse / expand Manuscript panel" type="button"><span aria-hidden="true">☰</span></button><span class="nav-section-label">Tabs</span></div>
+<div class="tabs-head-actions"><button aria-expanded="true" aria-label="Hide Tabs" class="bare-button tabs-toggle-button" id="tabsToggleBtn" title="Hide Tabs" type="button"><span aria-hidden="true">▾</span></button><button aria-haspopup="menu" aria-label="Tabs options" class="manuscript-item-more nav-section-more" id="tabsMenuBtn" type="button"><span aria-hidden="true">⋮</span></button></div>
+</div>
+<div class="document-list" id="documentList"><div class="document-row active" data-document-id="1"><button class="document-row-main" type="button"><span class="document-title">Manuscript</span></button><button aria-label="Tab actions for Manuscript" class="document-more manuscript-item-more" type="button"><span aria-hidden="true">⋮</span></button></div></div>
+<div class="document-navigation">
+<div class="selected-document-nav-title" id="selectedDocumentNavTitle">MANUSCRIPT</div>
+<div class="full-document-control active" id="fullDocumentControl">
+<button class="full-document-row active" id="bookViewBtn" title="Open all text in the selected Tab">Full Text</button>
+<button aria-haspopup="menu" aria-label="Chapter and Scene options" class="manuscript-item-more full-document-menu" data-testid="manuscript-navigator-menu" id="navigatorMenuBtn" type="button"><span aria-hidden="true">⋮</span></button>
+</div>
+<div class="manuscript-nav-toolbar hidden" id="manuscriptNavToolbar">
+<div aria-label="Tab navigation" class="manuscript-nav-mode hidden" id="manuscriptNavMode" role="group"><button class="active" id="chaptersNavMode" type="button">Chapters</button><button class="hidden" id="scenesNavMode" type="button">Scenes</button></div>
+</div>
+</div>
+<button aria-label="Open Full Text" class="collapsed-full-text active" id="collapsedFullTextBtn" title="Full Text" type="button">F</button>
+<div class="chapter-tree" id="chapterTree"><div aria-label="The light goes out" class="chapter-row" data-id="1" draggable="true"><span aria-hidden="true" class="chapter-outline-toggle placeholder"></span><span aria-hidden="true" class="chapter-grip">⋮⋮</span><span class="chapter-short">1</span><span class="chapter-full">The light goes out</span><button aria-label="Chapter actions for The light goes out" class="chapter-more manuscript-item-more" type="button"><span aria-hidden="true">⋮</span></button></div><div aria-label="Bellweather" class="chapter-row" data-id="2" draggable="true"><span aria-hidden="true" class="chapter-outline-toggle placeholder"></span><span aria-hidden="true" class="chapter-grip">⋮⋮</span><span class="chapter-short">2</span><span class="chapter-full">Bellweather</span><button aria-label="Chapter actions for Bellweather" class="chapter-more manuscript-item-more" type="button"><span aria-hidden="true">⋮</span></button></div><div aria-label="A voice below" class="chapter-row" data-id="3" draggable="true"><span aria-hidden="true" class="chapter-outline-toggle placeholder"></span><span aria-hidden="true" class="chapter-grip">⋮⋮</span><span class="chapter-short">3</span><span class="chapter-full">A voice below</span><button aria-label="Chapter actions for A voice below" class="chapter-more manuscript-item-more" type="button"><span aria-hidden="true">⋮</span></button></div></div>
+</aside>
+<section class="document-area" id="manuscriptPrimaryPane">
+<div class="document-toolbar">
+<button aria-controls="bookNavigation" aria-expanded="false" aria-label="Collapse or expand Manuscript panel" class="bare-button phone-book-nav-button phone-rail-button" id="phoneBookNavBtn" type="button"><span aria-hidden="true">☰</span></button>
+<div class="toolbar-title-group manuscript-title-group"><div class="active-document-title toolbar-title-text" id="activeDocumentTitle">Manuscript</div><button aria-label="Edit Tab details" class="toolbar-title-pencil" id="editActiveDocumentBtn" title="Edit Tab details" type="button">✎</button></div>
+<div class="toolbar-spacer"></div>
+<div class="manuscript-view-control">
+<button aria-describedby="viewTooltip" aria-expanded="false" aria-haspopup="menu" class="toolbar-button view-menu-button" id="viewBtn" type="button">
+<span>View</span>
+<svg aria-hidden="true" class="view-menu-chevron" viewbox="0 0 10 6"><path d="M1 1l4 4 4-4"></path></svg>
+</button>
+<div aria-label="Manuscript view options" class="view-popover hidden" id="viewPopover" role="menu">
+<button aria-checked="false" class="view-popover-action view-popover-toggle" id="viewFocusBtn" role="menuitemcheckbox" type="button"><span>Focus Mode</span><span aria-hidden="true" class="view-popover-check">✓</span></button>
+<button class="view-popover-action" id="viewSplitBtn" role="menuitem" type="button">Split View…</button>
+<button aria-checked="true" class="view-popover-action view-popover-toggle active" id="viewChaptersBtn" role="menuitemcheckbox" type="button"><span>Show Chapters</span><span aria-hidden="true" class="view-popover-check">✓</span></button>
+<button aria-checked="true" class="view-popover-action view-popover-toggle active" data-testid="manuscript-view-scenes" id="viewScenesBtn" role="menuitemcheckbox" type="button"><span>Show Scenes</span><span aria-hidden="true" class="view-popover-check">✓</span></button>
+<button class="view-popover-action" id="viewFindReplaceBtn" role="menuitem" type="button">Find and replace</button>
+<div class="" id="narrationViewOptions">
+<div class="view-popover-divider"></div>
+<button aria-controls="viewNarrationMenu" aria-expanded="false" aria-haspopup="menu" class="view-popover-action view-popover-toggle" id="viewNarrationBtn" role="menuitem" type="button"><span>Narration</span><span aria-hidden="true">›</span></button>
+<div aria-label="Narration" class="narration-view-submenu hidden" id="viewNarrationMenu" role="menu">
+<button aria-checked="true" class="view-popover-action view-popover-toggle" id="viewNarrationPassage" role="menuitemcheckbox" type="button"><span>Highlight narrated passage</span><span aria-hidden="true" class="view-popover-check">✓</span></button>
+<button aria-checked="true" class="view-popover-action view-popover-toggle" id="viewNarrationWord" role="menuitemcheckbox" type="button"><span>Highlight spoken word</span><span aria-hidden="true" class="view-popover-check">✓</span></button>
+</div>
+</div>
+<div class="view-popover-divider"></div>
+<div aria-labelledby="viewTextSizeLabel" class="view-text-size" role="group">
+<div class="view-text-size-head"><span id="viewTextSizeLabel">Text size</span><output id="viewTextSizeValue">14 px</output></div>
+<div class="view-text-size-row"><span aria-hidden="true" class="view-size-a small">A</span><input aria-label="Manuscript text size" id="manuscriptTextSize" max="28" min="11" step="0.5" style="" type="range" value="14"/><span aria-hidden="true" class="view-size-a large">A</span></div>
+</div>
+<div class="view-font-field">
+<label for="manuscriptFont">Font</label>
+<select aria-label="Manuscript font" id="manuscriptFont">
+<option selected="" value="arial">Arial</option>
+<option value="times">Times New Roman</option>
+<option value="verdana">Verdana</option>
+<option value="courier">Courier New</option>
+</select>
+</div>
+</div>
+</div>
+<button aria-describedby="commentsTooltip" aria-label="Notes" aria-pressed="false" class="toolbar-button icon-only tool-icon-button comments-manuscript-button" id="commentsBtn" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M5 3.5h10l4 4v13H5z"></path><path d="M15 3.5v4h4"></path><path d="M8 11h8M8 14h6M8 17h4"></path></svg></button>
+<button aria-describedby="markupTooltip" aria-label="Markers" aria-pressed="false" class="toolbar-button icon-only tool-icon-button markup-manuscript-button" id="markupBtn" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="m7 15 8.7-8.7 2 2L9 17H7z"></path><path d="m15.2 6.8 1.6-1.6 2 2-1.6 1.6"></path><path d="M5 19h10"></path></svg></button>
+<button aria-describedby="manuscriptImageTooltip" aria-label="Images" aria-pressed="false" class="toolbar-button icon-only tool-icon-button manuscript-image-tool-button" id="manuscriptImageBtn" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="15" rx="1.5" width="17" x="3.5" y="4.5"></rect><circle cx="9" cy="9" r="1.5"></circle><path d="m5.5 17 4.5-4.5 3.2 3.1 2.3-2.3 3 3.7"></path></svg></button>
+<button aria-describedby="checkpointTooltip" aria-label="Checkpoints" aria-pressed="false" class="toolbar-button icon-only checkpoint-button" id="checkpointBtn" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M6 21V4"></path><path d="M6 5h11l-2.5 3L17 11H6"></path></svg></button>
+<button aria-describedby="manuscriptReviewsTooltip" aria-label="Reviews" aria-pressed="false" class="toolbar-button icon-only tool-icon-button manuscript-reviews-tool-button" id="manuscriptReviewsBtn" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M5 3.5h10l4 4v13H5z"></path><path d="M15 3.5v4h4"></path><path d="m8.2 13.2 2.1 2.1 4.4-4.4"></path></svg></button>
+<button aria-describedby="cutsTooltip" aria-label="Cuts" aria-pressed="false" class="toolbar-button icon-only tool-icon-button cuts-manuscript-button" id="cutsBtn" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="6" cy="7" r="2.6"></circle><circle cx="6" cy="17" r="2.6"></circle><path d="M8.25 8.35 20 17M8.25 15.65 20 7"></path></svg></button>
+<button aria-describedby="narrationTooltip" aria-label="Narration" aria-pressed="false" class="toolbar-button icon-only tool-icon-button" id="narrationBtn" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V12a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path></svg></button>
+<button aria-describedby="editorsEyeTooltip" aria-label="Editor’s Eye" aria-pressed="false" class="toolbar-button icon-only editors-eye-button" id="editorsEyeBtn" type="button"><svg aria-hidden="true" class="editors-eye-icon" viewbox="0 0 24 24"><path class="editors-eye-outline" d="M2.6 12s3.35-5 9.4-5 9.4 5 9.4 5-3.35 5-9.4 5-9.4-5-9.4-5Z"></path><circle class="editors-eye-pupil" cx="12" cy="12" r="2.7"></circle><path class="editors-eye-spark editors-eye-spark-a" d="M18.6 3.1v3.2M17 4.7h3.2"></path><path class="editors-eye-spark editors-eye-spark-b" d="M5.3 4.1v2M4.3 5.1h2"></path></svg></button>
+</div>
+<div aria-label="Checkpoint comparison tools" class="checkpoint-context-toolbar hidden" id="checkpointCompareToolbar" role="toolbar">
+<span class="checkpoint-context-label">Current <span aria-hidden="true">↔</span></span>
+<select aria-label="Checkpoint version" class="compact-select" id="checkpointSplitSelect"></select>
+<label class="checkpoint-context-check"><input id="checkpointSplitShowDiff" style="" type="checkbox" value="on"/> Changes</label>
+<div aria-label="Navigate changes" class="checkpoint-context-nav" role="group"><button class="bare-button" id="checkpointSplitPrev" title="Previous change">↑</button><span id="checkpointSplitChangeCounter">0 changes</span><button class="bare-button" id="checkpointSplitNext" title="Next change">↓</button></div>
+<label class="checkpoint-context-check"><input checked="" id="checkpointSplitLinked" style="" type="checkbox" value="on"/> Linked scroll</label>
+<div class="toolbar-spacer"></div>
+<button class="toolbar-button" id="checkpointSplitApply">Apply…</button>
+</div>
+<div aria-label="History comparison tools" class="checkpoint-context-toolbar history-context-toolbar hidden" id="historyCompareToolbar" role="toolbar">
+<span class="checkpoint-context-label">Current <span aria-hidden="true">↔</span></span>
+<select aria-label="History version" class="compact-select" id="historySplitSelect"></select>
+<label class="checkpoint-context-check"><input id="historySplitShowDiff" style="" type="checkbox" value="on"/> Changes</label>
+<div aria-label="Navigate changes" class="checkpoint-context-nav" role="group"><button class="bare-button" id="historySplitPrev" title="Previous change">↑</button><span id="historySplitChangeCounter">0 changes</span><button class="bare-button" id="historySplitNext" title="Next change">↓</button></div>
+<label class="checkpoint-context-check"><input checked="" id="historySplitLinked" style="" type="checkbox" value="on"/> Linked scroll</label>
+<div class="toolbar-spacer"></div>
+<button class="toolbar-button" id="historySplitKeep" title="Keep this automatic History state permanently as a Checkpoint">Save as Checkpoint</button>
+<button class="toolbar-button" id="historySplitRestore">Restore…</button>
+</div>
+<div class="document-scroller" id="documentScroller">
+<button aria-describedby="bookmarkTooltip" aria-label="Go to bookmark" class="viewport-bookmark-button bookmark-manuscript-button hidden" id="bookmarkBtn" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 3.5h10v17l-5-3.4-5 3.4z"></path></svg></button>
+<article class="paper" contenteditable="false" data-image-end-drop-bound="1" id="manuscriptPaper" spellcheck="true" style="">
+<div class="chapter-title-row"><button aria-label="Bookmarked Chapter" class="inline-bookmark-button chapter-title-bookmark hidden" id="chapterTitleBookmark" type="button"></button><div aria-label="Chapter title" class="chapter-title hidden" id="chapterTitle"></div></div>
+<div aria-multiline="true" class="editor" id="editor" role="textbox"><div class="book-chapter-heading" contenteditable="false" data-chapter-id="1" style="" tabindex="0"><span aria-label="Chapter title" class="book-chapter-title" contenteditable="false" spellcheck="true" style="">The light goes out</span></div><div class="manuscript-block-wrap" data-block-id="b_5525b1f03e704bccaf30950fb6b72291" data-chapter-id="1" data-scene-id="" data-style="body" data-testid="manuscript-block-wrap" data-type="paragraph"><div class="manuscript-block" data-semantic-style="body" data-testid="manuscript-block">Mara had learned that a lighthouse could be quiet in a hundred different ways, but never this one.</div></div><div class="manuscript-block-wrap" data-block-id="b_e5695ae9044b42d3ab4e9d17dd468806" data-chapter-id="1" data-scene-id="" data-style="body" data-testid="manuscript-block-wrap" data-type="paragraph"><div class="manuscript-block" data-semantic-style="body" data-testid="manuscript-block">The lamp had stopped turning. One by one, the lights of Bellweather vanished into the dark.</div></div><div class="manuscript-block-wrap" data-block-id="b_c8ccabad1abc4c0e986c0d25e7e6edaf" data-chapter-id="1" data-scene-id="" data-style="body" data-testid="manuscript-block-wrap" data-type="paragraph"><div class="manuscript-block" data-semantic-style="body" data-testid="manuscript-block">The telephone rang. Nobody called the lighthouse after midnight. Mara crossed the kitchen and answered.</div></div><div class="manuscript-block-wrap" data-block-id="b_e1751000298b4b768eec4955a54758d6" data-chapter-id="1" data-scene-id="" data-style="body" data-testid="manuscript-block-wrap" data-type="paragraph"><div class="manuscript-block" data-semantic-style="body" data-testid="manuscript-block">“You need to leave,” a voice said. “Before the tide turns.”</div></div><div class="manuscript-block-wrap" data-block-id="b_40688e11684240a9a80fdef7c9bf80d2" data-chapter-id="1" data-scene-id="" data-style="body" data-testid="manuscript-block-wrap" data-type="paragraph"><div class="manuscript-block" data-semantic-style="body" data-testid="manuscript-block">She looked at the black windows. Far below, a single light moved across the water.</div></div><div class="book-chapter-heading" contenteditable="false" data-chapter-id="2" style="" tabindex="0"><span aria-label="Chapter title" class="book-chapter-title" contenteditable="false" spellcheck="true" style="">Bellweather</span></div><div class="manuscript-block-wrap" data-block-id="b_acb0e704b29d4bc8bf795f07c88ca9b2" data-chapter-id="2" data-scene-id="" data-style="body" data-testid="manuscript-block-wrap" data-type="paragraph"><div class="manuscript-block" data-semantic-style="body" data-testid="manuscript-block">Morning arrived with a letter from the mainland.</div></div><div class="book-chapter-heading" contenteditable="false" data-chapter-id="3" style="" tabindex="0"><span aria-label="Chapter title" class="book-chapter-title" contenteditable="false" spellcheck="true" style="">A voice below</span></div><div class="manuscript-block-wrap" data-block-id="b_f6e3dc9349324f679d68fa3f658630c9" data-chapter-id="3" data-scene-id="" data-style="body" data-testid="manuscript-block-wrap" data-type="paragraph"><div class="manuscript-block" data-semantic-style="body" data-testid="manuscript-block">Morning arrived with a letter from the mainland.</div></div></div>
+<div class="paper-end" contenteditable="false" style=""></div>
+</article>
+</div>
+<footer class="statusbar"><span id="saveState">Saved</span><span id="sceneStatus"></span><span id="wordCount">91 words</span></footer>
+</section>
+<div aria-label="Resize Split View" aria-orientation="vertical" class="split-resizer hidden" id="splitResizer" role="separator" tabindex="0" title="Drag to resize Split View · double-click to reset"></div>
+<section class="split-pane hidden" id="splitPane">
+<div class="split-head"><b id="splitTitle">Split View</b><div class="split-head-actions"><button aria-label="Add task" class="bare-button hidden" id="splitTaskAdd" title="Add task">+</button><button aria-label="Close" class="bare-button ui-close-button" id="closeSplitBtn">×</button></div></div>
+<div class="split-body" id="splitBody"></div>
+</section>
+<aside aria-label="Checkpoints" class="right-panel checkpoint-panel hidden" id="checkpointPanel">
+<div class="panel-head"><b>Checkpoints</b><button aria-label="Close Checkpoints" class="bare-button ui-close-button" id="closeCheckpointPanel">×</button></div>
+<div class="checkpoint-panel-tools">
+<input aria-label="Search checkpoints" autocomplete="off" id="checkpointSearch" placeholder="Search checkpoints" style="" type="search" value=""/>
+<div class="checkpoint-panel-filter-row"><select aria-label="Checkpoint scope" id="checkpointScopeFilter"><option selected="" value="current">Current Chapter</option><option value="chapters">Chapters</option><option value="book">Book</option><option value="all">All</option></select><button id="checkpointCreateBtn">+ Checkpoint</button></div>
+</div>
+<div class="checkpoint-list" id="checkpointList"></div>
+</aside>
+<aside aria-label="Cuts" class="right-panel cuts-panel hidden" id="cutsPanel">
+<div class="panel-head"><b>Cuts</b><button aria-label="Close Cuts" class="bare-button ui-close-button" id="closeCutsPanel">×</button></div>
+<div class="cuts-panel-tools">
+<input aria-label="Search cuts" autocomplete="off" id="cutsSearch" placeholder="Search cuts" style="" type="search" value=""/>
+<div class="cuts-panel-action-row">
+<button class="cuts-cut-button" id="cutSelectionBtn" type="button">Cut selection</button>
+<button class="cuts-insert-button" id="cutInsertBtn" type="button">Insert</button>
+</div>
+</div>
+<div class="cuts-list" id="cutsList"></div>
+</aside>
+<aside aria-label="Narration" class="right-panel narration-panel hidden" id="narrationPanel">
+<div class="panel-head"><b>Narration</b><button aria-label="Close narration" class="bare-button ui-close-button" id="closeNarrationPanel" type="button">×</button></div>
+<div class="narration-panel-tools">
+<label class="narration-voice-label" for="narrationVoice">Narrator voice</label>
+<select aria-label="Narrator voice" id="narrationVoice"><optgroup label="English"><option selected="" value="af_heart">Heart · American English · female</option><option value="am_michael">Michael · American English · male</option><option value="bf_emma">Emma · British English · female</option><option value="bm_george">George · British English · male</option></optgroup><optgroup label="Spanish"><option value="ef_dora">Dora · Spanish · female</option><option value="em_alex">Alex · Spanish · male</option><option value="em_santa">Santa · Spanish · male</option></optgroup></select>
+<div class="narration-action-row">
+<div class="narration-action" data-narration-action="selection"><button class="soft-button" disabled="" id="narrationSelection" type="button">Narrate selection</button><button aria-haspopup="menu" aria-label="Selection narration options" class="bare-button narration-action-more" disabled="" id="narrationSelectionOptions" type="button">⋮</button></div>
+<div class="narration-action" data-narration-action="scope"><button class="soft-button" disabled="" id="narrationChapter" type="button">Narrate chapter</button><button aria-haspopup="menu" aria-label="Chapter or book narration options" class="bare-button narration-action-more" disabled="" id="narrationScopeOptions" type="button">⋮</button></div>
+</div>
+<div aria-live="polite" class="narration-progress hidden" id="narrationProgress" role="status"><span id="narrationProgressLabel"></span><progress aria-label="Estimated generation progress" id="narrationProgressBar" max="1"></progress><small id="narrationProgressEstimate"></small><button class="quiet-button" id="narrationStop" type="button">Stop after this passage</button></div>
+</div>
+<div class="narration-recordings" id="narrationRecordings">
+<div class="narration-empty"><b>No narrations yet</b><p>Select text to narrate a passage, or narrate the whole chapter. Saved recordings will appear here.</p></div>
+</div>
+<div class="narration-player hidden">
+<div class="narration-player-passage" id="narrationPreviewExcerpt"></div>
+<div class="narration-player-controls">
+<button aria-label="Restart passage" class="bare-button" id="narrationPrevious" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M5 5v14M19 5 9 12l10 7V5Z"></path></svg></button>
+<button aria-label="Rewind 5 seconds" class="bare-button narration-skip" id="narrationRewind" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="m11 5-8 7 8 7V5Zm10 0-8 7 8 7V5Z"></path></svg><span>5</span></button>
+<button aria-label="Play narration" class="bare-button" id="narrationPlay" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z"></path></svg></button>
+<button aria-label="Forward 5 seconds" class="bare-button narration-skip" id="narrationForward" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="m3 5 8 7-8 7V5Zm10 0 8 7-8 7V5Z"></path></svg><span>5</span></button>
+<button aria-label="Next passage" class="bare-button" id="narrationNext" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M19 5v14M5 5l10 7-10 7V5Z"></path></svg></button>
+</div>
+<input aria-label="Narration position" id="narrationSeek" max="100" min="0" style="" type="range" value="0"/>
+<div class="narration-player-meta"><span id="narrationTime">0:00 / 0:00</span><select aria-label="Playback speed" id="narrationSpeed"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="0.95">0.95×</option><option selected="" value="1">1×</option><option value="1.05">1.05×</option><option value="1.1">1.1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="1.75">1.75×</option><option value="2">2×</option></select></div>
+</div>
+</aside>
+<aside aria-label="Notes" class="right-panel comments-panel hidden" id="commentsPanel">
+<div class="panel-head"><b>Notes</b><button aria-label="Close Notes" class="bare-button ui-close-button" id="closeCommentsPanel">×</button></div>
+<div class="comments-panel-tools">
+<input aria-label="Search notes" autocomplete="off" id="commentsSearch" placeholder="Search notes" style="" type="search" value=""/>
+<div class="comments-nav-row">
+<select aria-label="Note status" id="commentsStatus"><option selected="" value="open">Open</option><option value="resolved">Resolved</option><option value="all">All</option></select>
+<div class="comments-nav-controls"><button aria-label="Previous note" class="bare-button comments-chevron-button comments-chevron-up" id="commentsPrev" title="Previous note" type="button"><svg aria-hidden="true" viewbox="0 0 10 6"><path d="M1 1l4 4 4-4"></path></svg></button><span id="commentsCounter">0 / 0</span><button aria-label="Next note" class="bare-button comments-chevron-button" id="commentsNext" title="Next note" type="button"><svg aria-hidden="true" viewbox="0 0 10 6"><path d="M1 1l4 4 4-4"></path></svg></button></div>
+</div>
+</div>
+<div class="comments-list" id="commentsList"></div>
+<div class="comments-detail" id="commentsDetail"></div>
+</aside>
+<aside aria-label="Markers" class="right-panel markup-panel hidden" data-testid="markup-panel" id="markupPanel">
+<div class="panel-head"><b>Markers</b><button aria-label="Close Markers" class="bare-button ui-close-button" data-close-panel="">×</button></div>
+<div class="panel-section markup-marker-section">
+<input aria-label="Search markers by name or description" class="marker-search" disabled="" id="markerSearch" placeholder="Search markers" style="" type="search" value=""/>
+<button class="full-soft marker-new-fixed hidden" data-testid="marker-new" id="newLabelBtn">+ New marker</button>
+<div class="marker-list empty" id="labelList"><div class="manuscript-panel-empty marker-empty-state"><b>No markers yet</b><span>Create your first marker to start highlighting.</span><button data-testid="marker-empty-new" id="markerEmptyNew" type="button">+ New marker</button></div></div>
+</div>
+</aside>
+<aside aria-label="Images" class="right-panel manuscript-image-panel hidden" id="manuscriptImagePanel">
+<div class="panel-head"><b>Images</b><button aria-label="Close" class="bare-button ui-close-button" id="closeManuscriptImagePanel">×</button></div>
+<div class="panel-section manuscript-image-empty" id="manuscriptImageEmpty">
+<button class="full-soft" id="manuscriptAddImage" type="button">Add image</button>
+</div>
+<div class="panel-section manuscript-image-inspector hidden" id="manuscriptImageInspector">
+<div class="manuscript-image-size-head"><label for="manuscriptImageSize">Size</label><span id="manuscriptImageSizeValue">100%</span></div>
+<input class="manuscript-image-size-slider" id="manuscriptImageSize" max="100" min="5" step="1" style="" type="range" value="100"/>
+<div id="manuscriptImageOccurrenceControls">
+<div class="field"><label for="manuscriptImageFooter">Footer <span class="optional-label">(optional)</span></label><textarea id="manuscriptImageFooter" maxlength="4000" placeholder="What should appear below the image?" rows="2" style=""></textarea></div>
+<div class="field"><label for="manuscriptImageDescription">Description <span class="optional-label">(optional)</span></label><textarea id="manuscriptImageDescription" maxlength="12000" placeholder="What does the image show?" rows="4" style=""></textarea></div>
+<button class="full-soft" id="manuscriptReplaceImage" type="button">Replace image</button>
+<button class="full-soft danger manuscript-image-remove" id="manuscriptRemoveImage" type="button">Remove from manuscript</button>
+</div>
+</div>
+<input accept="image/png,image/jpeg,image/webp,image/gif,image/avif,image/bmp,.png,.jpg,.jpeg,.webp,.gif,.avif,.bmp" class="hidden" id="manuscriptImageFileInput" style="" type="file"/>
+</aside>
+<aside aria-label="Reviews" class="right-panel manuscript-reviews-panel hidden" id="manuscriptReviewsPanel">
+<div class="panel-head"><b id="manuscriptReviewsPanelTitle">Reviews</b><button aria-label="Close" class="bare-button ui-close-button" id="closeManuscriptReviewsPanel">×</button></div>
+<div class="manuscript-reviews-panel-body" id="manuscriptReviewsPanelBody"></div>
+</aside>
+<div aria-label="Find and replace" class="find-popover hidden" id="findPopover" role="dialog">
+<div class="find-row"><input autocomplete="off" id="findInput" placeholder="Find" style="" value=""/><span aria-live="polite" class="find-counter" id="findCounter" role="status">0 / 0</span><button class="bare-button" id="findPrev" title="Previous">↑</button><button class="bare-button" id="findNext" title="Next">↓</button><button aria-expanded="false" aria-label="Show replace options" class="bare-button find-expand-button" id="findExpand" title="Find and replace"><svg aria-hidden="true" class="find-menu-chevron" viewbox="0 0 10 6"><path d="M1 1l4 4 4-4"></path></svg></button><button aria-label="Close" class="bare-button ui-close-button" id="findClose">×</button></div>
+<div class="replace-row hidden" id="replaceRow"><input autocomplete="off" id="replaceInput" placeholder="Replace with" style="" value=""/><button id="replaceOne">Replace</button><button id="replaceAll">Replace all</button></div>
+<div class="find-options" id="findOptions"><label><input id="findCase" style="" type="checkbox" value="on"/> Case</label><label><input id="findWhole" style="" type="checkbox" value="on"/> Whole word</label><span class="find-scope-label" id="findScopeLabel">Chapter</span></div>
+</div>
+</main>
+
+
+
+
+</div>

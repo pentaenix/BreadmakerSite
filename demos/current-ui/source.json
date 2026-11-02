@@ -1,0 +1,140 @@
+{
+  "source_commit": "8ef8b0d06aaa6848a6058c9f154a055fed29352d",
+  "version": "10.5.76",
+  "project": "0307345a0a864f56a1fac06a58406e44",
+  "captured_at": "2026-11-02T19:09:13.515Z",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "views": [
+    "manuscript",
+    "canvas",
+    "maps",
+    "reviews",
+    "tasks",
+    "checkpoint-list",
+    "checkpoints",
+    "eye"
+  ],
+  "errors": [],
+  "styles": [
+    {
+      "file": "demos/current-ui/styles.css",
+      "upstream": "/static/styles.css",
+      "upstream_sha256": "e73c6e0d1f152feed547ebbabadc8771f118088858e4f15ad63a125c3b67c6b2"
+    },
+    {
+      "file": "demos/current-ui/css/shared/workspace-foundations.css",
+      "upstream": "/static/css/shared/workspace-foundations.css",
+      "upstream_sha256": "2179de3949e49efbd267fe8049b91e9e47f89624fbd6ffe1af560b668c8e5ddb"
+    },
+    {
+      "file": "demos/current-ui/css/canvas/navigation-and-legend.css",
+      "upstream": "/static/css/canvas/navigation-and-legend.css",
+      "upstream_sha256": "a724a02788a355c743eff5d74222edcbcd315c266b021289dc02b297f7e594ba"
+    },
+    {
+      "file": "demos/current-ui/css/projects/center-interactions.css",
+      "upstream": "/static/css/projects/center-interactions.css",
+      "upstream_sha256": "5533edca361ac8b0f3da3538c71f8c717b851b017a81f68e87aa97134d850b1e"
+    },
+    {
+      "file": "demos/current-ui/css/canvas/object-presentation.css",
+      "upstream": "/static/css/canvas/object-presentation.css",
+      "upstream_sha256": "b9041bc5532b9f631f0fec1514e1f5bf6f603bcca8873b7cdd691edfcddb3848"
+    },
+    {
+      "file": "demos/current-ui/css/maps/workspace.css",
+      "upstream": "/static/css/maps/workspace.css",
+      "upstream_sha256": "9ca4dc24bf0a15d698e80624475733d9a3fbd4ef08a30ea5e45c890146117d0f"
+    },
+    {
+      "file": "demos/current-ui/css/manuscript/editor-tools.css",
+      "upstream": "/static/css/manuscript/editor-tools.css",
+      "upstream_sha256": "894df42fc528fe8463c43823aba668fca9ae96293fc28f0dabaf1526bc6ca92c"
+    },
+    {
+      "file": "demos/current-ui/css/projects/history-verification-export.css",
+      "upstream": "/static/css/projects/history-verification-export.css",
+      "upstream_sha256": "9b1387d5e69981ca2c447486eb68f1e1d78bf88bbb14274369964b4a2783c584"
+    },
+    {
+      "file": "demos/current-ui/css/canvas/configuration.css",
+      "upstream": "/static/css/canvas/configuration.css",
+      "upstream_sha256": "885ef29a2fe3ea7169b643e1de96f0da1dbf545e7811fbfdb8b396bc17fd9373"
+    },
+    {
+      "file": "demos/current-ui/css/projects/metadata-danger.css",
+      "upstream": "/static/css/projects/metadata-danger.css",
+      "upstream_sha256": "ffe067af7ea435cda1778785b0d46e99d0b2e439d58cbaed61e3938dcd8574c9"
+    },
+    {
+      "file": "demos/current-ui/css/manuscript/workspace.css",
+      "upstream": "/static/css/manuscript/workspace.css",
+      "upstream_sha256": "38ef408b9f74f9d306e655358910abec6f9af2cae83e58793a4ce1ee3bb7cf25"
+    },
+    {
+      "file": "demos/current-ui/css/projects/settings.css",
+      "upstream": "/static/css/projects/settings.css",
+      "upstream_sha256": "eebd629e4102c0c1e6c24ba1c61ddf38ec417b4e9d790381438e2d6783f4fbe9"
+    },
+    {
+      "file": "demos/current-ui/css/canvas/workspace.css",
+      "upstream": "/static/css/canvas/workspace.css",
+      "upstream_sha256": "26fc4b9faa79e0d8bda53d1d27e02469660de6360f769fce3b27a64eae40bba3"
+    },
+    {
+      "file": "demos/current-ui/css/projects/import-browse.css",
+      "upstream": "/static/css/projects/import-browse.css",
+      "upstream_sha256": "59c1f6706854f8ae6af6d1b6b3679137899f7f64f5c9c4dc31421df4a014aeb2"
+    },
+    {
+      "file": "demos/current-ui/css/maps/presentation.css",
+      "upstream": "/static/css/maps/presentation.css",
+      "upstream_sha256": "da9b38a18cba9c1dd84ee451d40bc90163f85bb1752bb2116bfdb32785723c52"
+    },
+    {
+      "file": "demos/current-ui/css/shared/application-controls.css",
+      "upstream": "/static/css/shared/application-controls.css",
+      "upstream_sha256": "57b3f769a94684dfcc20115b68832071950deebe3942be9dda69d3b48f2011f8"
+    },
+    {
+      "file": "demos/current-ui/css/projects/recovery-backups.css",
+      "upstream": "/static/css/projects/recovery-backups.css",
+      "upstream_sha256": "163ea771d62be566ac365eb26c1fe6f230ccc7880e7029b5779fc1b1ac1bf9b8"
+    },
+    {
+      "file": "demos/current-ui/css/reviews/workspace.css",
+      "upstream": "/static/css/reviews/workspace.css",
+      "upstream_sha256": "7d698ed1d3a563ca60573b7b9a30b593790a2405c623e88b0ec4ee9b9923212a"
+    },
+    {
+      "file": "demos/current-ui/css/manuscript/media-and-split.css",
+      "upstream": "/static/css/manuscript/media-and-split.css",
+      "upstream_sha256": "736078a80c5eac02d74579884edeecfc741833395dde7c30530c4739158e7b28"
+    },
+    {
+      "file": "demos/current-ui/css/reviews/manuscript-layer.css",
+      "upstream": "/static/css/reviews/manuscript-layer.css",
+      "upstream_sha256": "f0b70d2d3bde3381c6713fafeec72078177aaea265841847f92b4274f46c56c7"
+    },
+    {
+      "file": "demos/current-ui/css/profile/local-profile.css",
+      "upstream": "/static/css/profile/local-profile.css",
+      "upstream_sha256": "439700b1e87e55b2950267afa055875ea9fb75260a5728e026ce17fa40459e5e"
+    },
+    {
+      "file": "demos/current-ui/css/profile/account-security.css",
+      "upstream": "/static/css/profile/account-security.css",
+      "upstream_sha256": "dcaa74f6535cf45da31a4a6022a8a174c7092fd09901f63d765da96ba1f02b23"
+    },
+    {
+      "file": "demos/current-ui/css/shared/startup-hydration.css",
+      "upstream": "/static/css/shared/startup-hydration.css",
+      "upstream_sha256": "865c26cfe4efa438884308b8044b7da0f6a698f2830c6a50a97b739fd90b9674"
+    }
+  ],
+  "origin": "Actual app DOM exported after rendering each workspace; original homepage frames retained.",
+  "sample_data": "Invented lighthouse story in a disposable local project"
+}

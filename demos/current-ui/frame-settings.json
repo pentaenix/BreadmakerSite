@@ -1,0 +1,48 @@
+{
+  "manuscript": {
+    "scroll": [],
+    "rootStyle": "--i18n-287cdd3aa816: \"Planning\"; --i18n-28858472a953: \"\u21b3 Inside\"; --i18n-c24df7bbeb5f: \"Keep\"; --i18n-d711dc6f90d4: \"Drop Scene here\"; --manuscript-font-size: 14px; --manuscript-font-family: Arial, sans-serif; --map-label-font-size: 16px; --map-font-family: Arial, sans-serif; --canvas-node-font-size: 15.5pt;",
+    "rootTheme": "light"
+  },
+  "canvas": {
+    "scroll": [
+      {
+        "id": "canvasStage",
+        "left": 39,
+        "top": 39
+      }
+    ],
+    "rootStyle": "--i18n-287cdd3aa816: \"Planning\"; --i18n-28858472a953: \"\u21b3 Inside\"; --i18n-c24df7bbeb5f: \"Keep\"; --i18n-d711dc6f90d4: \"Drop Scene here\"; --manuscript-font-size: 14px; --manuscript-font-family: Arial, sans-serif; --map-label-font-size: 16px; --map-font-family: Arial, sans-serif; --canvas-node-font-size: 15.5pt;",
+    "rootTheme": "light"
+  },
+  "maps": {
+    "scroll": [],
+    "rootStyle": "--i18n-287cdd3aa816: \"Planning\"; --i18n-28858472a953: \"\u21b3 Inside\"; --i18n-c24df7bbeb5f: \"Keep\"; --i18n-d711dc6f90d4: \"Drop Scene here\"; --manuscript-font-size: 14px; --manuscript-font-family: Arial, sans-serif; --map-label-font-size: 16px; --map-font-family: Arial, sans-serif; --canvas-node-font-size: 15.5pt;",
+    "rootTheme": "light"
+  },
+  "reviews": {
+    "scroll": [],
+    "rootStyle": "--i18n-287cdd3aa816: \"Planning\"; --i18n-28858472a953: \"\u21b3 Inside\"; --i18n-c24df7bbeb5f: \"Keep\"; --i18n-d711dc6f90d4: \"Drop Scene here\"; --manuscript-font-size: 14px; --manuscript-font-family: Arial, sans-serif; --map-label-font-size: 16px; --map-font-family: Arial, sans-serif; --canvas-node-font-size: 15.5pt;",
+    "rootTheme": "light"
+  },
+  "tasks": {
+    "scroll": [],
+    "rootStyle": "--i18n-287cdd3aa816: \"Planning\"; --i18n-28858472a953: \"\u21b3 Inside\"; --i18n-c24df7bbeb5f: \"Keep\"; --i18n-d711dc6f90d4: \"Drop Scene here\"; --manuscript-font-size: 14px; --manuscript-font-family: Arial, sans-serif; --map-label-font-size: 16px; --map-font-family: Arial, sans-serif; --canvas-node-font-size: 15.5pt;",
+    "rootTheme": "light"
+  },
+  "checkpoint-list": {
+    "scroll": [],
+    "rootStyle": "--i18n-287cdd3aa816: \"Planning\"; --i18n-28858472a953: \"\u21b3 Inside\"; --i18n-c24df7bbeb5f: \"Keep\"; --i18n-d711dc6f90d4: \"Drop Scene here\"; --manuscript-font-size: 14px; --manuscript-font-family: Arial, sans-serif; --map-label-font-size: 16px; --map-font-family: Arial, sans-serif; --canvas-node-font-size: 15.5pt;",
+    "rootTheme": "light"
+  },
+  "checkpoints": {
+    "scroll": [],
+    "rootStyle": "--i18n-287cdd3aa816: \"Planning\"; --i18n-28858472a953: \"\u21b3 Inside\"; --i18n-c24df7bbeb5f: \"Keep\"; --i18n-d711dc6f90d4: \"Drop Scene here\"; --manuscript-font-size: 14px; --manuscript-font-family: Arial, sans-serif; --map-label-font-size: 16px; --map-font-family: Arial, sans-serif; --canvas-node-font-size: 15.5pt;",
+    "rootTheme": "light"
+  },
+  "eye": {
+    "scroll": [],
+    "rootStyle": "--i18n-287cdd3aa816: \"Planning\"; --i18n-28858472a953: \"\u21b3 Inside\"; --i18n-c24df7bbeb5f: \"Keep\"; --i18n-d711dc6f90d4: \"Drop Scene here\"; --manuscript-font-size: 14px; --manuscript-font-family: Arial, sans-serif; --map-label-font-size: 16px; --map-font-family: Arial, sans-serif; --canvas-node-font-size: 15.5pt;",
+    "rootTheme": "light"
+  }
+}

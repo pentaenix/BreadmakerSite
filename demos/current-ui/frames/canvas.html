@@ -1,0 +1,121 @@
+<div aria-busy="false" class="app-shell" id="app">
+<header class="topbar">
+<button aria-label="Projects and Breadmaker menu" class="brand-button" id="brandButton" title="Projects">
+<span aria-hidden="true" class="brand-mark"></span><span class="brand-name">Breadmaker</span><svg aria-hidden="true" class="brand-chevron" viewbox="0 0 10 6"><path d="M1 1l4 4 4-4"></path></svg>
+</button>
+<nav aria-label="Workspaces" class="main-tabs">
+<button class="main-tab" data-view="manuscript">Manuscript</button>
+<button class="main-tab active" data-view="canvas">Canvas</button>
+<button class="main-tab" data-view="maps">Maps</button>
+<button class="main-tab" data-view="reviews">Reviews</button>
+<button class="main-tab" data-view="tasks">Tasks</button>
+</nav>
+<div class="top-actions">
+<span class="save-state" id="globalSaveState">Saved</span>
+<div aria-label="Undo and redo" class="global-history-controls" role="group">
+<button aria-describedby="undoTooltip" aria-disabled="true" aria-label="Undo" class="icon-button global-history-button is-disabled" id="undoBtn"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M9 7H4V2"></path><path d="M4.5 7.5A8 8 0 1 1 5.8 17"></path></svg></button>
+<button aria-describedby="redoTooltip" aria-disabled="true" aria-label="Redo" class="icon-button global-history-button is-disabled" id="redoBtn"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M15 7h5V2"></path><path d="M19.5 7.5A8 8 0 1 0 18.2 17"></path></svg></button>
+</div>
+<button aria-describedby="quickOpenTooltip" aria-label="Quick open" class="icon-button" id="quickOpenBtn"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="m15.8 8.2-2.4 5.2-5.2 2.4 2.4-5.2z"></path></svg></button>
+<button aria-describedby="themeTooltip" aria-label="Theme" class="icon-button" id="themeBtn"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="7"></circle><path class="theme-fill" d="M12 5a7 7 0 0 0 0 14z"></path></svg></button>
+<div class="user-profile-control">
+<button aria-expanded="false" aria-haspopup="menu" aria-label="Open profile for Writer" class="user-avatar-button" id="userAvatarButton" type="button"><span aria-hidden="true" class="user-avatar" id="userAvatar"><svg aria-hidden="true" focusable="false" viewbox="0 0 32 32"><circle cx="16" cy="16" fill="hsl(164 45% 90%)" r="16"></circle><g fill="none" stroke="hsl(195 64% 31%)" stroke-linecap="round" stroke-width="1.85"><line x1="5.68" x2="5.68" y1="4.18" y2="7.17"></line><line x1="26.28" x2="26.28" y1="4.18" y2="7.17"></line><line x1="4.18" x2="7.17" y1="10.82" y2="10.82"></line><line x1="24.78" x2="27.77" y1="10.82" y2="10.82"></line><line x1="10.82" x2="10.82" y1="9.33" y2="12.32"></line><line x1="21.13" x2="21.13" y1="9.33" y2="12.32"></line><line x1="14.48" x2="17.47" y1="14.48" y2="17.47"></line><line x1="4.18" x2="7.17" y1="19.63" y2="22.62"></line><line x1="24.78" x2="27.77" y1="22.62" y2="19.63"></line><line x1="9.33" x2="12.32" y1="22.62" y2="19.63"></line><line x1="19.63" x2="22.62" y1="19.63" y2="22.62"></line><line x1="14.48" x2="17.47" y1="21.13" y2="21.13"></line><line x1="4.18" x2="7.17" y1="24.78" y2="27.77"></line><line x1="24.78" x2="27.77" y1="27.77" y2="24.78"></line><line x1="10.82" x2="10.82" y1="24.78" y2="27.77"></line><line x1="21.13" x2="21.13" y1="24.78" y2="27.77"></line></g></svg></span></button>
+<div aria-label="Profile" class="user-profile-popover hidden" id="userProfilePopover" role="menu"></div>
+</div>
+</div>
+</header>
+
+<main class="view canvas-layout phone-rail-workspace active" id="canvasView" style="--developmental-structure-scale: 1.1263736263736264; --developmental-structure-title-size: 13.508035714285715px; --developmental-structure-tile-width: 161.07142857142858px; --developmental-structure-tile-height: 58.57142857142857px; --developmental-planning-tile-width: 247.8021978021978px; --developmental-structure-padding: 10.137362637362637px; --developmental-structure-kind-size: 10.137362637362637px; --developmental-structure-kind-gap: 9.010989010989011px; --developmental-dock-height: 124.57142857142857px; --developmental-overlay-top: 177.57142857142856px; --canvas-font-size: 20.5px; --canvas-font-family: Arial, sans-serif;">
+<button aria-label="Close" class="phone-rail-backdrop" id="phoneCanvasNavBackdrop" tabindex="-1" type="button"></button>
+<aside class="canvas-rail expanded phone-rail" id="canvasRail">
+<div class="nav-section-head canvas-rail-head">
+<div class="tabs-head-title"><button aria-label="Collapse or expand Canvas panel" class="bare-button nav-collapse-button" id="toggleRail" title="Collapse / expand Canvas panel" type="button"><span aria-hidden="true">☰</span></button><span class="nav-section-label">Canvases</span></div>
+<div class="nav-head-actions"><button aria-haspopup="menu" aria-label="Canvas options" class="manuscript-item-more nav-section-more canvas-collection-more" id="addCanvas" title="Canvas options" type="button"><span aria-hidden="true">⋮</span></button></div>
+</div>
+<div class="canvas-items" id="canvasRailItems"><div class="canvas-item-wrap"><div class="canvas-item active" data-id="1" draggable="true" style="padding-left: 0px;"><span aria-expanded="false" aria-label="Collapse The last light — story board" class="canvas-tree-toggle chapter-outline-toggle placeholder" role="button" tabindex="-1"></span><span aria-hidden="true" class="canvas-grip chapter-grip">⋮⋮</span><span class="canvas-item-initial">T</span><span class="canvas-item-name">The last light — story board</span><button aria-label="Canvas actions for The last light — story board" class="canvas-item-more manuscript-item-more" type="button"><span aria-hidden="true">⋮</span></button></div></div><div class="collection-quick-add-row"><button aria-label="Add Canvas" class="collection-quick-add" title="Add Canvas" type="button"><span aria-hidden="true">+</span></button></div></div>
+</aside>
+<section class="canvas-shell">
+<div class="canvas-toolbar">
+<button aria-controls="canvasRail" aria-expanded="false" aria-label="Collapse or expand Canvas panel" class="bare-button phone-rail-button" id="phoneCanvasNavBtn" type="button"><span aria-hidden="true">☰</span></button>
+<div class="toolbar-title-group canvas-title-group"><input aria-label="Canvas name" class="canvas-name toolbar-title-text" id="canvasName" placeholder="Canvas" readonly="" style="" value="The last light — story board"/><button aria-label="Edit Canvas details" class="toolbar-title-pencil" id="editCanvasDetailsBtn" title="Edit Canvas details" type="button">✎</button></div>
+<div class="toolbar-spacer"></div>
+<div class="canvas-view-control manuscript-view-control">
+<button aria-describedby="canvasViewTooltip" aria-expanded="false" aria-haspopup="menu" class="toolbar-button view-menu-button" id="canvasViewBtn" type="button">
+<span>View</span>
+<svg aria-hidden="true" class="view-menu-chevron" viewbox="0 0 10 6"><path d="M1 1l4 4 4-4"></path></svg>
+</button>
+<div aria-label="Canvas view options" class="view-popover canvas-view-popover hidden" id="canvasViewPopover" role="menu" style="left: 985px; top: 90px;">
+<button aria-checked="false" class="view-popover-action view-popover-toggle" id="canvasLegendToggle" role="menuitemcheckbox" type="button"><span>Legend</span><span aria-hidden="true" class="view-popover-check">✓</span></button>
+<button aria-checked="true" class="view-popover-action view-popover-toggle" id="canvasSnapToggle" role="menuitemcheckbox" type="button"><span>Snap</span><span aria-hidden="true" class="view-popover-check">✓</span></button>
+<div class="view-popover-divider"></div>
+<div aria-label="Canvas zoom" class="canvas-view-zoom" role="group">
+<div class="canvas-view-zoom-head"><span>Zoom</span></div>
+<div class="canvas-view-zoom-controls">
+<button aria-label="Zoom out" class="view-zoom-button" id="canvasZoomOut" type="button">−</button>
+<button class="view-zoom-value" id="canvasZoomValue" title="Reset zoom to 100%" type="button">113%</button>
+<button aria-label="Zoom in" class="view-zoom-button" id="canvasZoomIn" type="button">+</button>
+<button aria-label="Fit Canvas" class="view-zoom-button view-zoom-fit" id="canvasZoomFit" title="Fit Canvas" type="button"><svg aria-hidden="true" viewbox="0 0 16 16"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10"></path></svg></button>
+</div>
+</div>
+<div class="view-popover-divider"></div>
+<div aria-labelledby="canvasTextSizeLabel" class="view-text-size" role="group">
+<div class="view-text-size-head"><span id="canvasTextSizeLabel">Text size</span><output id="canvasTextSizeValue">20.5 px</output></div>
+<div class="view-text-size-row"><span aria-hidden="true" class="view-size-a small">A</span><input aria-label="Canvas text size" id="canvasTextSize" max="28" min="11" step="0.5" style="" type="range" value="20.5"/><span aria-hidden="true" class="view-size-a large">A</span></div>
+</div>
+<div class="view-font-field">
+<label for="canvasFont">Font</label>
+<select aria-label="Canvas font" id="canvasFont">
+<option selected="" value="arial">Arial</option>
+<option value="times">Times New Roman</option>
+<option value="verdana">Verdana</option>
+<option value="courier">Courier New</option>
+</select>
+</div>
+</div>
+</div>
+<button aria-describedby="canvasAddCardTooltip" aria-expanded="false" aria-haspopup="menu" aria-label="Add Card" aria-pressed="false" class="toolbar-button icon-only tool-icon-button canvas-tool-button" id="addNodePanelBtn" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="14" rx="1.5" width="13" x="4" y="5"></rect><path d="M10.5 9.5v5M8 12h5"></path></svg></button>
+<div aria-label="Card type" class="canvas-card-palette hidden" id="canvasCardPalette" role="menu"><button aria-label="Card" class="canvas-card-palette-button" data-canvas-card-shape="rect" role="menuitem" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="12" rx="1.5" width="16" x="4" y="6"></rect></svg></button><button aria-label="Text only" class="canvas-card-palette-button" data-canvas-card-shape="text" role="menuitem" type="button"><span aria-hidden="true" class="canvas-card-palette-text">T</span></button></div>
+<button aria-describedby="canvasAddFigureTooltip" aria-expanded="false" aria-haspopup="menu" aria-label="Add Figure" aria-pressed="false" class="toolbar-button icon-only tool-icon-button canvas-tool-button" id="addFigureBtn" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="7" rx="1" width="9" x="3.5" y="5"></rect><circle cx="16.5" cy="15.5" r="4"></circle></svg></button>
+<div aria-label="Figure type" class="canvas-card-palette canvas-figure-palette hidden" id="canvasFigurePalette" role="menu"><button aria-label="Rectangle" class="canvas-card-palette-button" data-canvas-figure-shape="rect" role="menuitem" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="12" rx="1" width="16" x="4" y="6"></rect></svg></button><button aria-label="Triangle" class="canvas-card-palette-button" data-canvas-figure-shape="triangle" role="menuitem" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 4l8 15H4z"></path></svg></button><button aria-label="Oval" class="canvas-card-palette-button" data-canvas-figure-shape="oval" role="menuitem" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><ellipse cx="12" cy="12" rx="8" ry="5.5"></ellipse></svg></button><button aria-label="Line" class="canvas-card-palette-button" data-canvas-figure-shape="line" role="menuitem" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 12h16"></path></svg></button></div>
+<button aria-describedby="canvasAddImageTooltip" aria-label="Add Image" class="toolbar-button icon-only tool-icon-button canvas-tool-button" id="addImage" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="15" rx="1.5" width="17" x="3.5" y="4.5"></rect><circle cx="9" cy="9" r="1.5"></circle><path d="m5.5 17 4.5-4.5 3.2 3.1 2.3-2.3 3 3.7"></path></svg></button>
+<input accept="image/*" hidden="" id="imageInput" style="" type="file"/>
+<button aria-describedby="canvasStructureTooltip" aria-label="Structure" aria-pressed="false" class="toolbar-button icon-only tool-icon-button canvas-tool-button hidden" id="canvasStructureBtn" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="4" rx="1" width="5" x="3.5" y="6"></rect><rect height="4" rx="1" width="5" x="9.5" y="6"></rect><rect height="4" rx="1" width="5" x="15.5" y="6"></rect><path d="M6 13.5h12M6 13.5v3.5M18 13.5v3.5"></path></svg></button>
+</div>
+<section aria-label="Structure order" class="developmental-structure-dock hidden" id="developmentalStructureDock">
+<div class="developmental-structure-head"><b>Structure Order <em id="developmentalStructureScope">(Chapter)</em></b><span class="developmental-structure-count" id="developmentalStructureCount"></span></div>
+<div class="developmental-lane-viewport" id="developmentalLaneViewport" tabindex="0">
+<div class="developmental-lane-items" id="developmentalLaneItems"></div>
+</div>
+</section>
+<div aria-label="Canvas interaction mode" class="canvas-mode-overlay" role="group">
+<div class="canvas-mode-toggle">
+<button aria-pressed="true" class="toolbar-button mode-button active" id="canvasHandMode" title="Hand — drag empty canvas to move around"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M8.2 11.2V6.8a1.4 1.4 0 0 1 2.8 0v3.4-5a1.4 1.4 0 0 1 2.8 0v5-3.8a1.4 1.4 0 0 1 2.8 0v4.3-2.3a1.4 1.4 0 0 1 2.8 0v5.2c0 4.6-2.7 7.4-7 7.4h-.8c-2.2 0-3.7-.7-5.1-2.2l-3.5-3.6a1.6 1.6 0 0 1 2.2-2.3l3 2.4"></path></svg></button>
+<button aria-pressed="false" class="toolbar-button mode-button" data-testid="canvas-pointer-mode" id="canvasPointerMode" title="Pointer — drag empty canvas to select"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M5 3.5 18.7 13l-6.1 1.2-3.1 5.4L5 3.5Z"></path></svg></button>
+</div>
+</div>
+<aside aria-label="Canvas Legend" class="canvas-legend-drawer hidden" id="canvasLegendDrawer">
+<div class="canvas-legend-drawer-head"><b>Legend</b><div><button class="bare-button" id="legendDrawerAdd" title="Edit Legend">+</button><button class="bare-button ui-close-button" id="legendDrawerClose" title="Hide Legend">×</button></div></div>
+<div class="canvas-legend-drawer-list" id="canvasLegendDrawerList"><div class="legend-drawer-empty">No Markers yet.</div></div>
+</aside>
+<div class="canvas-stage hand-mode" data-testid="canvas-stage" id="canvasStage" tabindex="0">
+<div class="workspace-empty hidden" id="canvasEmpty"><b>No canvases yet.</b><p>Use canvases to think spatially about your book.</p><button id="emptyCreateCanvas">Create Canvas</button></div>
+<div class="canvas-space" id="canvasSpace" style="width: 6758.24px; height: 4505.49px; min-width: 6758.24px; min-height: 4505.49px;">
+<div class="canvas-world" id="canvasWorld" style="transform: scale(1.12637);">
+<div class="canvas-figures" id="figures"></div>
+<div class="canvas-guides" id="canvasGuides"></div>
+<svg class="edge-layer" id="edgeLayer"><defs><marker id="arrow" markerheight="8" markerwidth="8" orient="auto" refx="7" refy="4"><path d="M0,0 L8,4 L0,8 z"></path></marker></defs><g id="edges"><g class="edge-group" data-edge-id="1"><path class="edge-hit" d="M320,152.5 C374.0081475334972,152.5 355.9918524665028,262.5 410,262.5" data-edge-id="1"></path><path class="edge-line" d="M320,152.5 C374.0081475334972,152.5 348.51685246650277,262.5 398.5,262.5" data-edge-id="1" stroke="#777" style="stroke-width: 1.5;"></path><path class="edge-end-visible" d="M410,262.5 L399.5,268.275 L399.5,256.725 Z" fill="#777"></path><circle class="edge-end-hit" cx="320" cy="152.5" r="11"></circle><circle class="edge-end-handle" cx="320" cy="152.5" fill="#777" r="3.5"></circle><circle class="edge-end-hit" cx="410" cy="262.5" r="11"></circle><circle class="edge-end-handle" cx="410" cy="262.5" fill="#777" r="3.5"></circle></g><g class="edge-group" data-edge-id="2"><path class="edge-hit" d="M650,262.5 C706.4910612398103,262.5 693.5089387601897,152.5 750,152.5" data-edge-id="2"></path><path class="edge-line" d="M650,262.5 C706.4910612398103,262.5 686.0339387601897,152.5 738.5,152.5" data-edge-id="2" stroke="#777" style="stroke-width: 1.5;"></path><path class="edge-end-visible" d="M750,152.5 L739.5,158.275 L739.5,146.725 Z" fill="#777"></path><circle class="edge-end-hit" cx="650" cy="262.5" r="11"></circle><circle class="edge-end-handle" cx="650" cy="262.5" fill="#777" r="3.5"></circle><circle class="edge-end-hit" cx="750" cy="152.5" r="11"></circle><circle class="edge-end-handle" cx="750" cy="152.5" fill="#777" r="3.5"></circle></g><g class="edge-group" data-edge-id="3"><path class="edge-hit" d="M650,262.5 C731.5894601036188,262.5 668.4105398963812,452.5 750,452.5" data-edge-id="3"></path><path class="edge-line" d="M650,262.5 C731.5894601036188,262.5 660.9355398963812,452.5 738.5,452.5" data-edge-id="3" stroke="#777" style="stroke-width: 1.5;"></path><path class="edge-end-visible" d="M750,452.5 L739.5,458.275 L739.5,446.725 Z" fill="#777"></path><circle class="edge-end-hit" cx="650" cy="262.5" r="11"></circle><circle class="edge-end-handle" cx="650" cy="262.5" fill="#777" r="3.5"></circle><circle class="edge-end-hit" cx="750" cy="452.5" r="11"></circle><circle class="edge-end-handle" cx="750" cy="452.5" fill="#777" r="3.5"></circle></g><g class="edge-group" data-edge-id="4"><path class="edge-hit" d="M320,472.5 C406.81981340684854,472.5 323.18018659315146,262.5 410,262.5" data-edge-id="4"></path><path class="edge-line" d="M320,472.5 C406.81981340684854,472.5 315.70518659315144,262.5 398.5,262.5" data-edge-id="4" stroke="#777" style="stroke-width: 1.5;"></path><path class="edge-end-visible" d="M410,262.5 L399.5,268.275 L399.5,256.725 Z" fill="#777"></path><circle class="edge-end-hit" cx="320" cy="472.5" r="11"></circle><circle class="edge-end-handle" cx="320" cy="472.5" fill="#777" r="3.5"></circle><circle class="edge-end-hit" cx="410" cy="262.5" r="11"></circle><circle class="edge-end-handle" cx="410" cy="262.5" fill="#777" r="3.5"></circle></g></g><path class="edge-preview hidden" id="edgePreview"></path></svg>
+<div class="selection-rect hidden" data-testid="canvas-selection-rect" id="selectionRect"></div>
+<div id="nodes"><div class="canvas-node rect card-display-full text-align-left" data-id="1" style="left: 80px; top: 80px; width: 240px; height: auto; min-height: 145px;"><div class="node-drag-strip" title="Drag Card"></div><div class="node-inner"><div class="node-title-line"><span class="node-icon"></span><div class="node-title" contenteditable="false" style="">The light goes out</div></div><div class="node-body" contenteditable="false" style="">The lamp stops turning. Mara notices a light on the water.</div></div><span class="node-port top" data-port="top"></span><span class="node-port top_left" data-port="top_left"></span><span class="node-port top_right" data-port="top_right"></span><span class="node-port right" data-port="right"></span><span class="node-port bottom" data-port="bottom"></span><span class="node-port bottom_left" data-port="bottom_left"></span><span class="node-port bottom_right" data-port="bottom_right"></span><span class="node-port left" data-port="left"></span><span class="node-resize-handle" title="Resize Card"></span></div><div class="canvas-node rect card-display-full text-align-left" data-id="2" style="left: 410px; top: 190px; width: 240px; height: auto; min-height: 145px;"><div class="node-drag-strip" title="Drag Card"></div><div class="node-inner"><div class="node-title-line"><span class="node-icon"></span><div class="node-title" contenteditable="false" style="">The call</div></div><div class="node-body" contenteditable="false" style="">A stranger warns Mara to leave before the tide turns.</div></div><span class="node-port top" data-port="top"></span><span class="node-port top_left" data-port="top_left"></span><span class="node-port top_right" data-port="top_right"></span><span class="node-port right" data-port="right"></span><span class="node-port bottom" data-port="bottom"></span><span class="node-port bottom_left" data-port="bottom_left"></span><span class="node-port bottom_right" data-port="bottom_right"></span><span class="node-port left" data-port="left"></span><span class="node-resize-handle" title="Resize Card"></span></div><div class="canvas-node rect card-display-full text-align-left" data-id="3" style="left: 750px; top: 80px; width: 240px; height: auto; min-height: 145px;"><div class="node-drag-strip" title="Drag Card"></div><div class="node-inner"><div class="node-title-line"><span class="node-icon"></span><div class="node-title" contenteditable="false" style="">Bellweather</div></div><div class="node-body" contenteditable="false" style="">The town is dark. The keeper’s log is missing a page.</div></div><span class="node-port top" data-port="top"></span><span class="node-port top_left" data-port="top_left"></span><span class="node-port top_right" data-port="top_right"></span><span class="node-port right" data-port="right"></span><span class="node-port bottom" data-port="bottom"></span><span class="node-port bottom_left" data-port="bottom_left"></span><span class="node-port bottom_right" data-port="bottom_right"></span><span class="node-port left" data-port="left"></span><span class="node-resize-handle" title="Resize Card"></span></div><div class="canvas-node rect card-display-full text-align-left" data-id="4" style="left: 750px; top: 380px; width: 240px; height: auto; min-height: 145px;"><div class="node-drag-strip" title="Drag Card"></div><div class="node-inner"><div class="node-title-line"><span class="node-icon"></span><div class="node-title" contenteditable="false" style="">A voice below</div></div><div class="node-body" contenteditable="false" style="">What is hidden under the lighthouse?</div></div><span class="node-port top" data-port="top"></span><span class="node-port top_left" data-port="top_left"></span><span class="node-port top_right" data-port="top_right"></span><span class="node-port right" data-port="right"></span><span class="node-port bottom" data-port="bottom"></span><span class="node-port bottom_left" data-port="bottom_left"></span><span class="node-port bottom_right" data-port="bottom_right"></span><span class="node-port left" data-port="left"></span><span class="node-resize-handle" title="Resize Card"></span></div><div class="canvas-node rect card-display-full text-align-left" data-id="5" style="left: 80px; top: 400px; width: 240px; height: auto; min-height: 145px;"><div class="node-drag-strip" title="Drag Card"></div><div class="node-inner"><div class="node-title-line"><span class="node-icon"></span><div class="node-title" contenteditable="false" style="">The keeper’s log</div></div><div class="node-body" contenteditable="false" style="">Plant the missing page early. Return to it in the second draft.</div></div><span class="node-port top" data-port="top"></span><span class="node-port top_left" data-port="top_left"></span><span class="node-port top_right" data-port="top_right"></span><span class="node-port right" data-port="right"></span><span class="node-port bottom" data-port="bottom"></span><span class="node-port bottom_left" data-port="bottom_left"></span><span class="node-port bottom_right" data-port="bottom_right"></span><span class="node-port left" data-port="left"></span><span class="node-resize-handle" title="Resize Card"></span></div></div>
+</div>
+</div>
+</div>
+</section>
+<aside aria-label="Canvas tools" class="right-panel canvas-tool-panel hidden" id="canvasToolPanel">
+<div class="panel-head"><b id="canvasPanelTitle">Add Card</b><button aria-label="Close Canvas panel" class="bare-button ui-close-button" data-close-canvas-panel="">×</button></div>
+<div class="canvas-panel-body" id="canvasPanelBody"></div>
+</aside>
+</main>
+
+
+
+</div>

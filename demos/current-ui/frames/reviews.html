@@ -1,0 +1,72 @@
+<div aria-busy="false" class="app-shell" id="app">
+<header class="topbar">
+<button aria-label="Projects and Breadmaker menu" class="brand-button" id="brandButton" title="Projects">
+<span aria-hidden="true" class="brand-mark"></span><span class="brand-name">Breadmaker</span><svg aria-hidden="true" class="brand-chevron" viewbox="0 0 10 6"><path d="M1 1l4 4 4-4"></path></svg>
+</button>
+<nav aria-label="Workspaces" class="main-tabs">
+<button class="main-tab" data-view="manuscript">Manuscript</button>
+<button class="main-tab" data-view="canvas">Canvas</button>
+<button class="main-tab" data-view="maps">Maps</button>
+<button class="main-tab active" data-view="reviews">Reviews</button>
+<button class="main-tab" data-view="tasks">Tasks</button>
+</nav>
+<div class="top-actions">
+<span class="save-state" id="globalSaveState">Saved</span>
+<div aria-label="Undo and redo" class="global-history-controls" role="group">
+<button aria-describedby="undoTooltip" aria-disabled="true" aria-label="Undo" class="icon-button global-history-button is-disabled" id="undoBtn"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M9 7H4V2"></path><path d="M4.5 7.5A8 8 0 1 1 5.8 17"></path></svg></button>
+<button aria-describedby="redoTooltip" aria-disabled="true" aria-label="Redo" class="icon-button global-history-button is-disabled" id="redoBtn"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M15 7h5V2"></path><path d="M19.5 7.5A8 8 0 1 0 18.2 17"></path></svg></button>
+</div>
+<button aria-describedby="quickOpenTooltip" aria-label="Quick open" class="icon-button" id="quickOpenBtn"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="m15.8 8.2-2.4 5.2-5.2 2.4 2.4-5.2z"></path></svg></button>
+<button aria-describedby="themeTooltip" aria-label="Theme" class="icon-button" id="themeBtn"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="7"></circle><path class="theme-fill" d="M12 5a7 7 0 0 0 0 14z"></path></svg></button>
+<div class="user-profile-control">
+<button aria-expanded="false" aria-haspopup="menu" aria-label="Open profile for Writer" class="user-avatar-button" id="userAvatarButton" type="button"><span aria-hidden="true" class="user-avatar" id="userAvatar"><svg aria-hidden="true" focusable="false" viewbox="0 0 32 32"><circle cx="16" cy="16" fill="hsl(164 45% 90%)" r="16"></circle><g fill="none" stroke="hsl(195 64% 31%)" stroke-linecap="round" stroke-width="1.85"><line x1="5.68" x2="5.68" y1="4.18" y2="7.17"></line><line x1="26.28" x2="26.28" y1="4.18" y2="7.17"></line><line x1="4.18" x2="7.17" y1="10.82" y2="10.82"></line><line x1="24.78" x2="27.77" y1="10.82" y2="10.82"></line><line x1="10.82" x2="10.82" y1="9.33" y2="12.32"></line><line x1="21.13" x2="21.13" y1="9.33" y2="12.32"></line><line x1="14.48" x2="17.47" y1="14.48" y2="17.47"></line><line x1="4.18" x2="7.17" y1="19.63" y2="22.62"></line><line x1="24.78" x2="27.77" y1="22.62" y2="19.63"></line><line x1="9.33" x2="12.32" y1="22.62" y2="19.63"></line><line x1="19.63" x2="22.62" y1="19.63" y2="22.62"></line><line x1="14.48" x2="17.47" y1="21.13" y2="21.13"></line><line x1="4.18" x2="7.17" y1="24.78" y2="27.77"></line><line x1="24.78" x2="27.77" y1="27.77" y2="24.78"></line><line x1="10.82" x2="10.82" y1="24.78" y2="27.77"></line><line x1="21.13" x2="21.13" y1="24.78" y2="27.77"></line></g></svg></span></button>
+<div aria-label="Profile" class="user-profile-popover hidden" id="userProfilePopover" role="menu"></div>
+</div>
+</div>
+</header>
+
+
+
+
+<main aria-label="Reviews" class="view reviews-layout phone-rail-workspace active" id="reviewsView">
+<button aria-label="Close" class="phone-rail-backdrop" id="phoneReviewNavBackdrop" tabindex="-1" type="button"></button>
+<aside class="review-sidebar phone-rail" id="reviewRail">
+<div class="nav-section-head review-rail-head">
+<div class="tabs-head-title"><button aria-label="Reviews" class="bare-button nav-collapse-button" id="toggleReviewRail" title="Reviews" type="button"><span aria-hidden="true">☰</span></button><span class="nav-section-label review-rail-title">Reviews</span></div>
+<div class="nav-head-actions"><button aria-haspopup="menu" aria-label="More actions" class="manuscript-item-more nav-section-more review-collection-more" id="reviewCollectionMore" type="button"><span aria-hidden="true">⋮</span></button></div>
+</div>
+<div class="review-nav-list" id="reviewList"><div class="chapter-row review-item active" data-review-id="review_9b83ad07bb14434abf439d4ec568c849" draggable="true"><span aria-hidden="true" class="chapter-outline-toggle placeholder review-outline-placeholder"></span><span aria-hidden="true" class="chapter-grip review-item-grip">⋮⋮</span><span aria-hidden="true" class="chapter-short review-item-short">F</span><span class="chapter-full review-item-copy review-item-name">First reader notes</span><button aria-label="Actions for First reader notes" class="chapter-more review-item-more manuscript-item-more" type="button"><span aria-hidden="true">⋮</span></button></div><div class="collection-quick-add-row"><button aria-label="Create Review" class="collection-quick-add" title="Create Review" type="button"><span aria-hidden="true">+</span></button></div></div>
+</aside>
+<section class="review-workspace-shell">
+<div class="review-toolbar">
+<button aria-controls="reviewRail" aria-expanded="false" aria-label="Reviews" class="bare-button phone-rail-button" id="phoneReviewNavBtn" type="button"><span aria-hidden="true">☰</span></button>
+<div class="toolbar-title-group review-title-group"><div class="review-current-name toolbar-title-text" id="reviewCurrentName">First reader notes</div><button aria-label="Details…" class="toolbar-title-pencil" id="editReviewDetailsBtn" title="Details…" type="button">✎</button></div>
+<div class="toolbar-spacer"></div>
+<button aria-describedby="reviewParticipantsTooltip" aria-label="Participants" aria-pressed="false" class="toolbar-button icon-only tool-icon-button review-toolbar-button" id="reviewParticipantsBtn" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3.5 18c.7-3.1 2.5-4.7 5.5-4.7s4.8 1.6 5.5 4.7"></path><circle cx="17" cy="9" r="2.2"></circle><path d="M15.5 13.8c2.8-.5 4.6.9 5 3.2"></path></svg></button>
+<button aria-describedby="reviewMarkersTooltip" aria-label="Markers" aria-pressed="false" class="toolbar-button icon-only tool-icon-button review-toolbar-button" id="reviewMarkersBtn" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="m7 15 8.7-8.7 2 2L9 17H7z"></path><path d="m15.2 6.8 1.6-1.6 2 2-1.6 1.6"></path><path d="M5 19h10"></path></svg></button>
+<button aria-describedby="reviewQuestionsTooltip" aria-label="Questionnaires" aria-pressed="false" class="toolbar-button icon-only tool-icon-button review-toolbar-button" id="reviewQuestionsBtn" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="16" rx="1.8" width="13" x="5.5" y="4"></rect><path d="M8.5 8.5h7M8.5 12h7M8.5 15.5h4.2"></path><path d="M9.2 4V3h5.6v1"></path></svg></button>
+<button aria-describedby="reviewStateTooltip" aria-label="Review Activity" aria-pressed="false" class="toolbar-button icon-only tool-icon-button review-toolbar-button" id="reviewStateBtn" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M5.5 7.5 10 12l-4.5 4.5"></path><path d="M12 7.5 16.5 12 12 16.5"></path></svg></button>
+</div>
+<div class="review-stage" id="reviewStage">
+<div class="workspace-empty hidden" id="reviewEmpty"><b>No reviews yet.</b><p>Create a Review to begin gathering feedback.</p><button id="emptyCreateReview" type="button">Create Review</button></div>
+<div class="review-overview" id="reviewOverview"><div class="review-overview-meta"><div class="review-overview-meta-copy"><span>Draft</span><span aria-hidden="true" class="review-meta-separator">·</span><span class="review-scope-summary" title="Entire manuscript">Scope: Entire manuscript</span></div></div><div class="review-draft-space"><div class="review-draft-empty"><b>Review not started</b><p>Start the first Review round to freeze the current manuscript and begin collecting feedback.</p><button id="reviewDraftOpenActivity" type="button">Start Review…</button></div></div></div>
+</div>
+</section>
+<aside aria-label="Review Markers" class="right-panel review-markers-panel hidden" id="reviewMarkersPanel">
+<div class="panel-head"><b>Review Markers</b><button aria-label="Close" class="bare-button ui-close-button" id="closeReviewMarkersPanel">×</button></div>
+<div class="review-tool-panel-body" id="reviewMarkersPanelBody"></div>
+</aside>
+<aside aria-label="Participants" class="right-panel review-participants-panel hidden" id="reviewParticipantsPanel">
+<div class="panel-head"><b>Participants</b><button aria-label="Close" class="bare-button ui-close-button" id="closeReviewParticipantsPanel">×</button></div>
+<div class="review-tool-panel-body" id="reviewParticipantsPanelBody"></div>
+</aside>
+<aside aria-label="Questionnaires" class="right-panel review-questions-panel hidden" id="reviewQuestionsPanel">
+<div class="panel-head"><b>Questionnaires</b><button aria-label="Close" class="bare-button ui-close-button" id="closeReviewQuestionsPanel">×</button></div>
+<div class="review-tool-panel-body" id="reviewQuestionsPanelBody"></div>
+</aside>
+<aside aria-label="Review Activity" class="right-panel review-state-panel hidden" id="reviewStatePanel">
+<div class="panel-head"><b>Review Activity</b><button aria-label="Close" class="bare-button ui-close-button" id="closeReviewStatePanel">×</button></div>
+<div class="review-tool-panel-body" id="reviewStatePanelBody"></div>
+</aside>
+</main>
+</div>
