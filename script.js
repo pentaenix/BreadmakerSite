@@ -1,5 +1,6 @@
 (() => {
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reducedMotion) document.documentElement.classList.add('has-reveals');
 
   // Reveal once. This never gets reset by the hero typing animation.
   const revealEls = [...document.querySelectorAll('.reveal')];
@@ -27,7 +28,6 @@
       const p = Math.min(1, Math.max(0, scrollY / Math.max(1, hero.offsetHeight)));
       field.style.transform = `translate3d(var(--hero-x,0px), calc(var(--hero-y,0px) - ${p * 34}px), 0)`;
       field.style.opacity = `${1 - p * .72}`;
-      heroCopy.style.opacity = `${1 - p * .48}`;
     };
     addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive:true });
     hero.addEventListener('pointermove', e => {
@@ -95,9 +95,9 @@
       'Keep notes beside the manuscript.',
       'See the whole story at once.',
       'Plan as much or as little as you want.',
-      'Your story stays on your computer.',
+      'Keep your ideas beside your draft.',
       'One project. The whole book.',
-      'Start writing in seconds.'
+      'A place for your next chapter.'
     ];
     if (title) rewriteLoop(title,title.nextElementSibling,{firstDelay:550,deleteBase:24,typeBase:40,restMin:6500,restSpread:2600});
     if (subtitle) rewriteLoop(subtitle,subtitle.nextElementSibling,{firstDelay:1800,deleteBase:16,typeBase:29,restMin:3900,restSpread:2200,choices:subtitleLines});
@@ -125,7 +125,7 @@
   const railNum=document.querySelector('.section-rail-number');
   const railName=document.querySelector('.section-rail-name');
   const railFill=document.querySelector('.section-rail-fill');
-  const names=['INTRO','WRITE','MANUSCRIPT','CANVAS','MAPS','TASKS','LINKS','CHECKPOINTS','EDITOR’S EYE','YOURS','DOWNLOAD'];
+  const names=['INTRO','WRITE','MANUSCRIPT','CANVAS','MAPS','TASKS','LINKS','CHECKPOINTS','EDITOR’S EYE','YOURS','QUESTIONS','DOWNLOAD'];
   if (rail && sections.length) {
     const ratios=new Map();
     const obs=new IntersectionObserver(entries=>{
@@ -148,6 +148,7 @@
   let eyeOn=false;
   eyeButton?.addEventListener('click',()=>{
     eyeOn=!eyeOn;
+    eyeButton.setAttribute('aria-pressed', String(eyeOn));
     eyeFrame?.contentWindow?.postMessage({type:'set-eye',value:eyeOn},'*');
     eyeButton.textContent=eyeOn?'Return to manuscript':'Try Editor’s Eye';
   });

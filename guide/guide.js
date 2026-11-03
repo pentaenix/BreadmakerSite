@@ -1,5 +1,6 @@
 (()=>{
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced) document.documentElement.classList.add('has-reveals');
   const steps=[...document.querySelectorAll('.guide-step,.guide-overview')];
   if(reduced){steps.forEach(e=>e.classList.add('visible'))}else{
     const o=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');o.unobserve(entry.target)}}),{threshold:.12});
