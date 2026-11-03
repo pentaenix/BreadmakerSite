@@ -1,0 +1,22 @@
+/* Entry links reuse the authored site's controls, colors and spacing. */
+.quick-open{
+  background:#202020;
+  border-color:#202020;
+  color:#f3f3f1;
+}
+.quick-open:hover{
+  background:#363734;
+  border-color:#363734;
+  color:#fff;
+}
+[data-open-breadmaker]:focus-visible,.secondary-download-action:focus-visible{
+  outline:2px solid currentColor;
+  outline-offset:3px;
+}
+.download-secondary-actions{flex-wrap:wrap}
+.local-download-pending{cursor:default;opacity:.55}
+.local-download-pending:hover{background:transparent;border-color:#3a3b39;color:#b9bab5}
+@media(max-width:380px){
+  .quick-actions{gap:4px;max-width:calc(100vw - 24px)}
+  .quick-action{padding:7px 8px}
+}

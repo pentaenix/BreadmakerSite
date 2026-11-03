@@ -10,8 +10,9 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
+<link href="entry-links.css" rel="stylesheet"/>
 </head>
-<body><nav aria-label="Quick actions" class="quick-actions"><a class="quick-action quick-guide" href="guide/index.html"><span>Guide</span><span aria-hidden="true" class="quick-guide-icon"></span></a><a class="quick-action quick-download" href="#download"><span>Download</span><span aria-hidden="true" class="quick-download-icon">↓</span></a></nav>
+<body><nav aria-label="Quick actions" class="quick-actions"><a class="quick-action quick-open" data-open-breadmaker="" href="https://app.breadmaker.studio/" title="Open the hosted app · Account required">Open Breadmaker</a><a class="quick-action quick-guide" href="guide/index.html"><span>Guide</span><span aria-hidden="true" class="quick-guide-icon"></span></a><a class="quick-action quick-download" href="#download"><span>Download</span><span aria-hidden="true" class="quick-download-icon">↓</span></a></nav>
 <main>
 <section class="hero snap-page" id="top">
 <div aria-hidden="true" class="thought-field">
@@ -98,16 +99,18 @@
 <div class="live-app-shell reveal eye-live-shell"><iframe aria-hidden="true" class="live-app-frame" id="eyeFrame" loading="eager" scrolling="no" src="demos/demo.html?view=manuscript&amp;v=8ef8b0d" tabindex="-1" title="Live Editor’s Eye interface"></iframe><div class="live-ui-badge">Live Editor’s Eye interface</div></div>
 </section>
 <section class="ownership-section snap-page">
-<div class="ownership-inner reveal"><p class="eyebrow">Yours</p><h2>Your book belongs to you.</h2><p class="ownership-lede">Breadmaker is local-first and open source. No account is required to write. No subscription is required to keep writing.</p>
-<div class="ownership-grid"><div><b>Local-first</b><span>Your project lives on your computer.</span></div><div><b>Portable</b><span>Export and import complete projects.</span></div><div><b>Open source</b><span>The source ships with the download.</span></div><div><b>Pre-alpha</b><span>Still in active pre-alpha development.</span></div></div>
+<div class="ownership-inner reveal"><p class="eyebrow">Yours</p><h2>Your book belongs to you.</h2><p class="ownership-lede">Breadmaker is local-first and open source. No account is required to write locally. No subscription is required to keep writing locally.</p>
+<div class="ownership-grid"><div><b>Local-first</b><span>Your project lives on your computer.</span></div><div><b>Portable</b><span>Export and import complete projects.</span></div><div><b>Open source</b><span>The code is available on GitHub.</span></div><div><b>Pre-alpha</b><span>Still in active pre-alpha development.</span></div></div>
 </div>
 </section>
 <section class="download-section snap-page" id="download">
-<div class="download-inner reveal"><span class="brand-dot large">B</span><h2>Breadmaker</h2><p>Writing has never been simpler.</p><button aria-disabled="true" class="download-button download-placeholder" data-download-placeholder="" title="Download unavailable in this preview" type="button">Download Breadmaker</button><div class="download-secondary-actions">
+<div class="download-inner reveal"><span class="brand-dot large">B</span><h2>Breadmaker</h2><p>Writing has never been simpler.</p><a class="download-button" data-open-breadmaker="" href="https://app.breadmaker.studio/" title="Open the hosted app · Account required">Open Breadmaker</a><div class="download-secondary-actions">
+<button aria-disabled="true" class="secondary-download-action local-download-pending" disabled="" title="Local downloads are not available yet" type="button">Download local version</button>
+<a class="secondary-download-action" href="https://github.com/pentaenix/breadmaker">View source on GitHub</a>
 <a class="secondary-download-action" href="guide/index.html">Read the guide</a>
-</div><div class="download-meta"><span>Open source</span><i></i><span>Local-first</span><i></i><span>Free</span></div><small>Pre-alpha software · The download includes the application source.</small></div>
+</div><div class="download-meta"><span>Open source</span><i></i><span>Local-first</span><i></i><span>Free local editor</span></div><small>Pre-alpha · Hosted app requires an account · Local downloads coming soon.</small></div>
 <div aria-label="Patreon coming soon" class="patreon-corner" role="img" title="Patreon coming soon"><img alt="" aria-hidden="true" src="assets/patreon-mark.png"/></div></section>
-<footer class="site-footer"><a class="footer-brand" href="#top">Breadmaker</a><nav class="footer-nav"><a href="guide/index.html">Guide</a><a href="#download">Download</a></nav><span>10.5.76 · Pre-alpha</span></footer>
+<footer class="site-footer"><a class="footer-brand" href="#top">Breadmaker</a><nav class="footer-nav"><a href="guide/index.html">Guide</a><a href="#download">Download</a><a href="https://github.com/pentaenix/breadmaker">Source</a></nav><span>10.5.76 · Pre-alpha</span></footer>
 </main>
 <script src="script.js"></script>
 <div aria-hidden="true" class="section-rail"><span class="section-rail-number">01</span><i class="section-rail-line"><b class="section-rail-fill"></b></i><span class="section-rail-name">INTRO</span></div></body>
