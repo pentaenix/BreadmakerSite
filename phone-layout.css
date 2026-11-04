@@ -1,0 +1,68 @@
+/* Phone layout only. Keep the authored type, copy and integrated demo frames. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+
+@media(max-width:760px), (max-width:1000px) and (max-height:500px){
+  :root{--phone-header-height:calc(64px + env(safe-area-inset-top,0px))}
+  html{scroll-padding-top:calc(var(--phone-header-height) + 16px)}
+
+  /* A continuous paper surface keeps scrolling text out of the utility links. */
+  .site-header{
+    padding:calc(10px + env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) 10px max(12px,env(safe-area-inset-left,0px));
+    gap:10px;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+  }
+  .site-header .brand-link{padding:3px;background:transparent;backdrop-filter:none}
+  .site-header .brand-link span,.quick-explore{display:none}
+  .quick-actions{gap:5px;min-width:0}
+  .quick-action{min-height:44px;padding:9px 10px;font-size:11px}
+
+  /* Let short browser viewports scroll instead of squeezing these layers. */
+  .hero.snap-page{
+    height:auto;
+    min-height:100svh;
+    padding:calc(var(--phone-header-height) + 68px) max(18px,env(safe-area-inset-right,0px)) 112px max(18px,env(safe-area-inset-left,0px));
+  }
+  .hero-copy{width:100%;min-height:0;transform:none}
+  .hero-title{font-size:clamp(44px,15.5vw,72px)}
+  .hero-logo{width:74px;height:74px;margin-bottom:28px}
+  .hero-subtitle{
+    font-size:clamp(14px,4.4vw,19px);
+    line-height:1.45;
+    min-height:2.9em;
+    margin-top:24px;
+    white-space:normal;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-subtitle [data-type-target]{min-width:0;max-width:100%}
+  .hero-description{font-size:15px;max-width:350px;margin-top:22px}
+  .hero-actions{font-size:12px;gap:16px;margin-top:22px}
+
+  /* Retain the drifting notes in peripheral bands, clear of the whole copy. */
+  .thought{display:none}
+  .thought.t1,.thought.t2,.thought.t5,.thought.t6{display:block;font-size:10px;max-width:42%}
+  .t1{left:6%;right:auto;top:calc(var(--phone-header-height) + 24px);bottom:auto}
+  .t2{left:auto;right:6%;top:calc(var(--phone-header-height) + 32px);bottom:auto}
+  .t5{left:6%;right:auto;top:auto;bottom:66px}
+  .t6{left:auto;right:6%;top:auto;bottom:62px}
+  .scroll-cue{bottom:24px}
+
+  /* Grid items must fit the padded width, not a separate viewport-wide track. */
+  .guide-hero{height:auto;min-height:100svh;padding:calc(110px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) 110px max(20px,env(safe-area-inset-left,0px))}
+  .guide-hero-copy{width:min(1040px,100%);min-width:0}
+  .guide-hero h1{font-size:clamp(44px,14.5vw,60px)}
+  .guide-back,.guide-download{top:calc(12px + env(safe-area-inset-top,0px))}
+  .guide-back{left:max(14px,env(safe-area-inset-left,0px))}
+  .guide-download{right:max(14px,env(safe-area-inset-right,0px))}
+  .guide-scroll{bottom:26px}
+  .site-footer,.guide-footer{padding-bottom:max(18px,env(safe-area-inset-bottom,0px))}
+}
+
+@media(max-width:350px){
+  .quick-action{padding:9px 8px;font-size:10px}
+  .site-header .brand-link img{width:28px;height:28px}
+  .hero-actions{gap:13px}
+  .hero-description{max-width:300px}
+}
