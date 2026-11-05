@@ -1,12 +1,14 @@
 /* Read-only surfaces captured from the current app. No backend or user data. */
 (async()=>{
- const params=new URLSearchParams(location.search),settings=await (await fetch('current-ui/frame-settings.json')).json();
- const cache=new Map();let current=params.get('view')||'manuscript',eye=params.get('eye')==='1',compare=params.get('checkpoint')==='1'&&params.get('compare')==='1',panel=params.get('checkpoint')==='1';
+ const params=new URLSearchParams(location.search),version=encodeURIComponent(params.get('v')||'sitefix-20261105'),settings=await (await fetch(`current-ui/frame-settings.json?v=${version}`)).json();
+ const cache=new Map();let renderVersion=0,current=params.get('view')||'manuscript',eye=params.get('eye')==='1',compare=params.get('checkpoint')==='1'&&params.get('compare')==='1',panel=params.get('checkpoint')==='1';
  const $=selector=>document.querySelector(selector),$$=selector=>[...document.querySelectorAll(selector)];
  async function show(name){
+  const versionAtStart=++renderVersion;
   const key=name==='manuscript'?(eye?'eye':compare?'checkpoints':panel?'checkpoint-list':'manuscript'):name;
   if(!Object.hasOwn(settings,key))return;
-  if(!cache.has(key))cache.set(key,await(await fetch(`current-ui/frames/${key}.html`)).text());
+  if(!cache.has(key))cache.set(key,await(await fetch(`current-ui/frames/${key}.html?v=${version}`)).text());
+  if(versionAtStart!==renderVersion)return;
   current=name;document.body.innerHTML=cache.get(key);document.documentElement.style.cssText=settings[key].rootStyle;
   document.documentElement.dataset.theme=settings[key].rootTheme;
   (settings[key].scroll||[]).forEach(({id,left,top})=>{const el=document.getElementById(id);if(el){el.scrollLeft=left;el.scrollTop=top}});
@@ -45,6 +47,7 @@
    node.addEventListener('pointermove',move);node.addEventListener('pointerup',up);
   }));
  }
- addEventListener('message',event=>{if(event.origin!==location.origin||event.data?.type!=='set-eye')return;eye=!!event.data.value;compare=false;panel=false;show('manuscript')});
+ addEventListener('message',event=>{if(event.origin!==location.origin||event.source!==parent||event.data?.type!=='set-eye')return;eye=!!event.data.value;compare=false;panel=false;show('manuscript')});
  await show(current);
+ if(parent!==window)parent.postMessage({type:'preview-ready'},location.origin);
 })().catch(error=>console.error('Breadmaker preview could not load',error));

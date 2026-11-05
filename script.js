@@ -17,34 +17,7 @@
     revealEls.forEach(el => observer.observe(el));
   }
 
-  // Hero depth only follows scroll/pointer. It never restarts when copy changes.
-  const hero = document.querySelector('.hero');
-  const field = document.querySelector('.thought-field');
-  const heroCopy = document.querySelector('.hero-copy');
-  if (!reducedMotion && hero && field && heroCopy) {
-    let ticking = false;
-    const update = () => {
-      ticking = false;
-      const p = Math.min(1, Math.max(0, scrollY / Math.max(1, hero.offsetHeight)));
-      field.style.transform = `translate3d(var(--hero-x,0px), calc(var(--hero-y,0px) - ${p * 34}px), 0)`;
-      field.style.opacity = `${1 - p * .72}`;
-    };
-    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive:true });
-    hero.addEventListener('pointermove', e => {
-      const r=hero.getBoundingClientRect();
-      const x=((e.clientX-r.left)/r.width-.5)*-11;
-      const y=((e.clientY-r.top)/r.height-.5)*-7;
-      field.style.setProperty('--hero-x',`${x}px`);
-      field.style.setProperty('--hero-y',`${y}px`);
-      update();
-    });
-    hero.addEventListener('pointerleave',()=>{
-      field.style.setProperty('--hero-x','0px');
-      field.style.setProperty('--hero-y','0px');
-      update();
-    });
-    update();
-  }
+  // Decorative notes occupy separate layout rows and do not follow the pointer.
 
   const sleep = ms => new Promise(r => setTimeout(r, ms));
   const jitter = (base, spread=0) => base + Math.random() * spread;
@@ -103,22 +76,6 @@
     if (subtitle) rewriteLoop(subtitle,subtitle.nextElementSibling,{firstDelay:1800,deleteBase:16,typeBase:29,restMin:3900,restSpread:2200,choices:subtitleLines});
   }
 
-  // Tiny living edits in the orbit. Independent timers keep the field organic.
-  const ambient=[
-    ['.t16',['ending?','ending.','ending?']],
-    ['.t9',['fix the pacing','cut this beat','fix the pacing']],
-    ['.t21',['move this later','move this here?','move this later']],
-    ['.t26',['what if she leaves?','what if she stays?','what if she leaves?']]
-  ];
-  if (!reducedMotion) ambient.forEach(([selector,states],idx)=>{
-    const el=document.querySelector(selector); if(!el) return;
-    let n=0;
-    setInterval(()=>{
-      el.animate([{opacity:.48},{opacity:0,transform:'translateY(-2px)'},{opacity:.48}],{duration:560,easing:'ease-in-out'});
-      setTimeout(()=>{ n=(n+1)%states.length; el.textContent=states[n]; },270);
-    },5200+idx*1350);
-  });
-
   // Section rail is purely descriptive. Native CSS scroll snapping does the paging.
   const sections=[...document.querySelectorAll('.snap-page')];
   const rail=document.querySelector('.section-rail');
@@ -142,15 +99,20 @@
     sections.forEach(s=>obs.observe(s));
   }
 
-  // Editor's Eye is controlled from the landing page; embedded previews stay non-scrollable/passive.
+  // Keep the external control synchronized even if the lazy iframe is still loading.
   const eyeButton=document.getElementById('eyeToggle');
   const eyeFrame=document.getElementById('eyeFrame');
   let eyeOn=false;
+  const syncEye=()=>eyeFrame?.contentWindow?.postMessage({type:'set-eye',value:eyeOn},location.origin);
+  eyeFrame?.addEventListener('load',syncEye);
+  addEventListener('message',event=>{
+    if(event.origin===location.origin&&event.source===eyeFrame?.contentWindow&&event.data?.type==='preview-ready')syncEye();
+  });
   eyeButton?.addEventListener('click',()=>{
     eyeOn=!eyeOn;
-    eyeButton.setAttribute('aria-pressed', String(eyeOn));
-    eyeFrame?.contentWindow?.postMessage({type:'set-eye',value:eyeOn},'*');
+    eyeButton.setAttribute('aria-pressed',String(eyeOn));
     eyeButton.textContent=eyeOn?'Return to manuscript':'Try Editor’s Eye';
+    syncEye();
   });
 })();
 
@@ -241,6 +203,22 @@ document.querySelectorAll('[data-download-placeholder]').forEach((button) => {
     svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
 
     const target = localRect(manuscript);
+    const trunk = graph.querySelector('.graph-trunk');
+    if (getComputedStyle(graph).display === 'grid') {
+      const railX = Math.max(12, target.left - 22);
+      let bottom = target.cy;
+      links.forEach(([nodeSelector, pathSelector]) => {
+        const node = graph.querySelector(nodeSelector);
+        const path = graph.querySelector(pathSelector);
+        if (!node || !path) return;
+        const source = localRect(node);
+        bottom = Math.max(bottom, source.cy);
+        path.setAttribute('d', `M ${source.left.toFixed(1)} ${source.cy.toFixed(1)} H ${railX.toFixed(1)}`);
+      });
+      trunk?.setAttribute('d', `M ${railX.toFixed(1)} ${bottom.toFixed(1)} V ${target.cy.toFixed(1)} H ${target.left.toFixed(1)}`);
+      return;
+    }
+    trunk?.setAttribute('d', '');
     links.forEach(([nodeSelector, pathSelector, targetOffset]) => {
       const node = graph.querySelector(nodeSelector);
       const path = graph.querySelector(pathSelector);

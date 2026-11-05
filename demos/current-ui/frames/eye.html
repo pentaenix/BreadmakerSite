@@ -96,9 +96,9 @@
 </div>
 <div aria-label="Checkpoint comparison tools" class="checkpoint-context-toolbar hidden" id="checkpointCompareToolbar" role="toolbar">
 <span class="checkpoint-context-label">Current <span aria-hidden="true">↔</span></span>
-<select aria-label="Checkpoint version" class="compact-select" id="checkpointSplitSelect"><option selected="" value="1">Book · Before the second draft</option></select>
-<label class="checkpoint-context-check"><input checked="" id="checkpointSplitShowDiff" style="" type="checkbox" value="on"/> Changes</label>
-<div aria-label="Navigate changes" class="checkpoint-context-nav" role="group"><button class="bare-button" id="checkpointSplitPrev" title="Previous change">↑</button><span id="checkpointSplitChangeCounter">0 / 1</span><button class="bare-button" id="checkpointSplitNext" title="Next change">↓</button></div>
+<select aria-label="Checkpoint version" class="compact-select" id="checkpointSplitSelect"></select>
+<label class="checkpoint-context-check"><input id="checkpointSplitShowDiff" style="" type="checkbox" value="on"/> Changes</label>
+<div aria-label="Navigate changes" class="checkpoint-context-nav" role="group"><button class="bare-button" id="checkpointSplitPrev" title="Previous change">↑</button><span id="checkpointSplitChangeCounter">0 changes</span><button class="bare-button" id="checkpointSplitNext" title="Next change">↓</button></div>
 <label class="checkpoint-context-check"><input checked="" id="checkpointSplitLinked" style="" type="checkbox" value="on"/> Linked scroll</label>
 <div class="toolbar-spacer"></div>
 <button class="toolbar-button" id="checkpointSplitApply">Apply…</button>
@@ -123,18 +123,18 @@
 </div>
 <footer class="statusbar"><span id="saveState">Saved</span><span id="sceneStatus"></span><span id="wordCount">91 words</span></footer>
 </section>
-<div aria-label="Resize Split View" aria-orientation="vertical" class="split-resizer" id="splitResizer" role="separator" tabindex="0" title="Drag to resize Split View · double-click to reset"></div>
-<section class="split-pane" id="splitPane" style="flex: 0 0 562px;">
-<div class="split-head"><b id="splitTitle">Before the second draft · Read only</b><div class="split-head-actions"><button aria-label="Add task" class="bare-button hidden" id="splitTaskAdd" title="Add task">+</button><button aria-label="Close" class="bare-button ui-close-button" id="closeSplitBtn">×</button></div></div>
-<div class="split-body checkpoint-split-body" id="splitBody"><article class="checkpoint-split-paper checkpoint-comparison show-diff"><div class="checkpoint-readonly-note">Checkpoint · Read only</div><div class="checkpoint-compare-row same"><div class="checkpoint-unit chapter">The light goes out</div></div><div class="checkpoint-compare-row same"><div class="checkpoint-unit body">Mara had learned that a lighthouse could be quiet in a hundred different ways, but never this one.</div></div><div class="checkpoint-compare-row changed" data-change-index="0"><div class="checkpoint-unit body">The lamp had stopped turning. <mark class="checkpoint-diff-removed">Beyond</mark> the <mark class="checkpoint-diff-removed">windows,</mark> Bellweather <mark class="checkpoint-diff-removed">was disappearing</mark> into the dark.</div></div><div class="checkpoint-compare-row same"><div class="checkpoint-unit body">The telephone rang. Nobody called the lighthouse after midnight. Mara crossed the kitchen and answered.</div></div><div class="checkpoint-compare-row same"><div class="checkpoint-unit body">“You need to leave,” a voice said. “Before the tide turns.”</div></div><div class="checkpoint-compare-row same"><div class="checkpoint-unit body">She looked at the black windows. Far below, a single light moved across the water.</div></div><div class="checkpoint-compare-row same"><div class="checkpoint-unit chapter">Bellweather</div></div><div class="checkpoint-compare-row same"><div class="checkpoint-unit body">Morning arrived with a letter from the mainland.</div></div><div class="checkpoint-compare-row same"><div class="checkpoint-unit chapter">A voice below</div></div><div class="checkpoint-compare-row same"><div class="checkpoint-unit body">Morning arrived with a letter from the mainland.</div></div></article></div>
+<div aria-label="Resize Split View" aria-orientation="vertical" class="split-resizer hidden" id="splitResizer" role="separator" tabindex="0" title="Drag to resize Split View · double-click to reset"></div>
+<section class="split-pane hidden" id="splitPane">
+<div class="split-head"><b id="splitTitle">Split View</b><div class="split-head-actions"><button aria-label="Add task" class="bare-button hidden" id="splitTaskAdd" title="Add task">+</button><button aria-label="Close" class="bare-button ui-close-button" id="closeSplitBtn">×</button></div></div>
+<div class="split-body" id="splitBody"></div>
 </section>
 <aside aria-label="Checkpoints" class="right-panel checkpoint-panel hidden" id="checkpointPanel">
 <div class="panel-head"><b>Checkpoints</b><button aria-label="Close Checkpoints" class="bare-button ui-close-button" id="closeCheckpointPanel">×</button></div>
 <div class="checkpoint-panel-tools">
 <input aria-label="Search checkpoints" autocomplete="off" id="checkpointSearch" placeholder="Search checkpoints" style="" type="search" value=""/>
-<div class="checkpoint-panel-filter-row"><select aria-label="Checkpoint scope" id="checkpointScopeFilter"><option disabled="" value="current">Current Chapter</option><option value="chapters">Chapters</option><option value="book">Book</option><option selected="" value="all">All</option></select><button id="checkpointCreateBtn">+ Checkpoint</button></div>
+<div class="checkpoint-panel-filter-row"><select aria-label="Checkpoint scope" id="checkpointScopeFilter"><option selected="" value="current">Current Chapter</option><option value="chapters">Chapters</option><option value="book">Book</option><option value="all">All</option></select><button id="checkpointCreateBtn">+ Checkpoint</button></div>
 </div>
-<div class="checkpoint-list" id="checkpointList"><div class="checkpoint-list-row active" data-checkpoint-row="1"><button class="checkpoint-use" data-checkpoint-compare="1" title="Compare Before the second draft" type="button"><span class="checkpoint-list-main"><b>Before the second draft</b><small>Book · Nov 2, 2026, 1:09 PM · 89 words</small></span></button><button aria-label="Checkpoint actions for Before the second draft" class="checkpoint-more manuscript-item-more" data-checkpoint-more="1" type="button"><span aria-hidden="true">⋮</span></button></div></div>
+<div class="checkpoint-list" id="checkpointList"></div>
 </aside>
 <aside aria-label="Cuts" class="right-panel cuts-panel hidden" id="cutsPanel">
 <div class="panel-head"><b>Cuts</b><button aria-label="Close Cuts" class="bare-button ui-close-button" id="closeCutsPanel">×</button></div>
@@ -151,12 +151,12 @@
 <div class="panel-head"><b>Narration</b><button aria-label="Close narration" class="bare-button ui-close-button" id="closeNarrationPanel" type="button">×</button></div>
 <div class="narration-panel-tools">
 <label class="narration-voice-label" for="narrationVoice">Narrator voice</label>
-<select aria-label="Narrator voice" disabled="" id="narrationVoice"><optgroup label="English"><option selected="" value="af_heart">Heart · American English · female</option><option value="am_michael">Michael · American English · male</option><option value="bf_emma">Emma · British English · female</option><option value="bm_george">George · British English · male</option></optgroup><optgroup label="Spanish"><option value="ef_dora">Dora · Spanish · female</option><option value="em_alex">Alex · Spanish · male</option><option value="em_santa">Santa · Spanish · male</option></optgroup></select>
+<select aria-label="Narrator voice" id="narrationVoice"><optgroup label="English"><option selected="" value="af_heart">Heart · American English · female</option><option value="am_michael">Michael · American English · male</option><option value="bf_emma">Emma · British English · female</option><option value="bm_george">George · British English · male</option></optgroup><optgroup label="Spanish"><option value="ef_dora">Dora · Spanish · female</option><option value="em_alex">Alex · Spanish · male</option><option value="em_santa">Santa · Spanish · male</option></optgroup></select>
 <div class="narration-action-row">
 <div class="narration-action" data-narration-action="selection"><button class="soft-button" disabled="" id="narrationSelection" type="button">Narrate selection</button><button aria-haspopup="menu" aria-label="Selection narration options" class="bare-button narration-action-more" disabled="" id="narrationSelectionOptions" type="button">⋮</button></div>
-<div class="narration-action" data-narration-action="scope"><button class="soft-button" data-narration-text="narration.book" disabled="" id="narrationChapter" type="button">Narrate book</button><button aria-haspopup="menu" aria-label="Chapter or book narration options" class="bare-button narration-action-more" disabled="" id="narrationScopeOptions" type="button">⋮</button></div>
+<div class="narration-action" data-narration-action="scope"><button class="soft-button" disabled="" id="narrationChapter" type="button">Narrate chapter</button><button aria-haspopup="menu" aria-label="Chapter or book narration options" class="bare-button narration-action-more" disabled="" id="narrationScopeOptions" type="button">⋮</button></div>
 </div>
-<div aria-live="polite" class="narration-progress hidden" id="narrationProgress" role="status"><span id="narrationProgressLabel"></span><progress aria-label="Estimated generation progress" id="narrationProgressBar" max="1"></progress><small id="narrationProgressEstimate"></small><button class="quiet-button" data-narration-text="narration.stop_generation" id="narrationStop" type="button">Stop after this passage</button></div>
+<div aria-live="polite" class="narration-progress hidden" id="narrationProgress" role="status"><span id="narrationProgressLabel"></span><progress aria-label="Estimated generation progress" id="narrationProgressBar" max="1"></progress><small id="narrationProgressEstimate"></small><button class="quiet-button" id="narrationStop" type="button">Stop after this passage</button></div>
 </div>
 <div class="narration-recordings" id="narrationRecordings">
 <div class="narration-empty"><b>No narrations yet</b><p>Select text to narrate a passage, or narrate the whole chapter. Saved recordings will appear here.</p></div>

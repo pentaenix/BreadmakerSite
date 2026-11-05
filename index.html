@@ -35,6 +35,8 @@
 <link href="brand.css" rel="stylesheet"/>
 <link href="marketing.css" rel="stylesheet"/>
 <link href="phone-layout.css" rel="stylesheet"/>
+<link href="navigation.css" rel="stylesheet"/>
+<link href="usability.css" rel="stylesheet"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -55,7 +57,7 @@
       "description": "Breadmaker is an open-source writing app for long-form fiction. Draft your novel, plan on Canvas, follow story threads with Maps, and keep revision work beside the manuscript.",
       "applicationCategory": "ProductivityApplication",
       "image": "https://breadmaker.studio/assets/breadmaker-social.jpg",
-      "screenshot": "https://breadmaker.studio/guide/media/02-write-chapter.jpg?v=8ef8b0d",
+      "screenshot": "https://breadmaker.studio/guide/media/02-write-chapter.jpg?v=sitefix-20261105",
       "softwareHelp": {
         "@id": "https://breadmaker.studio/guide/#webpage"
       },
@@ -93,10 +95,10 @@
 <header class="site-header">
 <a class="brand-link" href="#top" aria-label="Breadmaker home"><img src="assets/breadmaker-logo.svg" alt="" width="34" height="34"/><span>Breadmaker</span></a>
 <nav aria-label="Main navigation" class="quick-actions">
-<a class="quick-action quick-explore" href="#manuscript">Explore</a>
+<a class="quick-action quick-home" href="./" aria-current="page">Home</a>
 <a class="quick-action quick-guide" href="guide/">Guide</a>
-<a class="quick-action quick-download" href="#download">Download</a>
-<a class="quick-action quick-open" data-open-breadmaker="" href="https://app.breadmaker.studio/" title="Open the hosted app · Account required">Open Breadmaker</a>
+<a class="quick-action quick-download" href="#download">Downloads</a>
+<a class="quick-action quick-open" data-open-breadmaker="" href="https://app.breadmaker.studio/" title="Open the hosted app · Account required">Open app</a>
 </nav>
 </header>
 <main id="main" tabindex="-1">
@@ -133,25 +135,25 @@
 <div class="section-copy reveal">
 <p class="eyebrow">Manuscript</p><h2>Write the book.</h2>
 <p>Manuscript is where the book lives. Add chapters and scene headings, move through the draft from the sidebar, or hide the rest of the app and just write.</p>
-<div class="feature-crumbs"><span>Focus</span><span>Split View</span><span>Markup</span><span>Editor’s Eye</span></div>
+<ul class="feature-crumbs" aria-label="Manuscript features"><li>Focus</li><li>Split View</li><li>Markup</li><li>Editor’s Eye</li></ul>
 <a class="section-guide-link text-link" href="guide/#write">Add your first chapter <span aria-hidden="true">→</span></a>
 </div>
-<div class="live-app-shell reveal"><iframe aria-hidden="true" class="live-app-frame" loading="lazy" scrolling="no" src="demos/demo.html?view=manuscript&amp;v=8ef8b0d" tabindex="-1" title="Live Manuscript interface"></iframe><div class="live-ui-badge">Live Manuscript interface</div></div>
+<div class="live-app-shell reveal"><iframe aria-hidden="true" class="live-app-frame" loading="lazy" scrolling="no" src="demos/demo.html?view=manuscript&amp;v=sitefix-20261105" tabindex="-1" title="Live Manuscript interface"></iframe><div class="live-ui-badge">Live Manuscript interface</div></div>
 </section>
 <section class="product-section snap-page" id="canvas">
 <div class="section-copy reveal"><p class="eyebrow">Canvas</p><h2>Think somewhere that isn’t a page.</h2><p>Canvas is the loose planning space. Put characters, scenes, research, questions, or whatever else you need on the board and move it around until it makes sense.</p><a class="section-guide-link text-link" href="guide/#plan">See how Canvas works <span aria-hidden="true">→</span></a>
 </div>
-<div class="live-app-shell reveal"><iframe aria-hidden="true" class="live-app-frame" loading="lazy" scrolling="no" src="demos/demo.html?view=canvas&amp;v=8ef8b0d" tabindex="-1" title="Live Canvas interface"></iframe><div class="live-ui-badge">Live Canvas interface</div></div>
+<div class="live-app-shell reveal"><iframe aria-hidden="true" class="live-app-frame" loading="lazy" scrolling="no" src="demos/demo.html?view=canvas&amp;v=sitefix-20261105" tabindex="-1" title="Live Canvas interface"></iframe><div class="live-ui-badge">Live Canvas interface</div></div>
 </section>
 <section class="product-section snap-page" id="maps">
 <div class="section-copy reveal"><p class="eyebrow">Maps</p><h2>See the story move.</h2><p>Maps lets you track things across the book. Use a line for a character, plot, theme, or anything else you want to follow from chapter to chapter.</p><a class="section-guide-link text-link" href="guide/#maps">Build your first Map <span aria-hidden="true">→</span></a>
 </div>
-<div class="live-app-shell reveal"><iframe aria-hidden="true" class="live-app-frame" loading="lazy" scrolling="no" src="demos/demo.html?view=maps&amp;v=8ef8b0d" tabindex="-1" title="Live Maps interface"></iframe><div class="live-ui-badge">Live Maps interface</div></div>
+<div class="live-app-shell reveal"><iframe aria-hidden="true" class="live-app-frame" loading="lazy" scrolling="no" src="demos/demo.html?view=maps&amp;v=sitefix-20261105" tabindex="-1" title="Live Maps interface"></iframe><div class="live-ui-badge">Live Maps interface</div></div>
 </section>
 <section class="product-section snap-page" id="tasks">
 <div class="section-copy reveal"><p class="eyebrow">Tasks</p><h2>Remember what the book needs.</h2><p>Tasks is where you keep the work the book still needs. Add milestones when a fix has more than one step, finish it, and move on.</p><a class="section-guide-link text-link" href="guide/#tasks">Start a revision task <span aria-hidden="true">→</span></a>
 </div>
-<div class="live-app-shell reveal"><iframe aria-hidden="true" class="live-app-frame" loading="lazy" scrolling="no" src="demos/demo.html?view=tasks&amp;v=8ef8b0d" tabindex="-1" title="Live Tasks interface"></iframe><div class="live-ui-badge">Live Tasks interface</div></div>
+<div class="live-app-shell reveal"><iframe aria-hidden="true" class="live-app-frame" loading="lazy" scrolling="no" src="demos/demo.html?view=tasks&amp;v=sitefix-20261105" tabindex="-1" title="Live Tasks interface"></iframe><div class="live-ui-badge">Live Tasks interface</div></div>
 </section><section class="links-section snap-page" id="links">
 <div class="section-copy reveal">
 <p class="eyebrow">Linked to the manuscript</p>
@@ -165,6 +167,7 @@
 <path d="M0,0 L8,4 L0,8 Z"></path>
 </marker>
 </defs>
+<path class="graph-path graph-trunk" d=""></path>
 <path class="graph-path p1" d="M260 165 C420 165 405 310 535 310"></path>
 <path class="graph-path p2" d="M245 475 C420 475 410 350 535 350"></path>
 <path class="graph-path p3" d="M940 175 C795 175 810 310 665 310"></path>
@@ -186,25 +189,25 @@
 <section class="product-section snap-page" id="checkpoints">
 <div class="section-copy reveal"><p class="eyebrow">Checkpoints</p><h2>Save it. Keep going.</h2><p>Checkpoints save the current version of a chapter or the entire manuscript so you can keep going. Compare it later, restore it, or export it when you need it.</p><a class="section-guide-link text-link" href="guide/#checkpoints">Save a Checkpoint <span aria-hidden="true">→</span></a>
 </div>
-<div class="live-app-shell reveal"><iframe aria-hidden="true" class="live-app-frame" loading="lazy" scrolling="no" src="demos/demo.html?view=manuscript&amp;checkpoint=1&amp;compare=1&amp;v=8ef8b0d" tabindex="-1" title="Live Checkpoints interface"></iframe><div class="live-ui-badge">Live Checkpoints interface</div></div>
+<div class="live-app-shell reveal"><iframe aria-hidden="true" class="live-app-frame" loading="lazy" scrolling="no" src="demos/demo.html?view=manuscript&amp;checkpoint=1&amp;compare=1&amp;v=sitefix-20261105" tabindex="-1" title="Live Checkpoints interface"></iframe><div class="live-ui-badge">Live Checkpoints interface</div></div>
 </section>
 <section class="eye-section snap-page" id="editors-eye">
 <div class="eye-copy reveal"><p class="eyebrow">Editor’s Eye</p><h2>Make familiar words feel unfamiliar again.</h2><p>Editor’s Eye temporarily changes the look of your draft while you edit. Same words, different font, spacing, and page treatment, so familiar sentences are easier to see again.</p><button class="quiet-button" id="eyeToggle" aria-pressed="false">Try Editor’s Eye</button></div>
-<div class="live-app-shell reveal eye-live-shell"><iframe aria-hidden="true" class="live-app-frame" id="eyeFrame" loading="lazy" scrolling="no" src="demos/demo.html?view=manuscript&amp;v=8ef8b0d" tabindex="-1" title="Live Editor’s Eye interface"></iframe><div class="live-ui-badge">Live Editor’s Eye interface</div></div>
+<div class="live-app-shell reveal eye-live-shell"><iframe aria-hidden="true" class="live-app-frame" id="eyeFrame" loading="lazy" scrolling="no" src="demos/demo.html?view=manuscript&amp;v=sitefix-20261105" tabindex="-1" title="Live Editor’s Eye interface"></iframe><div class="live-ui-badge">Live Editor’s Eye interface</div></div>
 </section>
 <section class="ownership-section snap-page">
 <div class="ownership-inner reveal"><p class="eyebrow">Yours</p><h2>Your book belongs to you.</h2><p class="ownership-lede">Breadmaker is local-first and open source. No account is required to write locally. No subscription is required to keep writing locally.</p>
-<div class="ownership-grid"><div><b>Local-first</b><span>Your project lives on your computer.</span></div><div><b>Portable</b><span>Export and import complete projects.</span></div><div><b>Open source</b><span><a class="text-link" href="https://github.com/pentaenix/breadmaker">Read the code on GitHub.</a></span></div><div><b>Pre-alpha</b><span>Still in active pre-alpha development.</span></div></div>
+<div class="ownership-grid"><div><b>Local-first</b><span>Your project lives on your computer.</span></div><div><b>Portable</b><span>PDF, DOCX, Breadmaker projects and JSON.</span></div><div><b>Open source</b><span><a class="text-link" href="https://github.com/pentaenix/breadmaker">Read the code on GitHub.</a></span></div><div><b>Pre-alpha</b><span>Still in active pre-alpha development.</span></div></div>
 </div>
 </section>
 <section class="questions-section snap-page" id="questions">
 <div class="questions-inner">
-<div class="questions-heading"><p class="eyebrow">Before you start</p><h2>A few useful answers.</h2><p>The book is the point. Here’s where Breadmaker fits around it.</p></div>
+<div class="questions-heading"><p class="eyebrow">Before you start</p><h2>Frequently asked questions</h2><p>The book is the point. Here’s where Breadmaker fits around it.</p></div>
 <div class="questions-list">
 <details open=""><summary>What kind of writing is Breadmaker for?</summary><p>Breadmaker is a writing app for long-form fiction. Draft chapters in Manuscript, collect ideas on Canvas, follow characters and plot threads with Maps, and keep revision work in Tasks. Use as much or as little of the workshop as your book needs.</p></details>
 <details><summary>Can I write in a browser?</summary><p>Yes. <a class="text-link" href="https://app.breadmaker.studio/">Open the hosted web app</a> and sign in with a Breadmaker account. The local editor runs on your own computer and does not require an account.</p></details>
 <details><summary>Do I need a subscription?</summary><p>The local editor is free and open source. Premium plans and optional cloud services are in preparation. Pricing and availability will be published here before subscriptions are offered.</p></details>
-<details><summary>Can I take my project with me?</summary><p>You can export and import complete Breadmaker projects. Checkpoints also let you save versions of a chapter or the whole manuscript as you revise. Your book belongs to you.</p></details>
+<details><summary>Can I take my project with me?</summary><p>The Export menu offers PDF and Word (.docx) for the manuscript, plus Breadmaker project files and Project JSON. Project JSON carries text and planning data without images or media. Your book belongs to you.</p></details>
 </div>
 </div>
 </section>
@@ -217,6 +220,6 @@
 <div aria-label="Patreon coming soon" class="patreon-corner" role="img" title="Patreon coming soon"><img alt="" aria-hidden="true" src="assets/patreon-mark.png"/></div></section>
 </main>
 <footer class="site-footer"><a class="footer-brand" href="#top"><img class="brand-logo on-dark" src="assets/breadmaker-logo.svg" alt="" width="27" height="27"/>Breadmaker</a><nav class="footer-nav" aria-label="Footer navigation"><a href="guide/index.html">Guide</a><a href="#download">Download</a><a href="https://github.com/pentaenix/breadmaker">Source</a></nav><span>Made for the work of writing · Pre-alpha</span></footer>
-<script src="script.js"></script>
+<script src="script.js?v=sitefix-20261105"></script>
 <div aria-hidden="true" class="section-rail"><span class="section-rail-number">01</span><i class="section-rail-line"><b class="section-rail-fill"></b></i><span class="section-rail-name">INTRO</span></div></body>
 </html>
