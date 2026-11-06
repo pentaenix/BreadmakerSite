@@ -1,12 +1,11 @@
-/* Keep decorative notes in their own rows, away from the writing and links. */
-.hero.snap-page{height:auto;min-height:100svh;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:auto minmax(0,1fr) auto;column-gap:16px;row-gap:32px;padding:calc(var(--site-header-height) + 30px) max(24px,4vw) 76px}
-.thought-field{display:contents;position:static;transform:none!important;scale:none;transition:none}
-.hero-copy{grid-column:1/-1;grid-row:2;justify-self:center;min-width:0;width:min(1100px,100%);transform:none!important}
-.thought{display:none;position:static;inset:auto;max-width:100%;margin:0;justify-self:center;align-self:center;animation:none!important;translate:none;transform:none!important;will-change:auto;opacity:1;color:var(--muted,#62665e);font-size:12px;line-height:1.45;pointer-events:none;text-align:center}
-.thought.t1,.thought.t2,.thought.t3,.thought.t4,.thought.t5,.thought.t6,.thought.t7,.thought.t8{display:block}
-.thought.t1,.thought.t2,.thought.t3,.thought.t4{grid-row:1}
-.thought.t5,.thought.t6,.thought.t7,.thought.t8{grid-row:3}
-.thought.t1,.thought.t5{grid-column:1}.thought.t2,.thought.t6{grid-column:2}.thought.t3,.thought.t7{grid-column:3}.thought.t4,.thought.t8{grid-column:4}
+/* The original word field returns; JS places each fading note in measured free space. */
+.hero.snap-page{height:auto;min-height:max(720px,100svh);display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:1fr;place-items:center;padding:calc(var(--site-header-height) + 56px) max(24px,4vw) 120px}
+.hero-copy{grid-column:1;grid-row:1;min-width:0;width:min(1100px,100%);transform:none!important}
+.thought-field{position:absolute;display:block;inset:0;z-index:1;overflow:hidden;pointer-events:none;transform:none!important;scale:none;transition:none}
+.thought-field .thought{position:absolute;display:block;inset:auto;max-width:none;margin:0;animation:none!important;translate:none;transform:none!important;will-change:auto;opacity:0;visibility:hidden;color:var(--muted,#62665e);font-size:clamp(11px,1.05vw,15px);line-height:1.45;white-space:nowrap;pointer-events:none;text-align:left;border:0;background:none;box-shadow:none}
+.thought-field .thought:nth-child(4n){font-size:clamp(10px,.9vw,13px)}
+.thought-field .thought.is-placed{visibility:visible}
+.download-inner>.download-browser-benefit{max-width:32em;line-height:1.5;text-wrap:pretty}
 
 /* Feature names are a list, not inert pill-shaped controls. */
 .feature-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:8px 14px;padding:0;margin:24px 0 0;color:#515d4c;font-size:12px;line-height:1.6}
@@ -29,9 +28,5 @@
  .link-graph .graph-path:not(.graph-trunk){marker-end:none}
 }
 @media(max-width:760px),(max-width:1000px) and (max-height:500px){
- .hero.snap-page{padding:calc(var(--site-header-height) + 26px) max(18px,env(safe-area-inset-right,0px)) 72px max(18px,env(safe-area-inset-left,0px));row-gap:28px;column-gap:12px}
- .thought.t3,.thought.t4,.thought.t7,.thought.t8{display:none}
- .thought.t1,.thought.t5{grid-column:1/span 2}
- .thought.t2,.thought.t6{grid-column:3/span 2}
- .thought{font-size:11px}
+ .hero.snap-page{min-height:100svh;padding:calc(var(--site-header-height) + 68px) max(18px,env(safe-area-inset-right,0px)) 112px max(18px,env(safe-area-inset-left,0px))}
 }

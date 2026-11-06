@@ -17,7 +17,7 @@
     revealEls.forEach(el => observer.observe(el));
   }
 
-  // Decorative notes occupy separate layout rows and do not follow the pointer.
+  // The organic, collision-aware hero word field is owned by hero-notes.js.
 
   const sleep = ms => new Promise(r => setTimeout(r, ms));
   const jitter = (base, spread=0) => base + Math.random() * spread;
