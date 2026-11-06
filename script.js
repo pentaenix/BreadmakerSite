@@ -82,7 +82,7 @@
   const railNum=document.querySelector('.section-rail-number');
   const railName=document.querySelector('.section-rail-name');
   const railFill=document.querySelector('.section-rail-fill');
-  const names=['INTRO','WRITE','MANUSCRIPT','CANVAS','MAPS','TASKS','REVIEWS','TARGETS','LINKS','CHECKPOINTS','EDITOR’S EYE','YOURS','QUESTIONS','DOWNLOAD'];
+  const names=['INTRO','WRITE','MANUSCRIPT','CANVAS','MAPS','LINKS','TASKS','CHECKPOINTS','EDITOR’S EYE','REVIEWS','TARGETS','YOURS','QUESTIONS','DOWNLOAD'];
   if (rail && sections.length) {
     const ratios=new Map();
     const obs=new IntersectionObserver(entries=>{
