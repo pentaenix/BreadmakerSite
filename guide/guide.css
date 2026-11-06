@@ -6,7 +6,7 @@
 .guide-shot{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:8px;box-shadow:var(--shadow);overflow:hidden;background:#fff}.guide-shot video{width:100%;height:100%;display:block;object-fit:contain;background:#fff;pointer-events:none;user-select:none}
 .guide-end{display:grid;place-items:center;text-align:center;padding:80px 24px;background:#191a19;color:#eee}.guide-mark{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:2px solid #fff;color:#fff;font-family:Arial,Helvetica,sans-serif;font-weight:700;margin:0 auto 28px}.guide-end .guide-eyebrow{color:#8f918b}.guide-end h2{font-size:clamp(54px,7vw,98px)}.guide-end-actions{display:flex;justify-content:center;gap:8px;margin-top:34px}.guide-end-actions a{border:1px solid #444542;border-radius:5px;padding:11px 14px;color:#aaa;font-size:11px}.guide-end-actions a.primary{background:#f3f3f1;color:#202020;border-color:#f3f3f1;font-weight:700}.guide-footer{height:54px;background:#191a19;border-top:1px solid #30312f;color:#777873;display:flex;justify-content:space-between;align-items:center;padding:0 24px;font-size:10px}.guide-footer a{font-family:Arial,Helvetica,sans-serif;font-weight:700}
 .guide-copy,.guide-shot,.guide-overview-inner{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.8,.2,1)}.guide-step.visible .guide-copy,.guide-step.visible .guide-shot,.guide-overview.visible .guide-overview-inner{opacity:1;transform:none}.guide-step.visible .guide-shot{transition-delay:.08s}
-@media(max-width:900px){.guide-step{grid-template-columns:1fr;gap:38px;padding-top:76px;padding-bottom:76px}.guide-copy{max-width:680px}.overview-grid{grid-template-columns:1fr}.overview-grid article,.overview-grid article:nth-child(odd),.overview-grid article:nth-child(even){padding:17px 2px;border-left:0}.guide-block{min-height:100svh}}
+@media(max-width:1100px){.guide-step{grid-template-columns:1fr;gap:38px;padding-top:76px;padding-bottom:76px}.guide-copy{max-width:680px}.overview-grid{grid-template-columns:1fr}.overview-grid article,.overview-grid article:nth-child(odd),.overview-grid article:nth-child(even){padding:17px 2px;border-left:0}.guide-block{min-height:100svh}}
 @media(max-width:640px){html{scroll-snap-type:y proximity}.guide-back{left:14px;top:14px}.guide-download{right:14px;top:14px}.guide-step{padding:64px 16px;min-height:auto}.guide-overview{padding:80px 16px}.overview-grid article{grid-template-columns:120px 1fr}.guide-end-actions{flex-direction:column}.guide-hero h1,.guide-copy h2,.guide-overview h2,.guide-end h2{line-height:1.09;padding-bottom:.13em}}
 @media(prefers-reduced-motion:reduce){.guide-shot video{pointer-events:auto}html{scroll-snap-type:y proximity}.guide-copy,.guide-shot,.guide-overview-inner{opacity:1;transform:none;transition:none}}
 
@@ -37,3 +37,15 @@ button.guide-download{
   outline:2px solid currentColor;
   outline-offset:3px;
 }
+
+/* Written guides complement the original eight integrated video walkthroughs. */
+.guide-reference{grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:7vw}
+.guide-reference-notes{border-top:1px solid var(--line2);padding-top:24px;max-width:560px}
+.guide-reference-notes h3{font-size:22px;line-height:1.3;margin:0 0 22px;font-weight:600;letter-spacing:-.015em}
+.guide-reference-notes p{font-size:15px;line-height:1.65;color:#62635f;margin:0 0 20px}
+.guide-language-list{list-style:none;padding:0;margin:0}
+.guide-language-list li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.5}
+.guide-language-list small{color:#62635f;text-align:right;font-size:13px}
+.guide-app-preview{width:100%;aspect-ratio:16/9;position:relative;overflow:hidden;border:1px solid var(--line2);border-radius:8px;box-shadow:var(--shadow);background:#fff}
+.guide-app-preview iframe{display:block;width:1366px;height:768px;border:0;transform-origin:top left}
+@media(max-width:900px){.guide-reference{grid-template-columns:1fr;gap:38px}.guide-reference-notes{max-width:680px}}

@@ -82,7 +82,7 @@
   const railNum=document.querySelector('.section-rail-number');
   const railName=document.querySelector('.section-rail-name');
   const railFill=document.querySelector('.section-rail-fill');
-  const names=['INTRO','WRITE','MANUSCRIPT','CANVAS','MAPS','TASKS','LINKS','CHECKPOINTS','EDITOR’S EYE','YOURS','QUESTIONS','DOWNLOAD'];
+  const names=['INTRO','WRITE','MANUSCRIPT','CANVAS','MAPS','TASKS','REVIEWS','TARGETS','LINKS','CHECKPOINTS','EDITOR’S EYE','YOURS','QUESTIONS','DOWNLOAD'];
   if (rail && sections.length) {
     const ratios=new Map();
     const obs=new IntersectionObserver(entries=>{
@@ -102,14 +102,15 @@
   // Keep the external control synchronized even if the lazy iframe is still loading.
   const eyeButton=document.getElementById('eyeToggle');
   const eyeFrame=document.getElementById('eyeFrame');
-  let eyeOn=false;
-  const syncEye=()=>eyeFrame?.contentWindow?.postMessage({type:'set-eye',value:eyeOn},location.origin);
+  let eyeOn=false,eyeActivation=0;
+  const syncEye=()=>eyeFrame?.contentWindow?.postMessage({type:'set-eye',value:eyeOn,activation:eyeActivation},location.origin);
   eyeFrame?.addEventListener('load',syncEye);
   addEventListener('message',event=>{
     if(event.origin===location.origin&&event.source===eyeFrame?.contentWindow&&event.data?.type==='preview-ready')syncEye();
   });
   eyeButton?.addEventListener('click',()=>{
     eyeOn=!eyeOn;
+    if(eyeOn)eyeActivation++;
     eyeButton.setAttribute('aria-pressed',String(eyeOn));
     eyeButton.textContent=eyeOn?'Return to manuscript':'Try Editor’s Eye';
     syncEye();

@@ -1,7 +1,9 @@
 /* Read-only surfaces captured from the current app. No backend or user data. */
 (async()=>{
- const params=new URLSearchParams(location.search),version=encodeURIComponent(params.get('v')||'sitefix-20261105'),settings=await (await fetch(`current-ui/frame-settings.json?v=${version}`)).json();
+ const params=new URLSearchParams(location.search),version=encodeURIComponent(params.get('v')||'features-20261106'),settings=await (await fetch(`current-ui/frame-settings.json?v=${version}`)).json();
  const cache=new Map();let renderVersion=0,current=params.get('view')||'manuscript',eye=params.get('eye')==='1',compare=params.get('checkpoint')==='1'&&params.get('compare')==='1',panel=params.get('checkpoint')==='1';
+ let eyePreset=eye?BreadmakerEyeDemo.choose(-1):-1,eyeActivation=null;
+ const setEye=(value,activation=null)=>{if(value&&(!eye||activation!==eyeActivation))eyePreset=BreadmakerEyeDemo.choose(eyePreset);eye=!!value;eyeActivation=activation;compare=false;panel=false;show('manuscript')};
  const $=selector=>document.querySelector(selector),$$=selector=>[...document.querySelectorAll(selector)];
  async function show(name){
   const versionAtStart=++renderVersion;
@@ -12,12 +14,13 @@
   current=name;document.body.innerHTML=cache.get(key);document.documentElement.style.cssText=settings[key].rootStyle;
   document.documentElement.dataset.theme=settings[key].rootTheme;
   (settings[key].scroll||[]).forEach(({id,left,top})=>{const el=document.getElementById(id);if(el){el.scrollLeft=left;el.scrollTop=top}});
+  if(eye&&name==='manuscript')BreadmakerEyeDemo.apply(eyePreset);
   document.documentElement.dataset.initialView=name;document.documentElement.dataset.demoView=key;
   $$('.main-tab').forEach(button=>button.addEventListener('click',()=>{eye=false;compare=false;panel=false;show(button.dataset.view)}));
-  $('#themeBtn')?.addEventListener('click',()=>{document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark'});
+  $('#themeBtn')?.addEventListener('click',()=>{document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark';if(eye)BreadmakerEyeDemo.apply(eyePreset)});
   $('#toggleRail')?.addEventListener('click',()=>$('#canvasRail')?.classList.toggle('collapsed'));
   $('#toggleMapRail')?.addEventListener('click',()=>$('#mapRail')?.classList.toggle('collapsed'));
-  $('#editorsEyeBtn')?.addEventListener('click',()=>{eye=!eye;compare=false;panel=false;show('manuscript')});
+  $('#editorsEyeBtn')?.addEventListener('click',()=>setEye(!eye));
   $('#checkpointBtn')?.addEventListener('click',()=>{panel=!panel;compare=false;eye=false;show('manuscript')});
   $('#closeCheckpointPanel')?.addEventListener('click',()=>{panel=false;show('manuscript')});
   $$('[data-checkpoint-compare]').forEach(button=>button.addEventListener('click',()=>{compare=true;panel=false;show('manuscript')}));
@@ -47,7 +50,7 @@
    node.addEventListener('pointermove',move);node.addEventListener('pointerup',up);
   }));
  }
- addEventListener('message',event=>{if(event.origin!==location.origin||event.source!==parent||event.data?.type!=='set-eye')return;eye=!!event.data.value;compare=false;panel=false;show('manuscript')});
+ addEventListener('message',event=>{if(event.origin!==location.origin||event.source!==parent||event.data?.type!=='set-eye')return;setEye(!!event.data.value,event.data.activation)});
  await show(current);
  if(parent!==window)parent.postMessage({type:'preview-ready'},location.origin);
 })().catch(error=>console.error('Breadmaker preview could not load',error));

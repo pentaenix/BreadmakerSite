@@ -27,3 +27,11 @@ document.querySelectorAll('[data-download-placeholder]').forEach((button) => {
     );
   });
 });
+
+// Scale the real captured Reviews interface within its existing presentation frame.
+(() => {
+ const frame=document.querySelector('.guide-app-preview');
+ if(!frame)return;
+ const fit=()=>{frame.querySelector('iframe').style.transform=`scale(${frame.clientWidth/1366})`};
+ new ResizeObserver(fit).observe(frame);fit();
+})();
