@@ -36,8 +36,9 @@ def resolve_local(base: Path, raw: str) -> Path | None:
     path = unquote(parts.path)
     if not path:
         return None
-    # All production site links are intentionally relative so project Pages repos work.
-    target = (base.parent / path).resolve()
+    # The fallback may be served at any missing URL, so its assets/links use
+    # the custom domain's root rather than the requested URL's directory.
+    target = ((ROOT / path.lstrip('/')) if path.startswith('/') else (base.parent / path)).resolve()
     try:
         target.relative_to(ROOT.resolve())
     except ValueError:

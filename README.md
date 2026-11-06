@@ -17,6 +17,14 @@ python3 scripts/check_site.py
 
 There is no framework build or dependency installation.
 
+## Missing pages
+
+GitHub Pages uses the root `404.html` for missing URLs. Its assets and navigation
+use root-relative paths so nested missing addresses work too. It has no automatic
+redirect or JavaScript dependency. Preview the layout at `/404.html`; the simple
+local server does not emulate GitHub Pages' fallback or HTTP status handling.
+Verify an actually nonexistent deployed path returns HTTP 404 after changes.
+
 ## Product destinations and release availability
 
 - **Open Breadmaker:** `https://app.breadmaker.studio/`. Link to the app root so it can handle account routing. Signed-out users are directed to sign-in.
