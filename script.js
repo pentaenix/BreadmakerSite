@@ -19,62 +19,7 @@
 
   // The organic, collision-aware hero word field is owned by hero-notes.js.
 
-  const sleep = ms => new Promise(r => setTimeout(r, ms));
-  const jitter = (base, spread=0) => base + Math.random() * spread;
-
-  async function rewriteLoop(span, cursor, {
-    firstDelay=500, deleteBase=22, typeBase=38, restMin=5000, restSpread=2500, choices=null
-  }={}) {
-    await sleep(firstDelay + Math.random()*250);
-    let current = span.textContent;
-    while (true) {
-      cursor.classList.add('live');
-      await sleep(jitter(180,160));
-      for (let i=current.length; i>=0; i--) {
-        span.textContent=current.slice(0,i);
-        await sleep(jitter(deleteBase,16));
-      }
-      await sleep(jitter(170,160));
-      let target = span.dataset.typeTarget || current;
-      if (choices?.length) {
-        const pool=choices.filter(x=>x!==current);
-        target=pool[Math.floor(Math.random()*pool.length)] || choices[0];
-      }
-      for (let i=1; i<=target.length; i++) {
-        span.textContent=target.slice(0,i);
-        const ch=target[i-1];
-        await sleep(jitter(typeBase + (/[.,!?]/.test(ch)?65:0),24));
-      }
-      current=target;
-      span.dataset.typeTarget=target;
-      await sleep(jitter(500,430));
-      cursor.classList.remove('live');
-      await sleep(jitter(restMin,restSpread));
-    }
-  }
-
-  if (!reducedMotion) {
-    const title=document.querySelector('[data-type-target="Breadmaker"]');
-    const subtitle=document.querySelector('.hero-subtitle [data-type-target]');
-    const subtitleLines=[
-      'Writing has never been simpler.',
-      'Just write.',
-      'Start with a blank page.',
-      'Keep the whole book together.',
-      'Plan it here. Write it here.',
-      'Your draft comes first.',
-      'Open it. Start writing.',
-      'Write first. Organize when you need to.',
-      'Keep notes beside the manuscript.',
-      'See the whole story at once.',
-      'Plan as much or as little as you want.',
-      'Keep your ideas beside your draft.',
-      'One project. The whole book.',
-      'A place for your next chapter.'
-    ];
-    if (title) rewriteLoop(title,title.nextElementSibling,{firstDelay:550,deleteBase:24,typeBase:40,restMin:6500,restSpread:2600});
-    if (subtitle) rewriteLoop(subtitle,subtitle.nextElementSibling,{firstDelay:1800,deleteBase:16,typeBase:29,restMin:3900,restSpread:2200,choices:subtitleLines});
-  }
+  // The product definition stays visible; only decorative hero notes animate.
 
   // Section rail is purely descriptive. Native CSS scroll snapping does the paging.
   const sections=[...document.querySelectorAll('.snap-page')];
@@ -82,7 +27,7 @@
   const railNum=document.querySelector('.section-rail-number');
   const railName=document.querySelector('.section-rail-name');
   const railFill=document.querySelector('.section-rail-fill');
-  const names=['INTRO','WRITE','MANUSCRIPT','CANVAS','MAPS','LINKS','TASKS','CHECKPOINTS','EDITOR’S EYE','REVIEWS','TARGETS','YOURS','QUESTIONS','DOWNLOAD'];
+  const names=['INTRO','MANUSCRIPT','CANVAS','MAPS','LINKS','TASKS','CHECKPOINTS','EDITOR’S EYE','REVIEWS','TARGETS','YOURS','QUESTIONS','DOWNLOAD'];
   if (rail && sections.length) {
     const ratios=new Map();
     const obs=new IntersectionObserver(entries=>{

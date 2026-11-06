@@ -36,11 +36,11 @@
     const gap = root.width < 760 ? 12 : 18;
     const protectedRects = [];
     for (const selector of ['.hero-logo','.hero-title','.hero-subtitle',
-      '.hero-description','.hero-actions','.scroll-cue']) {
+      '.hero-description','.hero-actions','.hero-access-note','.scroll-cue']) {
       const element = hero.querySelector(selector);
       if (!element) continue;
       const r = localRect(element, root);
-      // Reserve the entire title/subtitle row even while letters are being erased.
+      // Keep decorative notes outside the full title and product-definition rows.
       if (selector === '.hero-title' || selector === '.hero-subtitle') {
         r.left = copyRect.left;
         r.right = copyRect.right;
