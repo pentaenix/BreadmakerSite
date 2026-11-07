@@ -1,0 +1,33 @@
+/* The shared writing core comes first; Cloud additions form a separate row group. */
+.feature-comparison{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;margin-top:42px;font-size:15px;line-height:1.55;text-align:left}
+.feature-comparison .feature-name{width:48%}
+.feature-comparison caption{text-align:left;padding:0 0 14px;font-size:13px;color:#566050}
+.feature-comparison th,.feature-comparison td{padding:21px 20px;border-bottom:1px solid var(--line2);vertical-align:middle}
+.feature-comparison thead th{font-size:23px;font-weight:600;line-height:1.25;letter-spacing:-.03em;vertical-align:top}
+.feature-comparison thead th:first-child{font-size:13px;letter-spacing:0;color:#566050;padding-left:0}
+.feature-comparison thead th span{display:block;font-size:13px;font-weight:400;letter-spacing:0;line-height:1.5;color:#566050;margin-top:9px}
+.feature-comparison tr>:last-child:not([colspan]){background:#e8eee3}
+.feature-comparison thead tr>:last-child{border-radius:8px 8px 0 0}
+.feature-comparison tbody:last-child tr:last-child>:last-child{border-radius:0 0 8px 8px}
+.feature-comparison tbody th:not([colspan]){padding-left:0;font-size:16px;font-weight:600}
+.feature-comparison tbody th>span:not([aria-hidden]){display:block;font-size:13px;line-height:1.55;color:#566050;font-weight:400;margin-top:5px}
+.feature-comparison td{color:#354d37;font-size:18px}
+.feature-comparison .included-label{font-size:14px;margin-left:8px}
+.feature-comparison .feature-group th{padding:19px 0 12px;border-bottom:1px solid #c3cdbb;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#485d49}
+.feature-comparison .cloud-additions th{padding-top:32px;color:#354d37}
+.comparison-note{font-size:13px;line-height:1.65;color:#566050;max-width:780px;margin:22px 0 0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+@media(max-width:600px){
+.feature-comparison{margin-top:30px;line-height:1.45}
+.feature-comparison .feature-name{width:48%}
+.feature-comparison th,.feature-comparison td{padding:18px 9px}
+.feature-comparison thead th{font-size:16px;overflow-wrap:normal}
+.feature-comparison thead th:first-child{font-size:11px}
+.feature-comparison thead th span{font-size:11px}
+.feature-comparison tbody th:not([colspan]){font-size:14px;padding-right:13px}
+.feature-comparison tbody th>span:not([aria-hidden]){font-size:12px}
+.feature-comparison td{text-align:center}
+.feature-comparison .included-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.comparison-note{font-size:12px}
+}
+@media(max-width:360px){.feature-comparison thead th{font-size:13px}.feature-comparison th,.feature-comparison td{padding-left:6px;padding-right:6px}}

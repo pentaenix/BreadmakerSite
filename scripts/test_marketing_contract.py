@@ -38,6 +38,18 @@ assert 'Design preview' in cloud
 assert 'Changes do not sync automatically.' in cloud
 assert 'compatible project copy' in cloud
 assert '<th scope="col">' in cloud and '<th scope="row">' in cloud
+assert 'Included in both' in cloud and 'Cloud adds' in cloud
+assert cloud.index('id="shared-tools"') < cloud.index('id="cloud-additions"')
+shared=cloud.split('<tbody aria-labelledby="shared-tools">',1)[1].split('</tbody>',1)[0]
+assert shared.count('class="included-label">Included</span>')==8
+for feature in ('Manuscript','Canvas and Maps','Tasks and Checkpoints','PDF, DOCX'):
+    assert feature in shared
+assert 'See what Cloud adds' in cloud
+assert 'Choose what fits' not in cloud and 'Choose the local editor when' not in cloud
+assert 'Cloud needs an internet connection' in cloud
+assert 'does not provide those local backup connections' in cloud
+assert 'everything in local' not in cloud.lower()
+assert 'comparison.css?v=' in cloud
 assert '<form' not in cloud
 assert cloud.count('data-checkout-preview aria-describedby="offer-preview-notice" disabled')==2
 assert '<dialog' in cloud and 'preview.js?v=' in cloud

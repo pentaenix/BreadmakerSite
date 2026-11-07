@@ -31,7 +31,7 @@ Verify an actually nonexistent deployed path returns HTTP 404 after changes.
 - **Open Breadmaker Cloud:** `https://app.breadmaker.studio/`. Link to the app root so it can handle account routing. Signed-out users are directed to sign-in. The real account gate is unchanged by marketing-page previews.
 - **Source:** the public `https://github.com/pentaenix/breadmaker` repository.
 - **Local installers:** not yet public. The site deliberately shows their release-testing status. Enable download links only for approved public release assets, with verified platform, version, and checksums. Do not publish internal app archives in this repository or substitute a source archive for an installer.
-- **Cloud offer preview:** the public `/cloud/` route shows the owner-requested final-state monthly offer. It explains verified browser/account-linked project benefits and compares the local edition. The page is also the fixed destination used by the app for admission denials. It reads no account data and does not infer payment status.
+- **Cloud offer preview:** the public `/cloud/` route shows the owner-requested final-state monthly offer. It explains verified browser/account-linked project benefits and shows the shared writing core before the added Cloud convenience. The page is also the fixed destination used by the app for admission denials. It reads no account data and does not infer payment status.
 - **Price and checkout:** the owner supplied 4.99 per month for the offer preview. Currency remains unconfirmed, so no symbol or currency code is shown. One design-preview notice and a safe native dialog make clear that checkout is not connected. Subscribe buttons collect nothing and create no payment or entitlement. Keep real app sign-in links intact. Confirm currency and actual billing integration before making the offer transactional or adding structured Offer data. The local editor remains free and accountless.
 
 ## Brand and media
@@ -79,8 +79,9 @@ matching browser binaries without installing another runtime.
 
 Copy reviewed on 7 November 2026: writing first, optional planning/revision, no
 named competitors, no implied hired editor, no mandatory workflow or permanent
-manuscript-home promise. Preview media must be labeled as previews. Distinguish
-free/offline/accountless local features from the hosted Cloud offer.
+manuscript-home promise. Preview media must be labeled as previews. Present the shared writing core before the extra convenience of Cloud. Keep
+free/offline/accountless local operation clear without framing Cloud as a
+trade-off or claiming literal complete capability parity.
 
 Cloud source/runtime evidence checked at Editor 10.5.95: hosted Firestore/GCS,
 account-linked projects, online-only operation, and portable project export.
@@ -97,3 +98,19 @@ node scripts/test_hero_typing.cjs
 python3 scripts/test_marketing_contract.py
 node scripts/test_cloud_preview.cjs
 ```
+
+### Shared-core comparison audit (7 November 2026)
+
+The offer comparison now puts Manuscript, Canvas/Maps, Tasks/Checkpoints and
+PDF/DOCX/portable project export in an explicit “Included in both” group, followed
+by Cloud additions. Source reviewed at public Editor `b9ea621`: the shared API
+feature routers, `src/runtime/local.py`, `src/runtime/hosted.py`, and
+`src/api/durability/backup_destinations.py`. Live `/api/runtime` and `/api/health`
+reported hosted 10.5.95 with portable export enabled during this pass.
+
+Do not expand this into “everything local, plus” without closing the actual
+capability gaps. Cloud reports offline, native filesystem, removable backups
+and direct remote backups as false. Local profiles/backup connections are not
+Cloud account features. The FAQ states these practical limits and that project
+copies do not sync automatically. No collaboration, billing, parity of voice
+libraries, or guaranteed backup claims are added.
