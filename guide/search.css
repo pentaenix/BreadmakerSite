@@ -1,0 +1,50 @@
+/* A reference guide needs ordinary scrolling, not forced full-screen chapters. */
+html{scroll-snap-type:none;scroll-padding-top:calc(var(--site-header-height) + 76px)}
+main{overflow:visible}
+[hidden]{display:none!important}
+.guide-hero{padding-top:calc(var(--site-header-height) + 58px);padding-bottom:72px}
+.guide-hero h1{font-size:clamp(48px,7vw,98px)}
+.guide-scroll{display:none}
+.guide-search{max-width:720px;margin:32px auto 0;text-align:left}
+.guide-search>label{display:block;font-weight:600;font-size:16px;margin-bottom:10px}
+.guide-search-field{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid #8e9d86;border-radius:8px;padding:5px 10px}
+.guide-search-field:focus-within{outline:2px solid var(--accent);outline-offset:3px}
+.guide-search input{width:100%;min-width:0;border:0;background:transparent;padding:12px 4px;font:inherit;font-size:16px;color:var(--text);outline:none}
+.guide-search button{font:inherit;cursor:pointer;color:var(--text)}
+#guide-search-clear{border:0;background:transparent;min-height:44px;padding:8px}
+#guide-search-help,#guide-search-status{font-size:13px;line-height:1.6;color:#56624f;margin:10px 0}
+.guide-search-examples{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.guide-search-examples button{background:transparent;border:1px solid #b9c1b0;border-radius:999px;font-size:12px;min-height:40px;padding:8px 12px}
+.guide-search-examples button:hover{background:#fff}
+#guide-search-results{margin:16px 0 0;padding:0;list-style:none;border-top:1px solid var(--line2);max-height:420px;overflow-y:auto;overscroll-behavior:contain;scroll-padding:8px}
+#guide-search-results li{border-bottom:1px solid var(--line2)}
+#guide-search-results a{display:block;padding:14px 8px;border-radius:4px;line-height:1.5}
+#guide-search-results a:hover{background:#fff}
+#guide-search-results a:focus-visible{outline-offset:-2px;background:#fff}
+#guide-search-results strong,#guide-search-results span,#guide-search-results small{display:block}
+#guide-search-results strong{font-size:17px;font-weight:600}
+#guide-search-results span{font-size:14px;color:#56624f;margin-top:3px}
+#guide-search-results small{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:#56624f;margin-bottom:4px}
+.guide-jumps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 30px;margin-top:34px;text-align:left}
+.guide-topic-group>span{display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#56624f;margin-bottom:8px}
+.guide-topic-group>div{display:flex;flex-wrap:wrap;gap:7px}
+.guide-jumps a{font-size:12px;text-align:left}
+.guide-topic-bar{position:sticky;top:var(--site-header-height);z-index:110;display:flex;justify-content:center;align-items:center;gap:12px;min-height:56px;padding:8px 16px;background:var(--bg);border-block:1px solid var(--line)}
+.guide-topic-bar a{font-size:12px;font-weight:600;min-height:40px;display:inline-flex;align-items:center;white-space:nowrap}
+.guide-topic-bar select{min-width:0;max-width:280px;width:40%;min-height:40px;border:1px solid #b9c1b0;background:var(--surface);border-radius:5px;padding:8px;font:inherit;font-size:13px;color:var(--text)}
+.guide-topic-bar select:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.guide-reference{min-height:auto;padding-block:90px;border-top:1px solid var(--line)}
+.guide-reference h2{font-size:clamp(36px,4.5vw,62px)}
+.guide-reference-notes h3{font-size:19px}
+.guide-copy a:not(.guide-back-top),.guide-reference-notes a{text-decoration:underline;text-underline-offset:3px}
+.guide-back-top{display:inline-block;margin-top:24px;font-size:12px;color:#56624f;padding:8px 0}
+.guide-copy h2:focus{outline:none}
+@media(max-width:640px){
+ .guide-hero{padding:calc(var(--site-header-height) + 42px) 20px 50px}
+ .guide-jumps{grid-template-columns:1fr;gap:20px}
+ .guide-topic-bar{gap:10px;padding-inline:12px}
+ .guide-topic-bar a{font-size:11px}
+ .guide-topic-bar select{flex:1;width:0;font-size:12px}
+ .guide-reference{padding:62px 20px}
+ #guide-search-results{max-height:360px}
+}

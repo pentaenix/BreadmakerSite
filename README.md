@@ -13,6 +13,7 @@ Run `./run` to serve the site on loopback (`http://127.0.0.1:8775/`). Set `PORT`
 ```sh
 python3 -m http.server 8000 --bind 127.0.0.1
 python3 scripts/check_site.py
+node scripts/test_guide_search.cjs
 ```
 
 There is no framework build or dependency installation.
@@ -43,3 +44,32 @@ Verify an actually nonexistent deployed path returns HTTP 404 after changes.
 The homepage and guide have distinct titles/descriptions, absolute canonical URLs, Open Graph/Twitter previews, and conservative JSON-LD describing visible content. `sitemap.xml` lists the two canonical pages, and `robots.txt` permits crawling. The app-preview wrapper is marked `noindex` because it is illustrative material within the marketing page.
 
 Answer product questions in readable HTML and keep metadata consistent with the product. No special AI-targeted text files or ranking promises are required: [Google's AI search guidance](https://developers.google.com/search/docs/appearance/ai-features) applies the same useful-content, crawlability, and structured-data principles as ordinary search. Indexing/rankings require discovery and processing by search engines and are not guaranteed. Search Console/Bing Webmaster verification and sitemap submission should use the owner's existing accounts; this site does not add analytics or advertising trackers.
+
+## Guide reference and search
+
+The 28 guide topics are static, readable HTML. `data-guide-topic`, `data-guide-summary`,
+`data-guide-group`, and `data-guide-keywords` on each section feed the on-device search.
+Keep topic instructions, keywords, table-of-contents links, and source evidence aligned.
+Search uses weighted title/keyword/body matches, synonyms, prefixes, and bounded typo
+matching; it uses no external search service or tracking. `?q=` links retain a search and `#topic` links
+open individual instructions. Without JavaScript, all chapters and videos remain readable.
+
+Capability copy was checked against public Editor 10.5.93 (`6cc1db8`) on 7 November 2026.
+Narration references: `static/js/features/manuscript/narration*.js`,
+`static/js/features/projects/settings.js`, `narration_voices.js`, and `locales/en.json`.
+Other instructions follow the corresponding feature owners under `static/js/features/`.
+The original eight videos retain their original capture provenance and are not presented
+as new 10.5.93 recordings. Refresh availability notes as hosted or local releases change.
+
+Optional browser checks use an existing Playwright installation:
+
+```sh
+PLAYWRIGHT_MODULE=/path/to/playwright node scripts/test_guide_browser.cjs
+```
+
+`SITE_URL` selects an already deployed site; otherwise the check owns a temporary
+loopback server. `QA_OUT` selects the report/screenshot directory. The script checks
+Chromium and WebKit sequentially, desktop/phone widths, keyboard navigation, query
+links, no-results/clear states, reduced motion, and the no-JavaScript fallback, then
+closes its browsers and server. `CHROMIUM_PATH` and `WEBKIT_PATH` can select existing
+matching browser binaries without installing another runtime.
