@@ -4,9 +4,9 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <title>Breadmaker Cloud · Your writing, in your browser</title>
-<meta name="description" content="Write in your browser and return to your Cloud projects from another computer. Compare Breadmaker Cloud with the free local editor and see current access availability."/>
+<meta name="description" content="Write in your browser and return to your Cloud projects from another computer. Compare the monthly Breadmaker Cloud plan with the free local editor."/>
 <link rel="canonical" href="https://breadmaker.studio/cloud/"/>
-<meta name="robots" content="index,follow,max-image-preview:large"/>
+<meta name="robots" content="noindex,follow"/>
 <meta name="theme-color" content="#f5f3ee"/>
 <meta property="og:site_name" content="Breadmaker"/>
 <meta property="og:type" content="website"/>
@@ -20,7 +20,7 @@
 <link rel="preload" href="../assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
 <link rel="stylesheet" href="../brand.css"/>
 <link rel="stylesheet" href="../navigation.css?v=cloud-20261107"/>
-<link rel="stylesheet" href="cloud.css?v=cloud-20261107"/>
+<link rel="stylesheet" href="cloud.css?v=offer-20261107"/>
 </head>
 <body class="cloud-page">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -29,17 +29,19 @@
 <nav class="quick-actions" aria-label="Main navigation">
 <a class="quick-action quick-guide" href="../guide/">Guide</a>
 <a class="quick-action quick-cloud" href="./" aria-current="page">Cloud</a>
-<a class="quick-action quick-open" href="https://app.breadmaker.studio/" title="Open Breadmaker Cloud · Approved alpha accounts">Open Breadmaker Cloud</a>
+<a class="quick-action quick-open" href="https://app.breadmaker.studio/" title="Open Breadmaker Cloud">Open Breadmaker Cloud</a>
 </nav>
 </header>
 <main id="main" tabindex="-1">
+<aside class="design-preview" id="offer-preview-notice" aria-label="Design preview"><strong>Design preview</strong><span>Checkout isn’t connected.</span></aside>
 <section class="cloud-hero">
 <div class="cloud-hero-copy">
 <p class="eyebrow">Breadmaker Cloud</p>
 <h1>Your writing.<br/>In your browser.</h1>
 <p class="cloud-lede">A place to write, with your plans and revision tools close by. Sign in from another computer and continue with the same Cloud project.</p>
-<div class="cloud-actions"><a class="button primary" href="#compare">Compare Cloud and local <span aria-hidden="true">↓</span></a><a class="text-link" href="https://app.breadmaker.studio/">Open Breadmaker Cloud</a></div>
-<p class="cloud-access">Private alpha · Approved alpha accounts can sign in.<br/>Pricing and wider access have not been announced.</p>
+<div class="cloud-plan" id="plan"><p class="cloud-price"><strong>4.99</strong><span>/ month</span></p><p class="plan-term">Monthly subscription</p></div>
+<div class="cloud-actions"><button class="button primary" type="button" data-checkout-preview aria-describedby="offer-preview-notice" disabled>Subscribe to Breadmaker Cloud</button><a class="text-link" href="#compare">Compare Cloud and local <span aria-hidden="true">↓</span></a></div>
+<p class="cloud-signin">Already using Cloud? <a class="text-link" href="https://app.breadmaker.studio/">Open Breadmaker Cloud</a></p>
 </div>
 <figure class="cloud-preview">
 <div class="preview-bar" aria-hidden="true"><span></span><span></span><span></span><b>Breadmaker Cloud</b></div>
@@ -50,7 +52,7 @@
 <section class="cloud-benefits" aria-labelledby="benefits-title">
 <div class="section-heading"><p class="eyebrow">Why Cloud</p><h2 id="benefits-title">Less setup.<br/>More ways to return to your story.</h2></div>
 <div class="benefit-list">
-<article><span aria-hidden="true">01</span><div><h3>Open a browser. Find your writing.</h3><p>No local installation to manage. Sign in to Breadmaker Cloud with an approved alpha account and open your projects.</p></div></article>
+<article><span aria-hidden="true">01</span><div><h3>Open a browser. Find your writing.</h3><p>No local installation to manage. Sign in to Breadmaker Cloud and open your projects.</p></div></article>
 <article><span aria-hidden="true">02</span><div><h3>Continue on another computer.</h3><p>Your Cloud projects are connected to your account. Use the same sign-in to open them in another browser or on another computer.</p></div></article>
 <article><span aria-hidden="true">03</span><div><h3>Keep the work of writing together.</h3><p>Draft in Manuscript, arrange ideas on Canvas, follow plot threads with Maps, and work through revision Tasks.</p><a class="text-link" href="../#manuscript">Explore the writing tools</a></div></article>
 </div>
@@ -64,30 +66,36 @@
 <tr><th scope="row">Getting started</th><td>Install and run locally</td><td>Open a browser and sign in</td></tr>
 <tr><th scope="row">Your projects</th><td>Stored on your computer</td><td>Available through your account on another computer</td></tr>
 <tr><th scope="row">Connection</th><td>Write offline</td><td>Internet connection required</td></tr>
-<tr><th scope="row">Account</th><td>No account needed</td><td>Approved alpha account</td></tr>
+<tr><th scope="row">Account</th><td>No account needed</td><td>Breadmaker Cloud account</td></tr>
 <tr><th scope="row">Writing tools</th><td>Manuscript, Canvas, Maps, Tasks and revision tools</td><td>Manuscript, Canvas, Maps, Tasks and revision tools</td></tr>
-<tr><th scope="row">Price</th><td>Free and open source</td><td>Pricing not announced</td></tr>
-<tr><th scope="row">Availability</th><td>Source available. Public installers are in release testing.</td><td>Private alpha. Wider access is not open yet.</td></tr>
+<tr><th scope="row">Price</th><td>Free and open source</td><td><b>4.99 / month</b></td></tr>
 </tbody>
 </table>
 <p class="comparison-note">Local and Cloud projects are separate. Use export and import to move a compatible project copy between editions. Changes do not sync automatically.</p>
 </section>
 <section class="cloud-questions" aria-labelledby="questions-title">
-<h2 id="questions-title">Before you sign in</h2>
+<h2 id="questions-title">A few practical details</h2>
 <div>
-<details><summary>Who can use Breadmaker Cloud today?</summary><p>Breadmaker Cloud is currently open to approved alpha accounts. If you arrived here after signing in, that account may not have active alpha access. You can return using an approved alpha account.</p><p>Paid plans are not available yet. Access currently requires an approved alpha account.</p></details>
+<details><summary>What’s included in Breadmaker Cloud?</summary><p>Your writing space in the browser: Manuscript for your draft, Canvas and Maps for planning, and Tasks and Checkpoints for revision. Sign in from another computer to return to your Cloud projects.</p></details>
 <details><summary>What would I choose Cloud for?</summary><p>Choose Cloud when you want to open your writing space in a browser and return to your Cloud projects from another computer. Choose the local editor when offline, accountless writing matters more to you.</p></details>
 <details><summary>Does Cloud automatically sync my local projects?</summary><p>No. Use export and import to move a compatible project copy between editions. Changes do not sync automatically.</p></details>
-<details><summary>Can I take my writing with me?</summary><p>You can export your manuscript as PDF or DOCX. Keep your own exported copies of important work while Breadmaker is in pre-alpha.</p></details>
+<details><summary>Can I take my writing with me?</summary><p>You can export your manuscript as PDF or DOCX. Keep your own exported copies of important work.</p></details>
 </div>
 </section>
 <section class="cloud-close">
-<p class="eyebrow">Already have access?</p><h2>Your next session starts here.</h2>
-<a class="button primary" href="https://app.breadmaker.studio/">Open Breadmaker Cloud</a>
-<p>Sign in with your approved alpha account.</p>
+<p class="eyebrow">Breadmaker Cloud</p><h2>Keep your story moving.</h2>
+<p class="cloud-price"><strong>4.99</strong><span>/ month</span></p>
+<button class="button primary" type="button" data-checkout-preview aria-describedby="offer-preview-notice" disabled>Subscribe to Breadmaker Cloud</button>
+<p>A monthly plan for writing in your browser.</p>
 <a class="text-link" href="../#download">Looking for the local editor?</a>
 </section>
 </main>
-<footer class="cloud-footer"><a class="brand-link" href="../"><img src="../assets/breadmaker-logo.svg" alt="" width="26" height="26"/>Breadmaker</a><nav aria-label="Footer navigation"><a href="../guide/">Guide</a><a href="../#download">Local editor</a><a href="https://github.com/pentaenix/breadmaker">Source</a></nav><span>Made for the work of writing · Pre-alpha</span></footer>
+<footer class="cloud-footer"><a class="brand-link" href="../"><img src="../assets/breadmaker-logo.svg" alt="" width="26" height="26"/>Breadmaker</a><nav aria-label="Footer navigation"><a href="../guide/">Guide</a><a href="../#download">Local editor</a><a href="https://github.com/pentaenix/breadmaker">Source</a></nav><span>Made for the work of writing</span></footer>
+<dialog class="checkout-preview" id="checkout-preview" aria-labelledby="checkout-preview-title" aria-describedby="checkout-preview-description">
+<h2 id="checkout-preview-title">Checkout preview</h2>
+<p id="checkout-preview-description">This is the planned monthly offer. Checkout isn’t connected, so no subscription is created and no payment is taken.</p>
+<button class="button primary" type="button" data-close-preview>Continue reviewing</button>
+</dialog>
+<script src="preview.js?v=offer-20261107"></script>
 </body>
 </html>

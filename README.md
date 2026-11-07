@@ -28,11 +28,11 @@ Verify an actually nonexistent deployed path returns HTTP 404 after changes.
 
 ## Product destinations and release availability
 
-- **Open Breadmaker Cloud:** `https://app.breadmaker.studio/`. Link to the app root so it can handle account routing. Signed-out users are directed to sign-in.
+- **Open Breadmaker Cloud:** `https://app.breadmaker.studio/`. Link to the app root so it can handle account routing. Signed-out users are directed to sign-in. The real account gate is unchanged by marketing-page previews.
 - **Source:** the public `https://github.com/pentaenix/breadmaker` repository.
 - **Local installers:** not yet public. The site deliberately shows their release-testing status. Enable download links only for approved public release assets, with verified platform, version, and checksums. Do not publish internal app archives in this repository or substitute a source archive for an installer.
-- **Cloud offer:** the public `/cloud/` page explains verified browser/account-linked project benefits, compares the local edition, and explains approved-alpha access. It is also the fixed destination used by the app for admission denials. It does not read account data or infer payment status.
-- **Premium:** planned. Do not add prices, a working checkout, entitlement claims, or cloud-backup promises until they are actually available. The local editor remains free and accountless.
+- **Cloud offer preview:** the public `/cloud/` route shows the owner-requested final-state monthly offer. It explains verified browser/account-linked project benefits and compares the local edition. The page is also the fixed destination used by the app for admission denials. It reads no account data and does not infer payment status.
+- **Price and checkout:** the owner supplied 4.99 per month for the offer preview. Currency remains unconfirmed, so no symbol or currency code is shown. One design-preview notice and a safe native dialog make clear that checkout is not connected. Subscribe buttons collect nothing and create no payment or entitlement. Keep real app sign-in links intact. Confirm currency and actual billing integration before making the offer transactional or adding structured Offer data. The local editor remains free and accountless.
 
 ## Brand and media
 
@@ -42,7 +42,7 @@ Verify an actually nonexistent deployed path returns HTTP 404 after changes.
 
 ## Search and sharing
 
-The homepage and guide have distinct titles/descriptions, absolute canonical URLs, Open Graph/Twitter previews, and conservative JSON-LD describing visible content. `sitemap.xml` lists the homepage, guide, and Cloud offer pages, and `robots.txt` permits crawling. The app-preview wrapper is marked `noindex` because it is illustrative material within the marketing page.
+The homepage and guide have distinct titles/descriptions, absolute canonical URLs, Open Graph/Twitter previews, and conservative JSON-LD describing visible content. `sitemap.xml` lists the homepage and guide. The Cloud offer preview is noindex and excluded until billing and currency are finalized, and `robots.txt` permits crawling. The app-preview wrapper is marked `noindex` because it is illustrative material within the marketing page.
 
 Answer product questions in readable HTML and keep metadata consistent with the product. No special AI-targeted text files or ranking promises are required: [Google's AI search guidance](https://developers.google.com/search/docs/appearance/ai-features) applies the same useful-content, crawlability, and structured-data principles as ordinary search. Indexing/rankings require discovery and processing by search engines and are not guaranteed. Search Console/Bing Webmaster verification and sitemap submission should use the owner's existing accounts; this site does not add analytics or advertising trackers.
 
@@ -86,7 +86,7 @@ Cloud source/runtime evidence checked at Editor 10.5.95: hosted Firestore/GCS,
 account-linked projects, online-only operation, and portable project export.
 Current source supports compatible project import/export and PDF/DOCX. Do not
 claim automatic local-to-Cloud sync, real-time collaboration, accountless hosted
-Review links, guaranteed backups, or a price/checkout before verified release.
+Review links, guaranteed backups, or a working checkout before verified release. The final-state price preview is separately labeled and creates no subscription.
 The app's approved-alpha admission is not proof of payment.
 
 Regression checks also include:
@@ -95,4 +95,5 @@ Regression checks also include:
 node scripts/test_guide_navigation.cjs
 node scripts/test_hero_typing.cjs
 python3 scripts/test_marketing_contract.py
+node scripts/test_cloud_preview.cjs
 ```

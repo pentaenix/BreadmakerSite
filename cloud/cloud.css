@@ -3,3 +3,24 @@
 @media(max-width:600px){.cloud-page main{padding:0 20px}.cloud-hero{padding:calc(var(--site-header-height) + 38px) 0 56px;gap:36px}h1{font-size:clamp(42px,10.8vw,64px)}h2{font-size:36px}.cloud-lede{font-size:17px;margin:24px 0}.cloud-actions{gap:10px 20px;margin:25px 0 17px}.cloud-access{font-size:12px}.cloud-preview figcaption{padding:14px;font-size:11px}.cloud-benefits,.cloud-compare,.cloud-questions{padding:56px 0}.benefit-list article{gap:15px;padding:25px 0}.benefit-list h3{font-size:23px}.benefit-list p{font-size:15px}.section-heading>p:not(.eyebrow){font-size:16px}table{font-size:12px;line-height:1.55;margin-top:30px}th,td{padding:15px 8px}thead td{width:25%}thead th{font-size:17px}thead th span{font-size:11px}tbody th{font-size:12px;padding-left:0}.comparison-note{font-size:12px}.cloud-questions h2{font-size:36px}summary{font-size:17px}.cloud-close{padding:56px 0 64px}.cloud-footer{padding:20px;gap:12px}.cloud-footer nav{gap:16px}.cloud-footer>span{font-size:11px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media(max-width:360px){thead td{width:28%}thead th{font-size:14px}tbody th{font-size:11px;overflow-wrap:anywhere}}
+/* Final offer presentation; the separate preview notice is outside sales copy. */
+.design-preview{display:flex;flex-wrap:wrap;gap:7px 15px;align-items:center;margin-top:calc(var(--site-header-height) + 18px);padding:10px 14px;border:1px solid #d1d6c9;border-radius:5px;font-size:12px;line-height:1.5;color:#596653}
+.design-preview strong{font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#354d37}
+.cloud-hero{padding-top:58px}
+.cloud-plan{margin:30px 0 0}
+.cloud-price{display:flex;align-items:baseline;gap:9px;margin:0;color:var(--text);line-height:1}
+.cloud-price strong{font-size:52px;font-weight:600;letter-spacing:-.05em}
+.cloud-price span{font-size:17px;color:#566050}
+.plan-term{font-size:12px;color:#566050;margin:9px 0 0}
+.cloud-signin{font-size:13px;color:#566050;line-height:1.7;margin:0}
+.cloud-actions{margin:24px 0 18px}
+button.button{font-family:inherit;cursor:pointer}button.button:disabled{cursor:default}
+.cloud-close>.cloud-price{justify-content:center;margin:28px 0 0!important}
+.cloud-close>.cloud-price strong{font-size:52px;color:var(--text)}
+.cloud-close>.button{margin-top:26px}
+.checkout-preview{width:min(520px,calc(100% - 40px));padding:34px;border:1px solid #b9c1b2;border-radius:9px;background:var(--bg);color:var(--text);box-shadow:0 25px 80px rgba(0,0,0,.2)}
+.checkout-preview::backdrop{background:rgba(24,32,23,.4)}
+.checkout-preview h2{font-size:32px;line-height:1.15}
+.checkout-preview p{font-size:16px;line-height:1.6;color:#566050;margin:22px 0 28px}
+body:has(.checkout-preview[open]){overflow:hidden}
+@media(max-width:600px){.design-preview{font-size:11px;margin-top:calc(var(--site-header-height) + 14px);padding:9px 11px}.cloud-hero{padding-top:32px}.cloud-price strong{font-size:46px}.cloud-price span{font-size:16px}.cloud-actions{gap:10px 20px}.checkout-preview{padding:25px}.checkout-preview h2{font-size:28px}}

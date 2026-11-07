@@ -17,6 +17,7 @@ jobs:
         run: |
           python3 scripts/check_site.py
           python3 scripts/test_marketing_contract.py
+          node scripts/test_cloud_preview.cjs
           node scripts/test_guide_search.cjs
           node scripts/test_guide_navigation.cjs
           node scripts/test_hero_typing.cjs

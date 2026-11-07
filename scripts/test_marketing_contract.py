@@ -23,18 +23,25 @@ for file in ('index.html','guide/index.html','404.html','cloud/index.html'):
     source=(ROOT/file).read_text(); page=Page(source); text=' '.join(page.text)
     assert not re.search(r'\b(?:Word|Google Docs?|Scrivener|Plottr)\b',text),file
     assert 'Let your editor' not in text,file
+    assert not re.search(r'alpha|pricing not announced|pricing.*not.*announced|approved account|invited account|temporary access',source,re.I),file
     for href,label in page.anchors:
         if href=='https://app.breadmaker.studio/':
             assert label=='Open Breadmaker Cloud',(file,label)
 cloud=(ROOT/'cloud/index.html').read_text()
 assert 'https://breadmaker.studio/cloud/' in cloud
-assert 'https://breadmaker.studio/cloud/' in (ROOT/'sitemap.xml').read_text()
-assert 'approved alpha account' in cloud
-assert 'Paid plans are not available yet.' in cloud
+assert 'https://breadmaker.studio/cloud/' not in (ROOT/'sitemap.xml').read_text()
+assert 'content="noindex,follow"' in cloud
+assert '<strong>4.99</strong><span>/ month</span>' in cloud
+assert 'Checkout isn’t connected.' in cloud
+assert 'no subscription is created and no payment is taken' in cloud
+assert 'Design preview' in cloud
 assert 'Changes do not sync automatically.' in cloud
 assert 'compatible project copy' in cloud
 assert '<th scope="col">' in cloud and '<th scope="row">' in cloud
-assert '<form' not in cloud and '<script' not in cloud
-assert not re.search(r'[$€£]\s*\d|>\s*(?:Buy|Subscribe|Start free trial)',cloud,re.I)
+assert '<form' not in cloud
+assert cloud.count('data-checkout-preview aria-describedby="offer-preview-notice" disabled')==2
+assert '<dialog' in cloud and 'preview.js?v=' in cloud
+assert not re.search(r'[$€£]\s*\d|Start free trial',cloud,re.I)
+assert not re.search(r'fetch\(|XMLHttpRequest|location\.|window.open|sendBeacon',(ROOT/'cloud/preview.js').read_text())
 assert not re.search(r'Readers don.t need an account|They don.t need an account|Get feedback without reader accounts',(ROOT/'index.html').read_text())
-print('OK: Cloud CTA names, public offer/access facts, comparison semantics, and reviewed copy safeguards.')
+print('OK: Cloud CTA names, currency-neutral offer preview and safe checkout, comparison semantics, and reviewed copy safeguards.')
