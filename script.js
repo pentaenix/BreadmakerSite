@@ -19,7 +19,7 @@
 
   // The organic, collision-aware hero word field is owned by hero-notes.js.
 
-  // The product definition stays visible; only decorative hero notes animate.
+  // Hero typing is isolated in hero-typing.js; the workflow copy stays visible.
 
   // Section rail is purely descriptive. Native CSS scroll snapping does the paging.
   const sections=[...document.querySelectorAll('.snap-page')];
@@ -27,7 +27,7 @@
   const railNum=document.querySelector('.section-rail-number');
   const railName=document.querySelector('.section-rail-name');
   const railFill=document.querySelector('.section-rail-fill');
-  const names=['INTRO','MANUSCRIPT','CANVAS','MAPS','LINKS','TASKS','CHECKPOINTS','EDITOR’S EYE','REVIEWS','TARGETS','YOURS','QUESTIONS','DOWNLOAD'];
+  const names=['INTRO','WORKFLOW','CANVAS','MAPS','LINKS','MANUSCRIPT','TASKS','CHECKPOINTS','EDITOR’S EYE','REVIEWS','YOURS','QUESTIONS','DOWNLOAD'];
   if (rail && sections.length) {
     const ratios=new Map();
     const obs=new IntersectionObserver(entries=>{

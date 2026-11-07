@@ -19,3 +19,14 @@ html{scroll-padding-top:calc(var(--site-header-height) + 16px)}
  .quick-action{padding:9px 8px;font-size:11px}
 }
 @media(max-width:350px){.quick-actions{gap:4px}.quick-action{padding:9px 7px;font-size:10px}}
+
+/* The homepage uses the original floating controls, with no full-width banner. */
+.marketing-home .site-header{background:transparent;border:0;pointer-events:none}
+.marketing-home .site-header>*{pointer-events:auto}
+.marketing-home .site-header .brand-link{padding:5px 10px 5px 5px;border-radius:5px;background:rgba(245,243,238,.94);backdrop-filter:blur(12px)}
+.marketing-home .quick-action{background:rgba(245,243,238,.96);backdrop-filter:blur(12px)}
+.marketing-home .quick-action:hover{background:#fff}
+.marketing-home .quick-action[aria-current="page"]{background:#e9eee4}
+.marketing-home .quick-action.quick-open{background:#354d37}
+.marketing-home .quick-action.quick-open:hover{background:#263c28}
+@media(max-width:760px){.marketing-home .site-header .brand-link{padding:5px}}
