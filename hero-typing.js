@@ -33,7 +33,7 @@
       if (length < target.length) later(type, 46);
       else {
         later(() => cursor?.classList.remove('live'), 250);
-        later(() => rewrite(state), 2200);
+        later(() => rewrite(state), 4300);
       }
     }
     function erase() {
@@ -48,7 +48,7 @@
     if (gone || !visible || paused || motion.matches || document.hidden) return stop();
     if (running) return;
     running = true;
-    states.forEach((state, index) => later(() => rewrite(state), 700 + index * 500));
+    states.forEach((state, index) => later(() => rewrite(state), 2000 + index * 600));
   }
   button?.addEventListener('click', () => {
     paused = !paused;

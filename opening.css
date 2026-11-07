@@ -45,3 +45,14 @@
 .hero-motion-toggle:focus-visible{outline:2px solid #354d37;outline-offset:4px}
 .hero-motion-toggle[hidden]{display:none}
 @media(max-width:760px){.hero-subtitle{font-size:clamp(18px,5.2vw,22px)}.hero-motion-toggle{right:18px;bottom:17px;font-size:10px}}
+/* Explain Cloud without attaching the local edition's claims to it. */
+.download-inner>.eyebrow{font-size:11px;color:#c8d3c3;letter-spacing:.14em;margin:30px 0 0}
+.download-inner>.cloud-home-description{max-width:540px;font-size:17px;line-height:1.6;color:#bbc3b6;margin:0 0 32px}
+.cloud-home-actions{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
+.cloud-home-signin{font-size:14px;color:#e3e8dc;min-height:44px;display:inline-flex;align-items:center}
+.download-inner>.cloud-home-availability{font-size:12px;line-height:1.6;color:#bbc3b6;margin:22px 0 0}
+.local-editor-status{border-top:1px solid #485044;margin-top:58px;padding-top:32px;width:min(640px,100%)}
+.local-editor-status h3{font-size:22px;font-weight:600;margin:0;color:#e4e9dd;letter-spacing:-.025em}
+.local-editor-status p{font-size:15px;line-height:1.6;color:#bbc3b6;margin:14px 0 22px}
+.local-editor-status small{display:block!important;margin-top:25px!important;color:#bbc3b6!important;font-size:12px!important}
+@media(max-width:600px){.download-inner h2{font-size:clamp(42px,10vw,60px)}.download-inner>.download-browser-benefit{font-size:21px;line-height:1.4}.download-inner>.cloud-home-description{font-size:16px}.cloud-home-actions{gap:10px}.cloud-home-signin{padding:8px}.local-editor-status{margin-top:42px}}

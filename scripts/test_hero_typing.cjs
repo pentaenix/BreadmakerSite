@@ -24,8 +24,9 @@ function setup(reduced = false) {
     tick(ms){const until=now+ms;while(true){const next=[...timers].filter(([,t])=>t.time<=until).sort((a,b)=>a[1].time-b[1].time)[0];if(!next)break;timers.delete(next[0]);now=next[1].time;next[1].fn();}now=until;}
   };
 }
-const normal=setup();normal.enter();normal.tick(800);assert.ok(normal.lines[0].textContent.length<10,'Title visibly deletes');
-normal.tick(14500);for(const phrase of ['A writing app.','A place to just write.','Writing made simple.'])assert.ok(normal.seen.has(phrase),phrase);
+const normal=setup();normal.enter();normal.tick(1900);assert.equal(normal.lines[0].textContent,'Breadmaker','Initial title is readable before animation');normal.tick(250);assert.ok(normal.lines[0].textContent.length<10,'Title visibly deletes');
+normal.tick(800);assert.equal(normal.lines[0].textContent,'Breadmaker');normal.tick(4000);assert.equal(normal.lines[0].textContent,'Breadmaker','Hold the finished word for at least four seconds');
+normal.tick(24000);for(const phrase of ['A writing app.','A place to just write.','Writing made simple.'])assert.ok(normal.seen.has(phrase),phrase);
 assert.ok(normal.timers.size,'Animation recurs');
 normal.buttonEvents.click();assert.equal(normal.timers.size,0);assert.equal(normal.button.textContent,'Play animation');assert.equal(normal.dispatched.at(-1).detail.paused,true);
 normal.buttonEvents.click();assert.ok(normal.timers.size);assert.equal(normal.dispatched.at(-1).detail.paused,false);

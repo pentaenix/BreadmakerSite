@@ -30,3 +30,6 @@ html{scroll-padding-top:calc(var(--site-header-height) + 16px)}
 .marketing-home .quick-action.quick-open{background:#354d37}
 .marketing-home .quick-action.quick-open:hover{background:#263c28}
 @media(max-width:760px){.marketing-home .site-header .brand-link{padding:5px}}
+/* Keep the full product name readable even on narrow phones. */
+@media(max-width:760px){.quick-open{max-width:145px;white-space:normal;text-align:center}.quick-action{font-size:11px}}
+@media(max-width:350px){.quick-open{max-width:132px}.quick-action{padding:8px 7px}}
