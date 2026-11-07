@@ -1,55 +1,68 @@
-/* A short delete/retype flourish. Stable text remains available to assistive tech. */
+/* Recurring delete/retype, paused offscreen, in hidden tabs, or by the reader. */
 (() => {
   const hero = document.querySelector('.hero');
   const lines = [...document.querySelectorAll('[data-type-target]')];
+  const button = document.querySelector('#hero-motion-toggle');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   if (!hero || !lines.length) return;
-
   const timers = new Set();
-  let played = false;
+  const states = lines.map(line => ({line, index:0, text:line.dataset.typeTarget,
+    choices:(line.dataset.typeOptions || line.dataset.typeTarget).split('|')}));
+  let visible = false, paused = false, running = false, gone = false;
   const later = (callback, delay) => {
-    const timer = setTimeout(() => {
-      timers.delete(timer);
-      callback();
-    }, delay);
+    const timer = setTimeout(() => { timers.delete(timer); callback(); }, delay);
     timers.add(timer);
   };
-  const finish = () => {
-    timers.forEach(clearTimeout);
-    timers.clear();
-    lines.forEach(line => {
-      line.textContent = line.dataset.typeTarget;
-      line.nextElementSibling?.classList.remove('live');
+  function stop() {
+    timers.forEach(clearTimeout); timers.clear(); running = false;
+    states.forEach(state => {
+      state.line.textContent = state.text;
+      state.line.nextElementSibling?.classList.remove('live');
     });
-  };
-  const rewrite = line => {
-    const target = line.dataset.typeTarget;
+  }
+  function rewrite(state) {
+    const {line, choices} = state;
+    const previous = line.textContent;
+    state.index = (state.index + 1) % choices.length;
+    const target = state.text = choices[state.index];
     const cursor = line.nextElementSibling;
-    let length = target.length;
+    let length = previous.length;
     cursor?.classList.add('live');
-    const type = () => {
+    function type() {
       line.textContent = target.slice(0, ++length);
-      if (length < target.length) later(type, 58);
-      else later(() => cursor?.classList.remove('live'), 300);
-    };
-    const erase = () => {
-      line.textContent = target.slice(0, --length);
-      if (length > 0) later(erase, 32);
-      else later(type, 180);
-    };
+      if (length < target.length) later(type, 46);
+      else {
+        later(() => cursor?.classList.remove('live'), 250);
+        later(() => rewrite(state), 2200);
+      }
+    }
+    function erase() {
+      line.textContent = previous.slice(0, --length);
+      if (length > 0) later(erase, 26);
+      else later(type, 140);
+    }
     erase();
-  };
-
-  // Play once, in under five seconds; never leave ongoing animation or hidden timers.
+  }
+  function sync() {
+    if (button) button.hidden = motion.matches;
+    if (gone || !visible || paused || motion.matches || document.hidden) return stop();
+    if (running) return;
+    running = true;
+    states.forEach((state, index) => later(() => rewrite(state), 700 + index * 500));
+  }
+  button?.addEventListener('click', () => {
+    paused = !paused;
+    button.setAttribute('aria-pressed', String(paused));
+    button.textContent = paused ? 'Play animation' : 'Pause animation';
+    document.dispatchEvent(new CustomEvent('breadmaker-motion-change', {detail:{paused}}));
+    sync();
+  });
   const observer = new IntersectionObserver(entries => {
-    const visible = entries.some(entry => entry.isIntersecting);
-    if (!visible) return finish();
-    if (played || motion.matches || document.hidden) return;
-    played = true;
-    lines.forEach((line, index) => later(() => rewrite(line), 900 + index * 900));
-  }, {threshold: .25});
+    visible = entries.some(entry => entry.isIntersecting); sync();
+  }, {threshold:.25});
   observer.observe(hero);
-  motion.addEventListener?.('change', finish);
-  document.addEventListener('visibilitychange', () => { if (document.hidden) finish(); });
-  addEventListener('pagehide', () => { finish(); observer.disconnect(); }, {once:true});
+  motion.addEventListener?.('change', sync);
+  document.addEventListener('visibilitychange', sync);
+  addEventListener('pagehide', () => {gone=true;stop();});
+  addEventListener('pageshow', () => {gone=false;sync();});
 })();

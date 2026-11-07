@@ -35,7 +35,7 @@
 <link href="refinements.css" rel="stylesheet"/>
 <link href="../phone-layout.css" rel="stylesheet"/>
 <link href="../navigation.css" rel="stylesheet"/>
-<link href="search.css?v=guide-search-20261107" rel="stylesheet"/>
+<link href="search.css?v=simple-20261107" rel="stylesheet"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -79,7 +79,7 @@
 }
 </script>
 </head>
-<body>
+<body class="guide-simple">
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
 <a class="brand-link" href="../" aria-label="Breadmaker home"><img src="../assets/breadmaker-logo.svg" alt="" width="34" height="34"/><span>Breadmaker</span></a>
@@ -95,51 +95,28 @@
 <div class="guide-hero-copy">
 <p class="guide-eyebrow">Guide</p>
 <h1>Breadmaker Guide</h1>
-<p class="guide-intro">Find the tool you need. Search by what you want to do, or follow the eight original video walkthroughs.</p>
+<p class="guide-intro">Search for a task, or choose a topic below.</p>
 <div class="guide-search" id="search" role="search" aria-label="Search the guide" hidden>
-<label for="guide-search-input">What would you like to do?</label>
-<div class="guide-search-field"><input id="guide-search-input" type="search" maxlength="200" placeholder="Try “read aloud”, “import Word”, or “recover a draft”" autocomplete="off" aria-describedby="guide-search-help guide-search-status" aria-controls="guide-search-results"/><button id="guide-search-clear" type="button" hidden>Clear</button></div>
-<p id="guide-search-help">Keywords, everyday phrases, and small typos work here. Search runs in your browser.</p>
-<div class="guide-search-examples" aria-label="Popular searches"><button type="button" data-guide-query="read aloud">Read aloud</button><button type="button" data-guide-query="import Word">Import Word</button><button type="button" data-guide-query="recover a draft">Recover a draft</button><button type="button" data-guide-query="beta reader">Get feedback</button></div>
+<label for="guide-search-input">Search the guide</label>
+<div class="guide-search-field"><input id="guide-search-input" type="search" maxlength="200" placeholder="Try “read aloud” or “import a draft”" autocomplete="off" aria-describedby="guide-search-help guide-search-status" aria-controls="guide-search-results"/><button id="guide-search-clear" type="button" hidden>Clear</button></div>
+<p id="guide-search-help">Search by tool or by what you want to do.</p>
 <p id="guide-search-status" role="status" aria-live="polite" aria-atomic="true"></p>
 <ol id="guide-search-results" hidden></ol>
 </div>
-<nav class="guide-jumps" aria-label="Guide chapters">
-<div class="guide-topic-group"><span>Projects</span><div><a href="#project">Create and switch projects</a></div></div>
-<div class="guide-topic-group"><span>Writing</span><div><a href="#write">Write chapters</a><a href="#structure">Chapters, Scenes, and Tabs</a><a href="#formatting">Format text and change the view</a><a href="#notes">Notes and comments</a><a href="#images">Images in the manuscript</a><a href="#focus">Focus, bookmarks, and split view</a></div></div>
-<div class="guide-topic-group"><span>Planning</span><div><a href="#plan">Canvas cards and connectors</a><a href="#maps">Story Maps</a><a href="#tasks">Tasks and milestones</a><a href="#links">Links and references</a><a href="#populate">Populate plans and Structure Versions</a></div></div>
-<div class="guide-topic-group"><span>Revision</span><div><a href="#checkpoints">Checkpoints and comparisons</a><a href="#edit">Editor’s Eye</a><a href="#markers">Markers and highlights</a><a href="#find">Find and replace</a></div></div>
-<div class="guide-topic-group"><span>Feedback</span><div><a href="#reviews">Reviews and feedback</a></div></div>
-<div class="guide-topic-group"><span>Preferences</span><div><a href="#targets">Writing Targets</a><a href="#languages">Interface languages</a><a href="#experimental">Experimental tools and availability</a></div></div>
-<div class="guide-topic-group"><span>Audio</span><div><a href="#narration">Narrate your manuscript</a><a href="#voices">Choose voices and narration settings</a><a href="#audio-export">Download narration as WAV</a></div></div>
-<div class="guide-topic-group"><span>Files</span><div><a href="#import">Import a manuscript or project</a><a href="#export">Export your writing and project</a></div></div>
-<div class="guide-topic-group"><span>Recovery</span><div><a href="#cuts">Keep removed text in Cuts</a><a href="#history">History, Undo, and recovery</a><a href="#backups">Backups, verification, and Trash</a></div></div>
-</nav>
-<p class="guide-context">The eight videos show the local editor. Written instructions reflect Editor 10.5.93. Browser writing requires sign-in and alpha access; local installers are still in release testing.</p>
-</div>
-<div class="guide-scroll">scroll <i></i></div>
-</section>
-<nav class="guide-topic-bar" aria-label="Quick guide navigation"><a href="#search" id="guide-find-link" hidden>Search guide</a><a href="#top">All topics</a><label for="guide-topic-select" class="sr-only">Jump to a guide topic</label><select id="guide-topic-select" hidden><option value="">Jump to a topic…</option></select></nav>
-<section class="guide-overview guide-block" id="overview">
-<div class="guide-overview-inner">
-<p class="guide-eyebrow">What Breadmaker includes</p>
-<h2>The main tools.</h2>
-<div class="overview-grid">
-<article><b>Manuscript</b><span>Write chapters and sections.</span></article>
-<article><b>Canvas</b><span>Arrange notes and ideas spatially.</span></article>
-<article><b>Maps</b><span>Follow story lines across the manuscript.</span></article>
-<article><b>Tasks</b><span>Track writing and editing work.</span></article>
-<article><b>Links</b><span>Connect planning and tasks to manuscript locations.</span></article>
-<article><b>Checkpoints</b><span>Save deliberate versions of a chapter or the whole manuscript.</span></article>
-<article><b>Editor’s Eye</b><span>Temporarily change how the manuscript looks while editing.</span></article>
-<article><b>Reviews</b><span>Gather feedback on a fixed version of your draft.</span></article>
-<article><b>Targets</b><span>Choose optional word, character, or time goals.</span></article>
-<article><b>Narration</b><span>Listen to your draft and export saved audio.</span></article>
-<article><b>Files and recovery</b><span>Import, export, compare versions, and keep backups.</span></article>
-<article><b>Languages</b><span>Choose from seven interface languages.</span></article>
-</div>
+<div class="guide-browse" id="guide-browse">
+<nav class="guide-start" aria-label="Popular guides"><a href="#write">Start writing <span aria-hidden="true">→</span></a><a href="#import">Import a draft <span aria-hidden="true">→</span></a><a href="#narration">Listen to your draft <span aria-hidden="true">→</span></a></nav>
+<nav class="guide-jumps" aria-label="Guide topics">
+<details class="guide-topic-group"><summary>Write</summary><div><a href="#project">Create and switch projects</a><a href="#write">Write chapters</a><a href="#structure">Chapters, Scenes, and Tabs</a><a href="#formatting">Format text and change the view</a><a href="#notes">Notes and comments</a><a href="#images">Images in the manuscript</a><a href="#focus">Focus, bookmarks, and split view</a></div></details>
+<details class="guide-topic-group"><summary>Plan</summary><div><a href="#plan">Canvas cards and connectors</a><a href="#maps">Story Maps</a><a href="#tasks">Tasks and milestones</a><a href="#links">Links and references</a><a href="#populate">Populate plans and Structure Versions</a></div></details>
+<details class="guide-topic-group"><summary>Edit and get feedback</summary><div><a href="#checkpoints">Checkpoints and comparisons</a><a href="#edit">Editor’s Eye</a><a href="#markers">Markers and highlights</a><a href="#find">Find and replace</a><a href="#reviews">Reviews and feedback</a></div></details>
+<details class="guide-topic-group"><summary>Listen</summary><div><a href="#narration">Narrate your manuscript</a><a href="#voices">Choose voices and narration settings</a><a href="#audio-export">Download narration as WAV</a></div></details>
+<details class="guide-topic-group"><summary>Files and recovery</summary><div><a href="#import">Import a manuscript or project</a><a href="#export">Export your writing and project</a><a href="#cuts">Keep removed text in Cuts</a><a href="#history">History, Undo, and recovery</a><a href="#backups">Backups, verification, and Trash</a></div></details>
+<details class="guide-topic-group"><summary>Preferences</summary><div><a href="#targets">Writing Targets</a><a href="#languages">Interface languages</a><a href="#experimental">Experimental tools and availability</a></div></details>
+</nav></div>
+<p class="guide-context">Short steps for each task, with eight video walkthroughs.</p>
 </div>
 </section>
+<nav class="guide-article-nav" id="guide-article-nav" aria-label="Guide navigation" hidden><a href="#top" id="guide-back-link">← All topics</a><span id="guide-current-group"></span><a href="#search">Search</a></nav>
 <section class="guide-step guide-block" id="project" data-guide-topic="Create and switch projects" data-guide-group="Projects" data-guide-summary="Start a project, rename it, or find another book." data-guide-keywords="new project workspace rename switch browse all">
 <div class="guide-copy"><span class="step-number">01</span><p class="guide-eyebrow">Project</p><h2>Create a project.</h2><p class="guide-note">On first launch, you can start writing immediately. Breadmaker creates a project automatically. To create another project:</p><ol><li>Click the <b>Breadmaker</b> button.</li><li>Click <b>New Project…</b>.</li><li>Enter a project name.</li><li>Click <b>Create</b>.</li></ol><p class="guide-note">Use <b>Switch Project → Browse All Projects</b> to find another book. The pencil beside the project name renames it. For an existing file, see <a href="#import">Import</a>.</p></div>
 <div class="guide-shot"><video aria-label="Create a Breadmaker project" data-guide-loop="" muted="" playsinline="" poster="media/01-create-project.jpg?v=8ef8b0d" preload="metadata"><source src="media/01-create-project.webm?v=8ef8b0d" type="video/webm"/><source src="media/01-create-project.mp4?v=8ef8b0d" type="video/mp4"/><track kind="captions" label="English" src="media/01-create-project.en.vtt?v=8ef8b0d" srclang="en"/></video></div>
@@ -173,7 +150,7 @@
 <div class="guide-shot"><video aria-label="Turn Editor’s Eye on and off" data-guide-loop="" muted="" playsinline="" poster="media/08-editors-eye.jpg?v=8ef8b0d" preload="metadata"><source src="media/08-editors-eye.webm?v=8ef8b0d" type="video/webm"/><source src="media/08-editors-eye.mp4?v=8ef8b0d" type="video/mp4"/><track kind="captions" label="English" src="media/08-editors-eye.en.vtt?v=8ef8b0d" srclang="en"/></video></div>
 </section>
 <section class="guide-step guide-block" id="reviews" data-guide-topic="Reviews and feedback" data-guide-group="Feedback" data-guide-summary="Prepare a frozen review round with participants, permissions, and questionnaires." data-guide-keywords="review beta reader feedback editor collaborator share comment suggestion questionnaire round">
-<div class="guide-copy"><span class="step-number">09 · Written guide</span><p class="guide-eyebrow">Reviews</p><h2>Set up a Review.</h2><ol><li>Open <b>Reviews</b>, then click <b>Create Review</b>.</li><li>Name it and choose the scope: the entire manuscript, selected Chapters, or selected Scenes.</li><li>Choose permissions for reading, comments and highlights, suggestions, or feedback, then click <b>Create</b>.</li><li>Use <b>Participants</b> and <b>Questionnaires</b> to prepare the round.</li><li>Click <b>Start Review…</b>, read the confirmation, then <b>Start Review</b>.</li></ol><p class="guide-note">Starting a round freezes what reviewers see and creates permanent Checkpoints. Later manuscript edits do not change that round’s snapshot. Use the Review’s participant and round controls to manage feedback, and inspect comments and suggestions before applying changes. Portable Review exchange is separate from a project backup.</p></div>
+<div class="guide-copy"><span class="step-number">09 · Written guide</span><p class="guide-eyebrow">Reviews</p><h2>Set up a Review.</h2><ol><li>Open <b>Reviews</b>, then click <b>Create Review</b>.</li><li>Name it and choose the scope: the entire manuscript, selected Chapters, or selected Scenes.</li><li>Choose permissions for reading, comments and highlights, suggestions, or feedback, then click <b>Create</b>.</li><li>Use <b>Participants</b> and <b>Questionnaires</b> to prepare the round.</li><li>Click <b>Start Review…</b>, read the confirmation, then <b>Start Review</b>.</li></ol><p class="guide-note">Starting a round freezes what reviewers see and creates Checkpoints. Later manuscript edits do not change that round’s snapshot. Use the Review’s participant and round controls to manage feedback, and inspect comments and suggestions before applying changes. Portable Review exchange is separate from a project backup.</p></div>
 <div class="live-app-shell guide-app-preview"><iframe aria-hidden="true" class="live-app-frame" loading="lazy" scrolling="no" src="../demos/demo.html?view=reviews&amp;v=features-20261106" tabindex="-1" title="Reviews interface preview"></iframe></div>
 </section>
 <section class="guide-step guide-block guide-reference" id="targets" data-guide-topic="Writing Targets" data-guide-group="Preferences" data-guide-summary="Set optional word, character, or time goals and inspect progress." data-guide-keywords="target goal wordcount word count writing streak daily weekly monthly timer progress">
@@ -224,9 +201,9 @@
 <div class="guide-copy"><p class="guide-eyebrow">Audio · Written guide</p><h2>Download narration as WAV</h2><ol><li>Generate the audio you want to keep, and recreate any recordings whose text has changed.</li><li>Open <b>Breadmaker → Project Settings… → Narration settings → Download audio…</b>.</li><li>Choose <b>Selection</b>, <b>Chapter</b>, or <b>Entire book</b>, then <b>Download WAV</b>. For an excerpt, select whole words.</li></ol></div>
 <aside class="guide-reference-notes" aria-label="Download narration as WAV details"><h3>Export saved audio for a selection, chapter, or entire book.</h3><p>The download combines saved recordings into one WAV file. It does not generate missing passages, and playback speed or pitch changes are not baked into the file.</p><p>If audio is missing, generate it first. If a whole-book WAV is too large, download individual chapters. This is a WAV export, not an MP3 encoder.</p></aside>
 </section>
-<section class="guide-step guide-block guide-reference" id="import" data-guide-topic="Import a manuscript or project" data-guide-group="Files" data-guide-summary="Bring in Word or plain text, or reopen a Breadmaker export." data-guide-keywords="import upload word doc docx txt text manuscript new project open file json breadmaker package">
-<div class="guide-copy"><p class="guide-eyebrow">Files · Written guide</p><h2>Import a manuscript or project</h2><ol><li>Open <b>Breadmaker → Import → Manuscript…</b> and choose a <b>.docx</b>, <b>.doc</b>, or <b>.txt</b> file. If an older .doc cannot be read, save it as .docx in Word and try again.</li><li>For a Word document, choose which heading level marks Chapters. Read the destination choices before continuing.</li><li>In the hosted app, choose the separate-project destination. Replacing the current manuscript and appending Tabs are currently unavailable there. The local editor also offers those destinations when applicable.</li><li>To import an exported project instead, use <b>Import → Breadmaker Project…</b> or <b>Import JSON…</b>. <b>Import → Cuts…</b> brings in a Cuts export.</li></ol></div>
-<aside class="guide-reference-notes" aria-label="Import a manuscript or project details"><h3>Bring in Word or plain text, or reopen a Breadmaker export.</h3><p>Wait for the import to finish before switching projects. A new-project import preserves the current book. Pre-alpha versions can reject incompatible older project formats.</p></aside>
+<section class="guide-step guide-block guide-reference" id="import" data-guide-topic="Import a manuscript or project" data-guide-group="Files" data-guide-summary="Bring in DOCX or plain text, or reopen a Breadmaker export." data-guide-keywords="import upload word doc docx txt text manuscript new project open file json breadmaker package">
+<div class="guide-copy"><p class="guide-eyebrow">Files · Written guide</p><h2>Import a manuscript or project</h2><ol><li>Open <b>Breadmaker → Import → Manuscript…</b> and choose a <b>.docx</b>, <b>.doc</b>, or <b>.txt</b> file. If an older .doc cannot be read, convert it to .docx and try again.</li><li>For a DOCX document, choose which heading level marks Chapters. Read the destination choices before continuing.</li><li>In the hosted app, choose the separate-project destination. Replacing the current manuscript and appending Tabs are currently unavailable there. The local editor also offers those destinations when applicable.</li><li>To import an exported project instead, use <b>Import → Breadmaker Project…</b> or <b>Import JSON…</b>. <b>Import → Cuts…</b> brings in a Cuts export.</li></ol></div>
+<aside class="guide-reference-notes" aria-label="Import a manuscript or project details"><h3>Bring in DOCX or plain text, or reopen a Breadmaker export.</h3><p>Wait for the import to finish before switching projects. A new-project import preserves the current book. Pre-alpha versions can reject incompatible older project formats.</p></aside>
 </section>
 <section class="guide-step guide-block guide-reference" id="export" data-guide-topic="Export your writing and project" data-guide-group="Files" data-guide-summary="Download a reading copy or a portable project." data-guide-keywords="export download save word docx pdf json zip package backup readable manuscript">
 <div class="guide-copy"><p class="guide-eyebrow">Files · Written guide</p><h2>Export your writing and project</h2><ol><li>Open <b>Breadmaker → Export</b>. Choose <b>Manuscript as DOCX</b> or <b>Manuscript as PDF…</b> for a reading or editing copy.</li><li>Choose <b>Breadmaker Project</b> for a portable project package, or <b>JSON Project</b> for the JSON format. Use <b>Readable ZIP</b> for a browsable archive of the available project material.</li><li>Use <b>Cuts</b> to export the material kept in Cuts. Narration has its own <a href="#audio-export">Download audio</a> action.</li></ol></div>
@@ -252,13 +229,14 @@
 <div class="guide-copy"><p class="guide-eyebrow">Preferences · Written guide</p><h2>Experimental tools and availability</h2><ol><li>Open <b>Breadmaker → Project Settings… → Experimental Features</b> to see optional unfinished tools for this project. These start off.</li><li>The local editor can expose <b>Editor Highlights</b> for targeted editing searches. Maps also has an experimental renderer. Enable only the tools you want to try.</li><li>Use <b>Project Settings → Metadata</b> for project counts and structure information. Use the profile/account controls for hosted account settings, where available.</li></ol></div>
 <aside class="guide-reference-notes" aria-label="Experimental tools and availability details"><h3>Know which tools are optional and which runtime you are using.</h3><p>The local editor is accountless and offline-capable after dependencies are installed. Hosted writing requires an account, alpha access, and a connection. Public local installers are still in release testing.</p><p>Experimental tools can change. They are not required for ordinary writing, and their presence in source does not mean every hosted deployment enables them.</p></aside>
 </section>
-<section class="guide-end guide-block">
+<section class="guide-end">
 <div><img class="brand-logo on-dark" src="../assets/breadmaker-logo.svg" alt="" width="70" height="70"/><p class="guide-eyebrow">Breadmaker · Pre-alpha</p><h2>Back to the book.</h2><div class="guide-end-actions"><a class="primary" href="https://app.breadmaker.studio/">Open Breadmaker</a><a href="../#download">Local installer status</a><a href="../index.html">Back to the site</a></div></div>
 </section>
 </main>
 <footer class="guide-footer"><a class="brand-link" href="../"><img class="brand-logo on-dark" src="../assets/breadmaker-logo.svg" alt="" width="26" height="26"/>Breadmaker</a><span>Guide · Pre-alpha</span></footer>
-<script src="guide.js?v=features-20261106"></script>
+<script src="guide.js?v=simple-20261107"></script>
 <script src="search-engine.js?v=guide-search-20261107"></script>
-<script src="search.js?v=guide-search-20261107"></script>
+<script src="search.js?v=simple-20261107"></script>
+<script src="navigation.js?v=simple-20261107"></script>
 </body>
 </html>

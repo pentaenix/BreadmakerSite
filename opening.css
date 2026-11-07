@@ -40,3 +40,8 @@
 .workflow-steps a:focus-visible{outline:2px solid #354d37;outline-offset:7px}
 @media(max-width:760px){.workflow-section{padding:76px 18px}.workflow-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 22px}.workflow-steps span{font-size:16px}.workflow-steps p{font-size:13px}.hero-subtitle{min-height:1.3em}}
 @media(prefers-reduced-motion:reduce){.type-cursor{display:none}}
+
+.hero-motion-toggle{position:absolute;right:max(24px,env(safe-area-inset-right,0px));bottom:24px;z-index:6;min-height:44px;padding:10px 4px;border:0;background:transparent;color:#566050;font:inherit;font-size:11px;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.hero-motion-toggle:focus-visible{outline:2px solid #354d37;outline-offset:4px}
+.hero-motion-toggle[hidden]{display:none}
+@media(max-width:760px){.hero-subtitle{font-size:clamp(18px,5.2vw,22px)}.hero-motion-toggle{right:18px;bottom:17px;font-size:10px}}

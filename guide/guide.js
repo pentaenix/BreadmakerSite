@@ -1,5 +1,6 @@
 (()=>{
-  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const motion=matchMedia('(prefers-reduced-motion: reduce)');
+  const reduced=motion.matches;
   if(!reduced) document.documentElement.classList.add('has-reveals');
   const steps=[...document.querySelectorAll('.guide-step,.guide-overview')];
   if(reduced){steps.forEach(e=>e.classList.add('visible'))}else{
@@ -8,14 +9,19 @@
   }
 
   const videos=[...document.querySelectorAll('[data-guide-loop]')];
-  if(reduced){videos.forEach(v=>{v.controls=true;v.loop=false;v.preload='metadata'});return}
-  videos.forEach(v=>{v.loop=true;v.pause();});
+  const playing = new Map();
+  const syncVideo = video => {
+    video.controls=motion.matches; video.loop=!motion.matches; video.preload='metadata';
+    if (!motion.matches && playing.get(video) && !document.hidden && !video.closest('[hidden]')) video.play().catch(()=>{});
+    else video.pause();
+  };
   const vo=new IntersectionObserver(entries=>entries.forEach(entry=>{
-    const v=entry.target;
-    if(entry.isIntersecting){v.play().catch(()=>{})}
-    else{v.pause();try{v.currentTime=0}catch{}}
+    playing.set(entry.target,entry.isIntersecting);syncVideo(entry.target);
   }),{threshold:.35});
-  videos.forEach(v=>vo.observe(v));
+  videos.forEach(video=>{syncVideo(video);vo.observe(video)});
+  motion.addEventListener?.('change',()=>videos.forEach(syncVideo));
+  document.addEventListener('visibilitychange',()=>videos.forEach(syncVideo));
+
 })();
 
 // Preview deployment: download controls are intentionally inert until Breadmaker is ready to ship.

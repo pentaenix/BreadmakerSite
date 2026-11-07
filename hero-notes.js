@@ -9,7 +9,7 @@
   const header = document.querySelector('.site-header');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const live = new Map();
-  let visible = true, epoch = 0, timer = 0, layoutFrame = 0, scrollFrame = 0;
+  let visible = true, paused = false, epoch = 0, timer = 0, layoutFrame = 0, scrollFrame = 0;
   words.forEach(word => word.setAttribute('aria-hidden', 'true'));
 
   const random = (min, max) => min + Math.random() * (max - min);
@@ -36,7 +36,7 @@
     const gap = root.width < 760 ? 12 : 18;
     const protectedRects = [];
     for (const selector of ['.hero-logo','.hero-title','.hero-subtitle',
-      '.hero-description','.hero-actions','.hero-access-note','.scroll-cue']) {
+      '.hero-description','.hero-actions','.hero-access-note','.hero-motion-toggle','.scroll-cue']) {
       const element = hero.querySelector(selector);
       if (!element) continue;
       const r = localRect(element, root);
@@ -123,7 +123,7 @@
 
   function pulse() {
     timer = 0;
-    if (!visible || document.hidden) return;
+    if (!visible || paused || document.hidden) return;
     validate();
     const state = geometry();
     const limit = state.root.width >= 1100 ? 11 : state.root.width >= 760 ? 8 : 5;
@@ -161,6 +161,7 @@
   }
   document.addEventListener('visibilitychange',() => {if(document.hidden) clear();else relayout();});
   motion.addEventListener?.('change',relayout);
+  document.addEventListener('breadmaker-motion-change',event => {paused=event.detail.paused;if(paused)clear();else relayout();});
   if (document.fonts) {
     document.fonts.ready.then(relayout);
     document.fonts.addEventListener?.('loadingdone',relayout);
