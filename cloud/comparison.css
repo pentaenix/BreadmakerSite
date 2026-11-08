@@ -1,33 +1,28 @@
-/* The shared writing core comes first; Cloud additions form a separate row group. */
-.feature-comparison{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;margin-top:42px;font-size:15px;line-height:1.55;text-align:left}
-.feature-comparison .feature-name{width:48%}
-.feature-comparison caption{text-align:left;padding:0 0 14px;font-size:13px;color:#566050}
-.feature-comparison th,.feature-comparison td{padding:21px 20px;border-bottom:1px solid var(--line2);vertical-align:middle}
-.feature-comparison thead th{font-size:23px;font-weight:600;line-height:1.25;letter-spacing:-.03em;vertical-align:top}
-.feature-comparison thead th:first-child{font-size:13px;letter-spacing:0;color:#566050;padding-left:0}
-.feature-comparison thead th span{display:block;font-size:13px;font-weight:400;letter-spacing:0;line-height:1.5;color:#566050;margin-top:9px}
-.feature-comparison tr>:last-child:not([colspan]){background:#e8eee3}
-.feature-comparison thead tr>:last-child{border-radius:8px 8px 0 0}
-.feature-comparison tbody:last-child tr:last-child>:last-child{border-radius:0 0 8px 8px}
-.feature-comparison tbody th:not([colspan]){padding-left:0;font-size:16px;font-weight:600}
-.feature-comparison tbody th>span:not([aria-hidden]){display:block;font-size:13px;line-height:1.55;color:#566050;font-weight:400;margin-top:5px}
-.feature-comparison td{color:#354d37;font-size:18px}
-.feature-comparison .included-label{font-size:14px;margin-left:8px}
-.feature-comparison .feature-group th{padding:19px 0 12px;border-bottom:1px solid #c3cdbb;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#485d49}
-.feature-comparison .cloud-additions th{padding-top:32px;color:#354d37}
+/* A single Cloud offering: familiar writing tools, with Cloud benefits added below. */
+.cloud-includes{margin-top:42px;border:1px solid #c3cdbb;border-radius:9px;overflow:hidden;background:#fafbf8}
+.writing-core{padding:36px 40px}
+.inclusion-label{margin:0 0 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#485d49}
+.cloud-includes h3{font-size:clamp(26px,3vw,36px)}
+.inclusion-intro{font-size:16px;color:#566050;max-width:42em;margin:16px 0 0}
+.included-tools,.added-tools{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 48px}
+.included-tools li{position:relative;padding-left:25px}
+.included-tools li::before{content:"✓";position:absolute;left:0;top:1px;color:#485d49}
+.cloud-includes h4{font-size:17px;line-height:1.4;font-weight:600;margin:0;letter-spacing:-.02em}
+.cloud-includes li p{font-size:14px;line-height:1.6;color:#566050;margin:6px 0 0}
+.cloud-includes .cloud-additions{padding:32px 40px 36px;background:#e8eee3;border-top:1px solid #c3cdbb}
+.addition-heading{display:flex;align-items:center;gap:20px}
+.addition-sign{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:48px;height:48px;border:1px solid #b5c3ac;border-radius:50%;font-size:32px;font-weight:400;color:#354d37}
+.addition-heading .inclusion-label{margin-bottom:8px}
+.added-tools{margin-left:68px}
 .comparison-note{font-size:13px;line-height:1.65;color:#566050;max-width:780px;margin:22px 0 0}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
 @media(max-width:600px){
-.feature-comparison{margin-top:30px;line-height:1.45}
-.feature-comparison .feature-name{width:48%}
-.feature-comparison th,.feature-comparison td{padding:18px 9px}
-.feature-comparison thead th{font-size:16px;overflow-wrap:normal}
-.feature-comparison thead th:first-child{font-size:11px}
-.feature-comparison thead th span{font-size:11px}
-.feature-comparison tbody th:not([colspan]){font-size:14px;padding-right:13px}
-.feature-comparison tbody th>span:not([aria-hidden]){font-size:12px}
-.feature-comparison td{text-align:center}
-.feature-comparison .included-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.cloud-includes{margin-top:30px}
+.writing-core,.cloud-includes .cloud-additions{padding:25px 22px}
+.included-tools,.added-tools{grid-template-columns:1fr;gap:22px;margin-top:25px}
+.added-tools{margin-left:0}
+.addition-heading{align-items:flex-start;gap:14px}
+.addition-sign{width:36px;height:36px;font-size:26px}
+.cloud-includes h3{font-size:27px}
+.inclusion-intro{font-size:15px}
 .comparison-note{font-size:12px}
 }
-@media(max-width:360px){.feature-comparison thead th{font-size:13px}.feature-comparison th,.feature-comparison td{padding-left:6px;padding-right:6px}}

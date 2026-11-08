@@ -114,3 +114,11 @@ and direct remote backups as false. Local profiles/backup connections are not
 Cloud account features. The FAQ states these practical limits and that project
 copies do not sync automatically. No collaboration, billing, parity of voice
 libraries, or guaranteed backup claims are added.
+
+### Cloud inclusion layout (8 November 2026)
+
+The Local/Cloud columns are replaced by one Cloud inclusion panel. Its shared
+writing tools come first, with an attached plus-marked Cloud convenience section
+below. This shows an additive offering instead of two competing plans. The
+account, internet, backup and separate-project-copy qualifications remain in the
+practical details. Currency and checkout are unchanged.

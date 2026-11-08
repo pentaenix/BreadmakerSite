@@ -37,13 +37,16 @@ assert 'no subscription is created and no payment is taken' in cloud
 assert 'Design preview' in cloud
 assert 'Changes do not sync automatically.' in cloud
 assert 'compatible project copy' in cloud
-assert '<th scope="col">' in cloud and '<th scope="row">' in cloud
-assert 'Included in both' in cloud and 'Cloud adds' in cloud
+assert '<table' not in cloud
+assert 'class="cloud-includes"' in cloud
+assert 'Included in Breadmaker Cloud' in cloud and 'On top of those tools' in cloud
 assert cloud.index('id="shared-tools"') < cloud.index('id="cloud-additions"')
-shared=cloud.split('<tbody aria-labelledby="shared-tools">',1)[1].split('</tbody>',1)[0]
-assert shared.count('class="included-label">Included</span>')==8
+shared=cloud.split('<ul class="included-tools">',1)[1].split('</ul>',1)[0]
+assert shared.count('<li>') == 4
 for feature in ('Manuscript','Canvas and Maps','Tasks and Checkpoints','PDF, DOCX'):
     assert feature in shared
+assert 'class="addition-sign" aria-hidden="true">+</span>' in cloud
+assert 'Sign in to the same account to open your Cloud projects.' in cloud
 assert 'See what Cloud adds' in cloud
 assert 'Choose what fits' not in cloud and 'Choose the local editor when' not in cloud
 assert 'Cloud needs an internet connection' in cloud
