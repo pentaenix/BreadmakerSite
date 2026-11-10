@@ -31,9 +31,9 @@ try:
      assert '[[' not in page.locator('article').inner_text()
      page.screenshot(path=str(OUT/f'{lang}-{width}-top.png'))
      page.keyboard.press('Tab');assert page.locator('.skip-link').evaluate('(e)=>e===document.activeElement')
-     page.keyboard.press('Enter');assert page.locator('#main').evaluate('(e)=>e===document.activeElement')
+     page.keyboard.press('Enter');page.wait_for_url(base+route+'#main');page.wait_for_load_state('load');assert page.locator('#main').evaluate('(e)=>e===document.activeElement')
      for section,label in [(6,'retention'),(9,'end')]:
-      page.locator('article section').nth(section).scroll_into_view_if_needed();page.screenshot(path=str(OUT/f'{lang}-{width}-{label}.png'))
+      page.locator('article section').nth(section).wait_for(state='visible');page.locator('article section').nth(section).evaluate('(e)=>e.scrollIntoView({behavior:"instant",block:"start"})');assert page.locator('article').get_attribute('lang')==lang;page.screenshot(path=str(OUT/f'{lang}-{width}-{label}.png'))
      page.locator('article a[href*="age-requirements"]').click()
      assert '/age-requirements/' in page.url and page.locator('h1').count()==1
      page.go_back();assert page.locator('article').get_attribute('lang')==lang
