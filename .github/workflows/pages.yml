@@ -22,9 +22,15 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v6
 
+      - name: Render approved notices from private configuration
+        env:
+          PRIVACY_NOTICES_ADDRESS: ${{ secrets.PRIVACY_NOTICES_ADDRESS }}
+        run: python3 scripts/build_legal_pages.py --updated "$(date -u +%F)"
+
       - name: Validate static site
         run: |
           python3 scripts/check_site.py
+          python3 scripts/test_privacy_contract.py
           python3 scripts/test_marketing_contract.py
           node scripts/test_cloud_preview.cjs
           node scripts/test_guide_search.cjs

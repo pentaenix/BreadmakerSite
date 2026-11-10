@@ -122,3 +122,48 @@ writing tools come first, with an attached plus-marked Cloud convenience section
 below. This shows an additive offering instead of two competing plans. The
 account, internet, backup and separate-project-copy qualifications remain in the
 practical details. Currency and checkout are unchanged.
+
+## Hosted privacy notice candidate (v9)
+
+`privacy/` and `privacy/es/` contain the hosted-only notice; `age-requirements/`
+and its Spanish counterpart contain the adopted age table. Marketing visitor
+tracking and terms are not silently covered by this notice. Legacy
+`privacy-policy/` routes use an HTML redirect plus a readable fallback link,
+not a claimed server-side301. GitHub Pages handles directory slash routing.
+
+Sources are in `scripts/legal-content/`, excluded from the published artifact.
+Rebuild after reviewed edits with
+`python3 scripts/build_legal_pages.py --updated YYYY-MM-DD`, using the actual
+updated date and retaining the reviewed version. No backdated consent or
+publication is implied. A main-branch push publishes these pages automatically:
+do not merge until notice/basis/delivery review and required QA are resolved.
+
+The counts remain a separate default-off App/Admin release. Automatic on-open
+refresh has a15-minute interval; the owner-requested manual refresh bypasses
+that interval but not the shared120 UTC-month attempt limit or concurrency
+controls. Cached observations retain their original age. This notice does not
+claim a hard spending cap, complete physical erasure, an implemented human
+support-grant system or legal signoff. Review actual source/configuration,
+existing-user notification and any consent/objection handling before activation.
+
+The static contract check is dependency-free. The existing validation workflow
+also runs the bounded Chromium check against a runner-local HTTP server and
+retains QA artifacts for7days. It does not create preview hosting or call the
+hosted application. Source/markup checks are not visual QA or legal approval.
+App signup placement is a separate integration; linking this notice alone does
+not record assent or establish a lawful basis.
+
+### Private notices address
+
+The public source contains only `{{PRIVACY_NOTICES_ADDRESS}}`. The Pages build
+requires the approved address in the repository Actions secret
+`PRIVACY_NOTICES_ADDRESS`, scopes it to the rendering step and HTML-escapes it.
+Missing or invalid configuration stops deployment before artifact upload.
+The generated public notices necessarily disclose this address to their readers;
+this does not make it a credential or promise secrecy of the deployed pages.
+Do not commit generated real-address output, logs, screenshots or build artifacts
+to public source. Never push a historical commit that contained the address.
+PR checks use `--preview` and a synthetic address, without reading this secret.
+The simplified first-layer notice is generated at `/privacy/signup/en/` and
+`/privacy/signup/es/`; the App must actually display it before provider account
+creation. Publishing these routes alone does not integrate signup or prove consent.

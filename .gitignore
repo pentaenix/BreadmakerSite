@@ -2,3 +2,6 @@
 Thumbs.db
 *.log
 _site/
+
+__pycache__/
+*.pyc
