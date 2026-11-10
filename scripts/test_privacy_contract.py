@@ -49,6 +49,7 @@ class PrivacyContract(unittest.TestCase):
    self.assertIn(ADDRESS_TOKEN,source)
    self.assertIn('privacy@breadmaker.studio',source)
    self.assertIn('Targets',source)
+   self.assertIn('data-notice-version="9"',source)
    self.assertIn('https://breadmaker.studio/privacy/',source)
  def test_no_future_metric_or_anonymity_claim(self):
   en=(ROOT/'privacy/index.html').read_text()
