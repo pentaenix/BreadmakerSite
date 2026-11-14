@@ -12,12 +12,8 @@ ROOT=Path(__file__).resolve().parents[1]
 ADDRESS_TOKEN='{{PRIVACY_NOTICES_ADDRESS}}'
 PREVIEW_ADDRESS='Example privacy-notice address, not for publication'
 def configured_address(preview=False):
-    if preview:
-        return PREVIEW_ADDRESS
-    value=os.environ.get('PRIVACY_NOTICES_ADDRESS','').strip()
-    if not value or len(value)>600 or any(ord(c)<32 for c in value) or '{{' in value or '[[' in value or value==PREVIEW_ADDRESS:
-        raise ValueError('A valid approved PRIVACY_NOTICES_ADDRESS is required; no address was rendered.')
-    return value
+    # Residential addresses must never enter public site output.
+    return ""
 
 def substitute_address(fragment,address):
     return fragment.replace(ADDRESS_TOKEN,escape(address,quote=True))
